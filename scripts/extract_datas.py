@@ -1,6 +1,6 @@
 import argparse
 import pandas as pd
-import csv
+import numpy as np
 import time
 import os
 
@@ -18,40 +18,22 @@ import os
 def extract_training_by_gene(text_path, variant_path, gene):
     """Extract datas by gene name"""
     train_variants = pd.read_csv(variant_path, engine = 'python')
+    train_variants.set_index("ID", inplace = True)
 
     train_text = pd.read_csv(text_path, sep = "\|\|", engine = 'python')
-    
+    train_text.index.name = "ID"
+    train_text.columns = ["Text"]    
 
-    select_variants = pd.DataFrame(train_variants[train_variants["Gene"].isin([gene])])
-    select_text = []
+    select_variants = train_variants[train_variants["Gene"] == gene ]
+    select_text = train_text.loc[select_variants.index,]
 
-    
-    select_variants.to_csv(variant_path + "_" + gene, sep=',', encoding='utf-8', index=False)
+    extract_text_path = text_path + "_" + gene
 
-    #  Find the text with the same ID and store it
-    for index, row in select_variants.iterrows():
-        select_text.append(train_text.loc[index])
+    select_variants.to_csv(variant_path + "_" + gene, sep=',', encoding='utf-8')
 
-    # Doing like that add " at the bgining ant the end of the line, so we need a temporary file
-    text_header = [None]*2
-    text_header[0] = "ID"
-    text_header[1] = "Text"
-    with open(text_path + "_" + gene + "_tmp", 'w', newline='', encoding='utf-8') as extract_file:
-        writer = csv.writer(extract_file)
-        writer.writerow(text_header)
-        for index, val in enumerate(select_text):
-            value = str(index) + "||" + val
-            writer.writerow(value)
-    extract_file.close()
+    dtf = pd.merge(pd.DataFrame(select_variants.index), select_text, on = "ID")
+    np.savetxt(extract_text_path, dtf, fmt = '%d||%s', header = ','.join(dtf.columns), comments = '')
 
-    # Here we strip the begining and the endind of each line from temporary file and write into final file
-    with open(text_path + "_" + gene + "_tmp", "r") as file_in , open(text_path + "_" + gene ,'w') as fileout:
-        for line in file_in:
-            line = line.strip('"')
-            fileout.write(line)
-
-    # Remove temporary file
-    os.remove(text_path + "_" + gene + "_tmp")
 
 
 def main():
