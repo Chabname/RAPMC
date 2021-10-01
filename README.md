@@ -27,10 +27,10 @@ Install [**miniconda**](https://docs.conda.io/projects/conda/en/latest/user-guid
 
 ### StrucAlign environment
 
-Clone [RAPMC repository](https://git.clamifa.net/unibioinfo/RAPMC).
+Clone [RAPMC repository](https://github.com/Chabname/RAPMC).
 
 ```
-% git clone https://git.clamifa.net/unibioinfo/RAPMC.git
+% git clone https://github.com/Chabname/RAPMC.git
 ```
 
 Move in your local repository and run conda with `RAPMC.yml` file.
