@@ -1,0 +1,54 @@
+art 1 
+1,CBL,W802*,2
+2,CBL,Q249E,2
+20,CBL,H94Y,6
+
+the TKB domain double mutation (S80N/H94Y), the point mutation (Q249E), and the C-terminal point mutation W802* of c-CBL
+point mutation : class 2
+domain mutation : class 6
+
+
+art 3 
+3,CBL,N454D,3
+23,CBL,S376F,4
+24,CBL,P417A,4
+25,CBL,H398Y,4
+
+missense mutation or nontransforming mutation ? : class 3
+loss of ubiquitin ligase activity : class 4
+
+
+art 7 
+7,CBL,Deletion,1
+indeterminé
+
+art 16
+16,CBL,Truncating Mutations,1
+indeterminé
+
+art 33
+33,TERT,Amplification,2
+indeterminé
+
+
+art 37
+37,DICER1,D1709E,1
+38,DICER1,D1709A,1
+42,DICER1,E1705K,4
+
+reduced RNase IIIb activity : class 1
+substitutions with that of wild-type and control samples  : class 4
+
+
+art 45
+45,PTPRT,V648G,1
+47,PTPRT,A707T,1
+53,PTPRT,N510K,1
+55,PTPRT,L708P,1
+57,PTPRT,Y412F,1
+60,PTPRT,R453C,1
+64,PTPRT,T605M,1
+
+defective in cell-cell aggregation ?
+
+
