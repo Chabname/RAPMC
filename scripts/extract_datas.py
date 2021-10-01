@@ -2,6 +2,7 @@ import argparse
 import pandas as pd
 import csv
 import time
+import os
 
 
 ## function : 
@@ -16,37 +17,41 @@ import time
 #       Create two files file having one header and all datas extracted
 def extract_training_by_gene(text_path, variant_path, gene):
     """Extract datas by gene name"""
-    train_text = pd.read_csv(text_path, sep = "\|\|", engine = 'python')
     train_variants = pd.read_csv(variant_path, engine = 'python')
 
+    train_text = pd.read_csv(text_path, sep = "\|\|", engine = 'python')
+    
 
-    select_variants = train_variants[train_variants["Gene"].isin([gene])]
-    print(select_variants)
+    select_variants = pd.DataFrame(train_variants[train_variants["Gene"].isin([gene])])
+    select_text = []
 
-    variant_header = [None]*4
-    variant_header[0] = "ID"
-    variant_header[1] = "Gene"
-    variant_header[2] = "Variation"
-    variant_header[3] = "Class"
+    
+    select_variants.to_csv(variant_path + "_" + gene, sep=',', encoding='utf-8', index=False)
 
-    select_texts = []
+    #  Find the text with the same ID and store it
+    for index, row in select_variants.iterrows():
+        select_text.append(train_text.loc[index])
 
-    with open(variant_path + "_" + gene, 'w', newline='', encoding='utf-8') as parse_file:
-        writer = csv.writer(parse_file)
-        writer.writerow(variant_header)
-        for index, row in select_variants.iterrows():
-            select_texts.append(train_text.loc[index])
-            writer.writerow(row)
-       
-
-    text_header = [None]*4
+    # Doing like that add " at the bgining ant the end of the line, so we need a temporary file
+    text_header = [None]*2
     text_header[0] = "ID"
     text_header[1] = "Text"
-    with open(text_path + "_" + gene, 'w', newline='', encoding='utf-8') as parse_file:
-        writer = csv.writer(parse_file, delimiter="||" )
+    with open(text_path + "_" + gene + "_tmp", 'w', newline='', encoding='utf-8') as extract_file:
+        writer = csv.writer(extract_file)
         writer.writerow(text_header)
-        for index, row in select_texts.iterrows():
-            writer.writerow(row)
+        for index, val in enumerate(select_text):
+            value = str(index) + "||" + val
+            writer.writerow(value)
+    extract_file.close()
+
+    # Here we strip the begining and the endind of each line from temporary file and write into final file
+    with open(text_path + "_" + gene + "_tmp", "r") as file_in , open(text_path + "_" + gene ,'w') as fileout:
+        for line in file_in:
+            line = line.strip('"')
+            fileout.write(line)
+
+    # Remove temporary file
+    os.remove(text_path + "_" + gene + "_tmp")
 
 
 def main():
