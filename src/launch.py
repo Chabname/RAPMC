@@ -3,6 +3,11 @@ import argparse
 import pandas as pd
 import re
 
+from Datas import Articles
+from Datas import Variants
+
+
+
 def main():
     """Launch the application"""
     parser = argparse.ArgumentParser()
@@ -19,17 +24,13 @@ def main():
     print("Training text = " + str(opt.trt))
     print("Training variants = " + str(opt.trv))
 
-    train_text = pd.read_csv("datas/training_text", sep = "\|\|", engine = 'python')
+    train_text = Articles(opt.trt)
     #print(train_text)
 
-    train_variants = pd.read_csv("datas/training_variants", engine = 'python')
+    train_variants = Variants(opt.trv)
     #print(train_variants)
 
 
-    pattern = re.compile('^The(\s)receptor(\s)protein(\s)tyrosine(\s)phosphatase(\s)T.*$', re.IGNORECASE)
-    for row in range(1, train_text.shape[0]):
-        if(re.match(pattern, str(train_text.iloc[row][0]))):
-            print(train_text.iloc[row])
        
 
 main()
