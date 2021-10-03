@@ -3,11 +3,22 @@
 from nltk.tokenize import sent_tokenize, word_tokenize
 import warnings
 warnings.filterwarnings(action = 'ignore')
-import gensim
+#import gensim
 from gensim.models import Word2Vec
 import time
 
+
+######################################################
+##                TEST Imports                      ##
+######################################################
+
 from Datas import Articles
+
+######################################################
+##                /TEST Imports                     ##
+######################################################
+
+
 
 class EmbW2V:
 
