@@ -1,4 +1,5 @@
 #nltk.download('punkt')
+#import nltk
 
 from nltk.tokenize import sent_tokenize, word_tokenize
 import warnings
@@ -35,7 +36,6 @@ class EmbW2V:
     ## details : 
     #       
     def prepare_datas(self, articles):
-        
         # Replaces escape character with space
         articles = articles.replace("\n", " ")
 
