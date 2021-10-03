@@ -5,3 +5,4 @@ datas/training_text
 datas/training_variants
 src/__pycache__/*
 results/*.model
+notebook/.ipynb_checkpoints/*
