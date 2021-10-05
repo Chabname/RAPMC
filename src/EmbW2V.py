@@ -1,6 +1,6 @@
 import nltk
 #nltk.download('punkt')
-nltk.download('wordnet')
+#nltk.download('wordnet')
 
 from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.stem import WordNetLemmatizer
@@ -146,11 +146,14 @@ class EmbW2V:
 # 
 def show_similarities(mod_path, word_sim, top_number):
     model = Word2Vec.load(mod_path)
-    sims_mut = model.wv.most_similar(word_sim, topn = top_number) 
-    print("List of words most similar to '" + word_sim + "' :")
-    print(sims_mut)
-    print("____________________________________________________________________")
-
+    try:
+        sims_mut = model.wv.most_similar(word_sim, topn = top_number) 
+        print("List of words most similar to '" + word_sim + "' :")
+        print(sims_mut)
+        print("____________________________________________________________________")
+    except:
+        print("this wrd does not exist into the model : " + word_sim)
+        pass
    
 
 ######################################################
@@ -212,7 +215,10 @@ def model_test(f_path):
 ##                      TEST                       ##
 ######################################################
 
-model_test("datas/cbl_clean_article.txt")
+#model_test("datas/cbl_clean_article.txt")
+#model_test("datas/sample_data_clean.txt")
+
+
 
 #print("__________________________CBOW SIMILARITIES_________________________")
 #show_similarities("results/cbow_23.model","mutation" ,20)
@@ -248,38 +254,66 @@ model_test("datas/cbl_clean_article.txt")
 #print("____________________________________________________________________")
 
 
-#print("__________________________CBOW SIMILARITIES_________________________")
-#show_similarities("results/cbow_700.model","mutation" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_700.model","cbl" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_700.model","ptprt" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_700.model","brca1" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_700.model","rheb" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_700.model","tert" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_700.model","mycn" ,20)
-#print("____________________________________________________________________")
-#
-#
-#print("________________________SkipGram SIMILARITIES_______________________")
-#show_similarities("results/skipgram_700.model","mutation" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_700.model","cbl" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_700.model","ptprt" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_700.model","brca1" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_700.model","rheb" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_700.model","tert" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_700.model","mycn" ,20)
-#print("____________________________________________________________________")
+print("__________________________CBOW SIMILARITIES_________________________")
+show_similarities("results/cbow_700.model","mutation" ,20)
+print("____________________________________________________________________")
+show_similarities("results/cbow_700.model","cbl" ,20)
+print("____________________________________________________________________")
+show_similarities("results/cbow_700.model","ptprt" ,20)
+print("____________________________________________________________________")
+show_similarities("results/cbow_700.model","brca1" ,20)
+print("____________________________________________________________________")
+show_similarities("results/cbow_700.model","rheb" ,20)
+print("____________________________________________________________________")
+show_similarities("results/cbow_700.model","tert" ,20)
+print("____________________________________________________________________")
+show_similarities("results/cbow_700.model","mycn" ,20)
+print("____________________________________________________________________")
+show_similarities("results/cbow_700.model","V391I" ,20)
+print("____________________________________________________________________")
+show_similarities("results/cbow_700.model","Truncating Mutations" ,20)
+print("____________________________________________________________________")
+show_similarities("results/cbow_700.model","R1095H" ,20)
+print("____________________________________________________________________")
+show_similarities("results/cbow_700.model","F1088Sfs*2" ,20)
+print("____________________________________________________________________")
+show_similarities("results/cbow_700.model","Deletion" ,20)
+print("____________________________________________________________________")
+show_similarities("results/cbow_700.model","Fusion" ,20)
+print("____________________________________________________________________")
+show_similarities("results/cbow_700.model","insertion" ,20)
+print("____________________________________________________________________")
+
+
+print("________________________SkipGram SIMILARITIES_______________________")
+show_similarities("results/skipgram_700.model","mutation" ,20)
+print("____________________________________________________________________")
+show_similarities("results/skipgram_700.model","cbl" ,20)
+print("____________________________________________________________________")
+show_similarities("results/skipgram_700.model","ptprt" ,20)
+print("____________________________________________________________________")
+show_similarities("results/skipgram_700.model","brca1" ,20)
+print("____________________________________________________________________")
+show_similarities("results/skipgram_700.model","rheb" ,20)
+print("____________________________________________________________________")
+show_similarities("results/skipgram_700.model","tert" ,20)
+print("____________________________________________________________________")
+show_similarities("results/skipgram_700.model","mycn" ,20)
+print("____________________________________________________________________")
+show_similarities("results/skipgram_700.model","V391I" ,20)
+print("____________________________________________________________________")
+show_similarities("results/skipgram_700.model","Truncating Mutations" ,20)
+print("____________________________________________________________________")
+show_similarities("results/skipgram_700.model","R1095H" ,20)
+print("____________________________________________________________________")
+show_similarities("results/skipgram_700.model","F1088Sfs*2" ,20)
+print("____________________________________________________________________")
+show_similarities("results/skipgram_700.model","Deletion" ,20)
+print("____________________________________________________________________")
+show_similarities("results/skipgram_700.model","Fusion" ,20)
+print("____________________________________________________________________")
+show_similarities("results/skipgram_700.model","insertion" ,20)
+print("____________________________________________________________________")
 
 ######################################################
 ##                      /TEST                       ##
