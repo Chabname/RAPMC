@@ -43,3 +43,10 @@ And activate it.
 
 ```
 % conda activate RAPMC
+```
+
+### Modules
+
+- Word2Vec
+    - nltk (into KERAS env for conda)
+    - gensim (need to add into conda env)
