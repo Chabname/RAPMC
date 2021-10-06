@@ -217,7 +217,7 @@ def model_test(f_path):
 
 #model_test("datas/cbl_clean_article.txt")
 #model_test("datas/sample_data_clean.txt")
-
+model_test("datas/all_data_clean.txt")
 
 
 #print("__________________________CBOW SIMILARITIES_________________________")
