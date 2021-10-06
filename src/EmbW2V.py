@@ -171,7 +171,7 @@ def show_similarities(mod_path, word_sim, top_number):
 #       To run it : 
 #               Uncomment the line into the "TEST" section and run this file only
 #       DON'T FORGET to comment again after testing !
-def model_test(f_path): 
+def model_test(f_path, type): 
     print("_______________________________Word2Vec_____________________________")
     print("____________________________________________________________________")
     start_time = time.perf_counter()
@@ -179,27 +179,28 @@ def model_test(f_path):
     """Launch Word2Vec"""
     articles = Articles(f_path)
 
-    cbow_test = EmbW2V(articles.datas)
-    cbow_test.preprocess_datas()
+    if(type =="cbow"):
+        cbow_test = EmbW2V(articles.datas)
+        cbow_test.preprocess_datas()
 
-    cbow_test.cbow()
-    print("__________________________Word similarities_________________________")
+        cbow_test.cbow()
+        print("__________________________Word similarities_________________________")
 
-    show_similarities(cbow_test.model_path,"mutation" ,20)
+        show_similarities(cbow_test.model_path,"mutation" ,20)
 
-    print("____________________________________________________________________")
+        print("____________________________________________________________________")
 
 
-    
-    skipgram_test = EmbW2V(articles.datas)
-    skipgram_test.preprocess_datas()
+    if(type =="skipgram"):
+        skipgram_test = EmbW2V(articles.datas)
+        skipgram_test.preprocess_datas()
 
-    skipgram_test.skipgram()
-    print("__________________________Word similarities_________________________")
+        skipgram_test.skipgram()
+        print("__________________________Word similarities_________________________")
 
-    show_similarities(skipgram_test.model_path,"mutation" ,20)
+        show_similarities(skipgram_test.model_path,"mutation" ,20)
 
-    print("____________________________________________________________________")
+        print("____________________________________________________________________")
 
     stop_time = time.perf_counter()
     print("____________________________________________________________________")
@@ -217,7 +218,7 @@ def model_test(f_path):
 
 #model_test("datas/cbl_clean_article.txt")
 #model_test("datas/sample_data_clean.txt")
-model_test("datas/all_data_clean.txt")
+#model_test("datas/all_data_clean.txt")
 
 
 #print("__________________________CBOW SIMILARITIES_________________________")
