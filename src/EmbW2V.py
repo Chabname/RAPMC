@@ -179,7 +179,7 @@ def model_test(f_path, type):
     """Launch Word2Vec"""
     articles = Articles(f_path)
 
-    if(type =="cbow" | type =="both"):
+    if type in( "cbow", "both"):
         cbow_test = EmbW2V(articles.datas)
         cbow_test.preprocess_datas()
 
@@ -191,7 +191,7 @@ def model_test(f_path, type):
         print("____________________________________________________________________")
 
 
-    if(type =="skipgram"| type =="both"):
+    if type in ("skipgram", "both") :
         skipgram_test = EmbW2V(articles.datas)
         skipgram_test.preprocess_datas()
 
