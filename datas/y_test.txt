@@ -1,996 +1,1107 @@
-ID,Gene,Variation,Class
-2643,BRCA1,q1826h,5
-2985,KIT,w557r,7
-1135,MET,y1235d,7
-532,TP53BP1,truncating mutations,1
-2561,BRCA1,s1140g,5
-3221,NTRK1,trkaiii splice variant,7
-2486,BRCA1,s1841r,1
-1428,FGFR3,n653h,5
-130,SF3B1,r625l,9
-443,TP53,g244r,4
-358,EP300,ep300-mll fusion,7
-1133,MET,overexpression,7
-3019,KIT,v852i,2
-3049,KIT,v560e,2
-1744,MSH2,s860l,5
-2243,PTEN,k62r,4
-3092,NOTCH1,v1576e,7
-470,TP53,r248q,1
-2088,AGO2,amplification,2
-1583,PMS1,q233*,4
-1716,POLE,l424i,4
-540,SMAD2,d450e,1
-1446,SPOP,d130a,1
-790,ERBB4,r544w,7
-2429,BRCA1,y105c,3
-241,EGFR,e734q,7
-308,H3F3A,g35v,8
-3047,KIT,r796g,4
-2017,MAP2K1,v211d,6
-2632,BRCA1,i42v,3
-1816,RHOA,amplification,7
-905,PDGFRA,i834v,3
-1925,SMO,i408v,7
-2173,PTEN,s10n,4
-1169,PIK3CA,r108h,7
-1974,CTNNB1,s37f,7
-431,TP53,r337h,1
-2279,RNF43,truncating mutations,1
-3211,RB1,c706f,1
-658,CDKN2A,d84v,4
-3166,RAF1,atg7-raf1 fusion,2
-1863,MTOR,l2431p,7
-1315,MLH1,t117m,4
-1959,NUP93,g591v,3
-30,TERT,h876q,4
-75,CCND3,amplification,2
-3264,RET,c618r,7
-2127,CCND1,p287a,7
-872,PDGFRA,a633t,2
-417,TP53,truncating mutations,1
-2197,PTEN,g20e,4
-2551,BRCA1,s1651f,3
-1838,PPP2R1A,r183q,1
-2171,PTEN,c71y,4
-611,CDK4,k22a,7
-138,EGFR,l747_t751delinsp,7
-2295,PRDM1,y149d,4
-2498,BRCA1,r496c,5
-2947,KDR,d717v,7
-2843,BRCA2,r18h,6
-910,PDGFRA,p577s,7
-3026,KIT,s476i,7
-3223,NTRK1,delta-ntrk1 fusion,7
-1793,AR,t878s,7
-3058,KIT,t574instqlpyd,2
-1701,PMS2,s46n,4
-1983,CTNNB1,w383r,7
-1565,ALK,r1464*,3
-805,ERCC2,a717g,1
-2051,MYC,t73i,2
-1674,FLT3,l601_k602insreyeydl,7
-843,ABL1,l387m,2
-589,SMAD4,g419v,4
-2593,BRCA1,c24y,6
-1755,IDH1,r132g,9
-2745,BRAF,t599_v600inseat,2
-2837,BRCA2,s2483n,6
-1338,KMT2A,truncating mutations,1
-3036,KIT,w557_v559delinsc,2
-964,ESR1,l536p,7
-2260,PTEN,m35r,4
-160,EGFR,d761y,2
-1167,PIK3CA,k111e,7
-2977,KIT,t417_d419delinsrg,7
-2161,PTEN,l181p,4
-1329,MLH1,l582f,6
-2122,CCND1,amplification,7
-985,ETV6,r369w,1
-379,TP53,c277w,1
-604,SMAD4,y353l,1
-1280,HRAS,amplification,2
-3119,KRAS,a11_g12insga,7
-1588,VHL,p86h,4
-1785,AR,q58l,6
-1722,PIK3R3,truncating mutations,1
-3214,KDM5A,amplification,2
-19,CBL,y371s,4
-3039,KIT,e554_i571del,2
-672,CDKN2A,r80l,4
-1149,MET,n1100y,7
-1442,SPOP,k129e,1
-1113,FANCA,deletion,1
-1999,MAP2K1,s123t,7
-2487,BRCA1,v1534m,5
-2117,BARD1,deletion,1
-2990,KIT,d820g,2
-2288,STAT3,y640f,7
-3162,RAF1,fusions,2
-926,PDGFRA,560_561inser,7
-2505,BRCA1,d1739v,4
-3304,RUNX1,r201q,4
-2948,KDR,a1065t,7
-425,TP53,d186a,1
-2523,BRCA1,l1854p,1
-1456,FGFR2,fusions,2
-2897,BRCA2,k607t,6
-3258,RET,a883t,7
-457,TP53,a161t,1
-1673,FLT3,y364h,3
-202,EGFR,n826s,7
-990,TSC1,f158c,4
-1194,PIK3CA,r93w,7
-2816,BRCA2,s1670a,6
-218,EGFR,e746_t751delinsa,7
-1810,RHOA,g17v,4
-2613,BRCA1,t1720i,5
-1638,RRAS2,q72l,7
-2,CBL,q249e,2
-117,LATS1,truncating mutations,4
-2583,BRCA1,e1660g,1
-1522,ALK,g881d,7
-1742,MSH2,r680*,4
-2259,PTEN,q110r,5
-2502,BRCA1,a1789s,5
-2211,PTEN,a126d,4
-1297,HRAS,p34r,2
-1781,CREBBP,q1500p,5
-2355,STK11,m136r,4
-2935,BTK,r544s,2
-3293,RET,v804g,1
-1360,AKT1,t195i,7
-2786,BRCA2,k1690n,6
-2191,PTEN,deletion,4
-1832,PPP2R1A,r258h,6
-49,PTPRT,r1343l,4
-2390,PTPN11,s502t,7
-2779,BRCA2,m784v,6
-2588,BRCA1,s4f,6
-58,PTPRT,f74s,1
-1817,RHOA,t19n,4
-766,ERBB2,n857s,2
-884,PDGFRA,y555c,7
-929,PDGFRA,v544_l545insavlvllviviisli,7
-795,ERBB4,r838q,6
-447,TP53,g244d,1
-982,ETV6,r369q,1
-3168,RAF1,amplification,7
-860,ABL1,f317l,2
-1331,MLH1,l559r,6
-1370,AKT2,i289m,7
-3123,KRAS,f156l,7
-2695,BRAF,v600r,7
-269,EGFR,e709g,2
-4,CBL,l399v,4
-1951,MEF2B,amplification,2
-3205,RB1,r698w,1
-488,TP53,r280a,1
-847,ABL1,y253f,7
-670,CDKN2A,a148t,6
-836,ERCC4,s786f,4
-1245,PIK3R1,t576del,4
-1327,MLH1,g67w,4
-1058,EWSR1,ewsr1-yy1 fusion,7
-1084,EZH2,y646c,9
-2287,STAT3,d661y,7
-3027,KIT,v569_l576del,2
-2801,BRCA2,s142i,1
-3094,NOTCH1,v1671i,2
-1474,FGFR2,v248d,6
-3269,RET,fusions,2
-689,CDKN2A,a60v,4
-1019,TSC2,h597y,4
-2831,BRCA2,r2888c,6
-1317,MLH1,w714*,4
-2428,BRCA1,k50l,6
-1514,ALK,t1087i,3
-989,TSC1,m224r,4
-759,ERBB2,d277h,2
-2780,BRCA2,v894i,6
-2765,BRAF,k499e,7
-2305,JAK1,s703i,7
-3272,RET,r873q,4
-2046,SOS1,r552s,7
-1671,FLT3,y842c,7
-2722,BRAF,s151a,2
-2967,KIT,t670i,7
-1846,PPP6C,p186s,4
-371,TP53,r202s,1
-1244,YAP1,yap1-fam118b fusion,2
-438,TP53,h193p,4
-1593,VHL,v84l,6
-1287,HRAS,q61l,7
-2404,NF1,r2450*,1
-29,TERT,h412y,4
-1987,CTNNB1,s45p,7
-2809,BRCA2,d1352y,6
-0,FAM58A,truncating mutations,1
-653,CDKN2A,t77p,4
-146,EGFR,e746_t751insip,7
-1466,FGFR2,n549s,7
-1831,PPP2R1A,r182w,1
-217,EGFR,k745m,4
-3040,KIT,k558_e562del,2
-2448,BRCA1,t37r,4
-1312,MLH1,r659*,4
-646,CDKN2A,l97r,4
-1355,AKT1,v271a,7
-188,EGFR,exon 19 deletion,7
-1753,IDH1,g123r,4
-3228,NTRK1,tfg-ntrk1 fusion,7
-2598,BRCA1,v1809f,1
-2657,BRCA1,s1715n,4
-2290,STAT3,s614r,7
-2636,BRCA1,r1751q,5
-1233,PIM1,e124q,6
-1615,VHL,l188v,1
-1147,MET,v1070e,7
-1481,FGFR2,fgfr2-tacc3 fusion,7
-189,EGFR,s768i,7
-1736,MSH2,w345*,4
-208,EGFR,v774a,2
-593,SMAD4,d493a,1
-772,ERBB3,s846i,7
-2473,BRCA1,s308a,6
-1438,SPOP,w131g,4
-1786,AR,arv567es,7
-2776,BRCA2,t2250a,6
-2082,MYD88,m232t,7
-1553,ALK,a1099t,3
-988,ETV6,etv6-ntrk3 fusion,7
-2175,PTEN,d162h,4
-1636,MAP2K4,g85r,4
-2940,NFKBIA,m37k,2
-3243,DDR2,l63v,7
-1543,ALK,g1201e,7
-768,ERBB2,g778_p780dup,7
-552,SMAD2,d450h,1
-1048,TSC2,r611q,4
-2144,KEAP1,g480w,1
-1538,ALK,amplification,2
-2846,BRCA2,r2336h,4
-2049,SOS1,e846k,7
-1632,MAP2K4,p326l,4
-2379,PTPN11,q510e,1
-1011,TSC2,g1567d,1
-1052,TSC2,v705e,4
-550,SMAD2,d300n,1
-2617,BRCA1,v1736a,4
-551,SMAD2,r310h,1
-737,ERBB2,y835f,1
-3242,DDR2,g253c,7
-1866,MTOR,i2500m,7
-2251,PTEN,l345q,4
-3042,KIT,w557_v560del,2
-326,ROS1,kdelr2-ros1 fusion,2
-1255,PIK3R1,e160*,4
-1995,MAP2K1,r49l,7
-1472,FGFR2,s252w,7
-1196,PIK3CA,q546e,7
-2039,MAP2K2,f57c,7
-3196,NRAS,g12d,7
-279,NKX2-1,igh-nkx2 fusion,2
-2878,BRCA2,n56t,6
-281,NKX2-1,amplification,7
-397,TP53,r181l,1
-2880,BRCA2,s206c,1
-1969,CTNNB1,k335i,7
-2329,JAK2,f537_k539delinsl,7
-2234,PTEN,k342n,4
-3078,NOTCH1,truncating mutations upstream of transactivation domain,1
-1670,FLT3,d835h,7
-3169,RAF1,s427g,7
-804,ERCC2,e606g,1
-2033,MAP2K2,f57v,2
-375,TP53,r290h,1
-2660,BRCA1,e1250k,5
-1922,SMO,t241m,7
-2214,PTEN,i168f,4
-2299,PRDM1,p48t,4
-811,ERCC2,d513y,1
-854,ABL1,v299l,2
-378,TP53,y234h,4
-436,TP53,h168n,1
-1212,PIK3CA,e545a,7
-2034,MAP2K2,f57l,2
-339,ROS1,e1935g,2
-2978,KIT,t417_d419delinsi,7
-509,TP53,r282q,1
-1919,SMO,h231r,2
-312,ELF3,s308a,5
-3068,NOTCH1,l1574p,7
-396,TP53,r175h,4
-40,DICER1,d1810a,4
-1509,ALK,t1151m,5
-1411,FGFR3,d646y,5
-9,CBL,c384r,4
-2744,BRAF,snd1-braf fusion,7
-2028,MAP2K1,l37p,2
-3152,KRAS,y40a,6
-3050,KIT,k550_v555delinsi,7
-355,EP300,c1385,4
-889,PDGFRA,i843_d846del,7
-1435,SPOP,y87c,4
-904,PDGFRA,y849s,7
-2750,BRAF,g469del,2
-3234,NTRK3,etv6-ntrk3 fusion,7
-2474,BRCA1,v1741g,1
-2221,PTEN,g129e,4
-3225,NTRK1,tpm3-ntrk1 fusion,7
-645,CDKN2A,g67r,4
-1269,PIK3R2,g373r,7
-3192,NRAS,g13d,7
-1179,PIK3CA,n1044k,7
-2115,GATA3,amplification,2
-892,PDGFRA,a633v,3
-2855,BRCA2,d3095e,1
-2815,BRCA2,k2472t,6
-213,EGFR,v774m,2
-2717,BRAF,d594y,2
-2584,BRCA1,s1715r,4
-2591,BRCA1,n132k,3
-298,CHEK2,e321k,4
-485,TP53,h193n,4
-2932,NFE2L2,w24s,7
-957,KDM5C,d402y,4
-761,ERBB2,g309e,7
-185,EGFR,v726m,2
-1337,KMT2A,amplification,6
-2378,PTPN11,d106a,7
-2444,BRCA1,k38n,6
-750,ERBB2,t798i,8
-2435,BRCA1,d1546n,6
-2085,AGO2,r812a,1
-3297,RUNX1,r177*,4
-2933,GLI1,r380a,1
-2280,CIC,r1515h,1
-2637,BRCA1,a1752p,4
-1733,MSH2,l390f,5
-324,ROS1,g2032r,2
-868,HLA-A,596_619splice,1
-748,ERBB2,e265k,2
-1993,MAP2K1,i204t,7
-2677,BRCA1,a1843t,1
-1939,CARD11,l251p,7
-1207,PIK3CA,e579k,2
-597,SMAD4,deletion,4
-624,FBXW7,r505c,4
-179,EGFR,g857e,2
-2631,BRCA1,l1780p,4
-2216,PTEN,d92e,4
-2659,BRCA1,a1708v,1
-3199,RASA1,y472h,1
-1193,PIK3CA,h701p,5
-303,TMPRSS2,t75m,3
-3160,NPM1,truncating mutations,1
-930,PDGFRA,f808l,4
-2620,BRCA1,n1236k,5
-1800,AR,g248v,6
-1400,FGFR3,d641g,7
-2323,JAK2,ssbp2-jak2 fusion,2
-1929,SMO,f460l,7
-2273,PTEN,truncating mutations,1
-2684,BRAF,a598t,4
-1214,PIK3CA,e453a,2
-1016,TSC2,l1584r,1
-162,EGFR,h773y,2
-39,DICER1,e1705a,4
-1554,ALK,g1286r,3
-1026,TSC2,r905w,4
-444,TP53,p316l,1
-1738,MSH2,a272v,5
-2069,TET2,deletion,4
-2466,BRCA1,l147f,5
-588,SMAD4,w398v,6
-1286,HRAS,a146v,2
-1806,ARAF,f351l,7
-949,PDGFRB,sptbn1-pdgfrb fusion,2
-3189,NRAS,g13v,2
-1599,VHL,l118p,1
-1597,VHL,g114r,1
-2012,MAP2K1,p124l,7
-541,SMAD2,y406h,6
-1837,PPP2R1A,w257c,1
-791,ERBB4,m887i,6
-380,TP53,s241t,4
-557,SMAD3,r373h,1
-256,EGFR,t34_a289del,7
-2962,KIT,l576del,7
-870,HLA-B,truncating mutations,1
-98,TGFBR2,d404g,4
-2910,PAX8,pax8-ppar? fusion,7
-1017,TSC2,q1554h,1
-596,SMAD4,p130s,4
-2420,BRCA1,r1835p,1
-935,PDGFRB,golga4-pdgfrb fusion,2
-2306,JAK1,l783f,7
-2646,BRCA1,v1804d,6
-572,SMAD3,v277d,4
-1449,SPOP,m117i,4
-144,EGFR,n771_h773dup,7
-2332,JAK2,pax5-jak2 fusion,7
-2814,BRCA2,k1434i,6
-967,ESR1,e380q,7
-2100,CDK12,l996f,4
-1210,PIK3CA,g106_r108del,2
-3113,RAD51C,g264s,3
-2002,MAP2K1,k97m,4
-1534,ALK,f1245c,7
-2516,BRCA1,p798l,5
-3283,RET,e768d,2
-655,CDKN2A,g67s,4
-1296,HRAS,y64a,2
-764,ERBB2,v777m,5
-1189,PIK3CA,e81k,2
-2986,KIT,v559c,2
-41,DICER1,truncating mutations,1
-3165,RAF1,i448v,7
-479,TP53,c135r,4
-1789,AR,h875y,7
-1650,FLT3,v557i,3
-924,PDGFRA,y849c,7
-2182,PTEN,s362l,5
-754,ERBB2,v777l,7
-2449,BRCA1,d1818g,6
-1319,MLH1,i219v,5
-2321,JAK2,y1045*,6
-1815,RHOA,r5q,1
-822,BRIP1,a349p,1
-2828,BRCA2,r2842h,6
-2261,PTEN,f154l,4
-2501,BRCA1,k1702e,1
-170,EGFR,egfrvv,7
-1748,MSH2,q816*,4
-1629,MAP2K4,v321m,4
-13,CBL,c381a,4
-3112,RAD51C,truncating mutations,1
-249,EGFR,g863s,2
-2481,BRCA1,p142h,3
-3057,KIT,v559a,2
-2838,BRCA2,d2312v,6
-2040,MAP2K2,s222d,6
-1913,SMO,e518k,5
-131,SF3B1,e622q,9
-1000,TSC1,h105r,4
-3256,CASP8,promoter hypermethylation,4
-573,SMAD3,s425c,4
-2360,STK11,r304w,4
-1357,AKT1,k39n,5
-446,TP53,v272l,1
-2859,BRCA2,d3170g,6
-2836,BRCA2,i2627f,1
-3048,KIT,v555_v559del,7
-697,CDKN2B,e35*,4
-2761,BRAF,d287h,2
-1854,IKBKE,amplification,2
-158,EGFR,l747p,7
-5,CBL,v391i,4
-659,CDKN2A,d74n,4
-3011,KIT,d816h,7
-1054,TSC2,l448p,1
-3239,DUSP4,deletion,6
-2020,MAP2K1,g128v,2
-2557,BRCA1,v1833e,1
-1797,AR,l272f,5
-2289,STAT3,d661v,7
-1276,PIK3R2,s273c,5
-2065,SOX9,h65y,4
-450,TP53,y163c,4
-2666,BRCA1,p1812r,5
-1139,MET,d1010n,2
-2109,B2M,m1t,4
-2263,PTEN,d326n,4
-2415,PTPRD,p1311t,1
-2706,BRAF,k483e,2
-809,ERCC2,r631c,1
-1228,PIK3CB,e1051k,2
-1415,FGFR3,i538v,7
-1651,FLT3,i867s,7
-473,TP53,v157f,1
-2858,BRCA2,d2665g,5
-343,CDH1,deletion,1
-1893,MTOR,d2512y,3
-599,SMAD4,e330g,1
-945,PDGFRB,bin2-pdgfrb fusion,2
-122,SF3B1,r625c,9
-2451,BRCA1,y179c,6
-2311,JAK1,truncating mutations,1
-893,PDGFRA,v561_i562inser,7
-1998,MAP2K1,q56_v60del,7
-3197,NRAS,q61l,7
-3201,RASA1,deletion,1
-2956,GNAS,r201h,7
-530,TP53,r337l,1
-1459,FGFR2,v755i,5
-3128,KRAS,e31k,5
-3181,AKT3,amplification,7
-287,ARID2,truncating mutations,1
-2293,STAT3,f384v,2
-2673,BRCA1,s1473p,5
-1201,PIK3CA,p449t,7
-718,ERBB2,y772_a775dup,7
-1804,ARAF,s214t,7
-942,PDGFRB,amplification,6
-2610,BRCA1,n1819s,5
-1581,MPL,w515l,7
-2190,PTEN,g165r,4
-909,PDGFRA,t674i,2
-664,CDKN2A,deletion,4
-742,ERBB2,h878y,7
-3204,RB1,l607i,1
-2797,BRCA2,r2304c,6
-707,ERBB2,d808n,2
-2222,PTEN,k128n,4
-195,EGFR,l747_a750delinsp,7
-992,TSC1,s35q,4
-480,TP53,dna binding domain missense mutations,4
-1250,PIK3R1,deletion,1
-3274,RET,s765p,4
-2286,STAT3,h410r,7
-2969,KIT,k642e,7
-2965,KIT,d816n,7
-1968,CTNNB1,d32n,7
-1897,MTOR,r2505*,3
-1134,MET,y1003*,2
-845,ABL1,e459k,2
-527,TP53,c238s,4
-1973,CTNNB1,s33c,7
-309,ELF3,i279p,1
-1890,MTOR,k1452n,2
-2937,BTK,y551f,4
-1640,FLT3,flt3 internal tandem duplications,7
-1254,PIK3R1,e137k,1
-2092,ATRX,deletion,1
-259,EGFR,s464l,2
-934,PDGFRB,gpiap1-pdgfrb fusion,2
-2284,CIC,cic-dux4 fusion,9
-881,PDGFRA,c456_n468del,7
-1462,FGFR2,r203c,7
-2022,MAP2K1,i111r,2
-1385,FGFR1,fgfr1-tacc1 fusion,7
-1248,PIK3R1,l370fs,1
-1546,ALK,kif5b-alk fusion,7
-2676,BRCA1,r133h,3
-56,PTPRT,v995m,4
-2974,KIT,y553_k558del,2
-2552,BRCA1,v1714g,1
-3104,RAC1,p29l,7
-2236,PTEN,y16c,4
-2061,SOX9,f12l,4
-3126,KRAS,y64a,7
-812,ERCC2,v536m,1
-2866,BRCA2,l209f,5
-1235,PIM1,e135k,6
-2207,PTEN,f341v,4
-68,RHEB,y35n,7
-268,EGFR,egfr-purb fusion,2
-221,EGFR,s768_d770dup,7
-2242,PTEN,g165v,4
-937,PDGFRB,tp53bp1-pdgfrb fusion,2
-2462,BRCA1,v1713a,4
-796,ERBB4,g785s,6
-71,CCND2,amplification,2
-1282,HRAS,k117r,7
-220,EGFR,s492r,8
-471,TP53,p250l,1
-24,CBL,p417a,4
-100,TGFBR2,truncating mutations,1
-2881,BRCA2,a2770t,6
-1092,RXRA,s247y,6
-64,PTPRT,t605m,1
-1679,FLT3,y599_d600inspapqimststlisenmnia,7
-1215,PIK3CA,c378r,2
-566,SMAD3,d408y,4
-290,HIST1H1C,s102f,1
-2692,BRAF,n581d,2
-1745,MSH2,truncating mutations,1
-360,EP300,p1502l,4
-1938,CARD11,l232li,2
-1025,TSC2,g1596v,1
-2735,BRAF,d594a,7
-95,TGFBR1,s387y,4
-2772,BRAF,y472c,7
-1469,FGFR2,t341p,7
-2480,BRCA1,d245v,5
-2586,BRCA1,m1628v,1
-139,EGFR,s752_i759del,2
-1690,PMS2,e5k,5
-347,CDH1,a298t,1
-558,SMAD3,r287a,4
-1496,FGFR2,n549t,7
-1611,VHL,s65w,4
-356,EP300,ep300-moz fusion,7
-2141,KEAP1,g423v,4
-1351,AKT1,q79e,7
-1647,FLT3,d324n,3
-2297,PRDM1,c569y,4
-2833,BRCA2,n517s,6
-1662,FLT3,n676s,2
-28,TERT,c228t,7
-126,SF3B1,k666m,9
-1801,AR,ar-v7,7
-2292,STAT3,f384y,2
-376,TP53,r337p,1
-1495,FGFR2,d101y,2
-648,CDKN2A,q50*,4
-2879,BRCA2,w2626c,6
-1479,FGFR2,k525e,7
-1138,MET,981_1028splice,7
-857,ABL1,m351t,2
-792,ERBB4,d595v,7
-778,ERBB3,amplification,7
-1626,VHL,q96p,4
-1769,IDH2,r172k,9
-2743,BRAF,d594v,7
-2121,CCND1,truncating mutations,2
-2391,PTPN11,d61n,7
-1068,ACVR1,r206h,7
-1295,HRAS,g12s,7
-2359,STK11,d194y,4
-233,EGFR,t725m,7
-1991,MAP2K1,c121s,7
-73,RAD50,l1273f,4
-2198,PTEN,s170r,4
-906,PDGFRA,d1071n,3
-2757,BRAF,v600d,7
-3105,DNMT3A,r882c,2
-111,MSH6,v509a,5
-879,PDGFRA,r748g,7
-1667,FLT3,v592a,7
-729,ERBB2,v842i,7
-182,EGFR,t783a,2
-140,EGFR,i491m,5
-730,ERBB2,v750e,5
-2377,PTPN11,a72v,7
-2514,BRCA1,i89n,6
-991,TSC1,k82t,5
-826,BRIP1,truncating mutations,1
-2606,BRCA1,c39r,6
-3233,NTRK2,r715g,5
-3086,NOTCH1,p2415del,2
-372,TP53,h179q,4
-3091,NOTCH1,p2417a,2
-151,EGFR,v765a,2
-2490,BRCA1,g1788v,4
-3208,RB1,c712r,5
-1152,U2AF1,q157p,9
-1356,AKT1,p42t,5
-3124,KRAS,y32s,7
-849,ABL1,e279k,2
-3253,CASP8,deletion,1
-1605,VHL,r69c,4
-912,PDGFRA,amplification,7
-2009,MAP2K1,y130c,7
-180,EGFR,g719s,7
-2565,BRCA1,h1805p,5
-554,SMAD3,k341a,1
-163,EGFR,v851a,4
-3015,KIT,n564_y578del,2
-1099,BAP1,a95d,4
-2710,BRAF,l597q,7
-1560,ALK,fusions,2
-3031,KIT,d572a,7
-1302,MLH1,r100*,4
-451,TP53,h179n,1
-1711,POLE,s459f,4
-2276,BCOR,deletion,1
-2987,KIT,y553_q556del,7
-1261,PIK3R1,x434_splice,4
-2349,JAK2,r683k,7
-2619,BRCA1,v1810g,1
-1108,FANCA,s858r,4
-2138,KEAP1,r320q,4
-1056,TSC2,e75g,1
-277,EGFR,v843i,7
-2436,BRCA1,m1689t,1
-2195,PTEN,g127n,4
-2731,BRAF,mkrn1-braf fusion,2
-2208,PTEN,a126s,4
-475,TP53,f134y,1
-3158,KRAS,q22r,2
-508,TP53,s215c,1
-516,TP53,f328v,1
-1502,FGFR4,v550e,7
-430,TP53,y236s,4
-1501,FGFR4,n535k,7
-1303,MLH1,m587v,6
-435,TP53,r249s,1
-2760,BRAF,v600d_k601insfglat,7
-1655,FLT3,e598_y599insdvdfreye,7
-2824,BRCA2,r2520q,5
-341,ASXL2,truncating mutations,1
-2340,JAK2,r683s,7
-1473,FGFR2,fgfr2-bicc1 fusion,7
-1613,VHL,l158q,4
-261,EGFR,d770_n771insvdsvdnp,7
-2923,NFE2L2,g31a,7
-2196,PTEN,l325f,4
-1118,MET,x1007_splice,7
-1624,VHL,l158v,4
-1741,MSH2,e483*,4
-1001,TSC1,truncating mutations,1
-1042,TSC2,l493v,1
-2569,BRCA1,q1811r,1
-2102,CDK12,truncating mutations,1
-223,EGFR,l861r,7
-1494,FGFR2,k310r,5
-1220,PIK3CB,n553s,2
-1093,MAP3K1,t1481fs,1
-2386,PTPN11,f71i,7
-2826,BRCA2,q2384k,6
-619,FBXW7,s227a,4
-359,EP300,deletion,1
-2915,NFE2L2,g81r,7
-2155,PTEN,a121p,4
-1029,TSC2,r611w,4
-1835,PPP2R1A,p179l,1
-2934,FUBP1,truncating mutations,1
-2652,BRCA1,m1652k,1
-108,MSH6,r1076c,1
-694,CDKN2B,truncating mutations,1
-2319,JAK2,k539l,7
-392,TP53,r181c,4
-1985,CTNNB1,i35s,7
-1348,AKT1,l52r,7
-856,ABL1,v379i,2
-1524,ALK,i1171t,7
-1992,MAP2K1,k57t,7
-2460,BRCA1,r170w,5
-2440,BRCA1,p1856s,5
-1622,VHL,r82p,4
-491,TP53,y236c,4
-270,EGFR,e709k,7
-1911,FOXP1,truncating mutations,1
-449,TP53,l348f,1
-2905,NF2,l535p,1
-2708,BRAF,fam131b-braf fusion,7
-1729,MSH2,e580*,4
-17,CBL,q367p,4
-74,RAD50,deletion,1
-2782,BRCA2,r2502c,6
-191,EGFR,s921r,6
-1095,MAP3K1,e1286v,5
-215,EGFR,e746g,2
-745,ERBB2,l755s,7
-1310,MLH1,e172k,6
-2334,JAK2,i1018f,6
-3003,KIT,v559del,7
-2611,BRCA1,v1808a,5
-1989,MAP2K1,t28i,2
-2224,PTEN,i122v,3
-3157,KRAS,f28l,7
-1249,PIK3R1,e218*,1
-2546,BRCA1,s1486c,5
-575,SMAD3,p336s,4
-2545,BRCA1,n1819y,6
-407,TP53,c135s,1
-161,EGFR,k806a,2
-2270,PTEN,h123y,4
-1247,PIK3R1,x475_splice,4
-1003,TSC1,v128del,4
-2896,BRCA2,q1396r,6
-267,EGFR,g810s,7
-564,SMAD3,r292a,1
-2890,BRCA2,n2113s,6
-635,CDKN1A,deletion,1
-963,ESR1,v534e,3
-2914,NFE2L2,e79q,7
-2361,STK11,deletion,1
-61,PTPRT,r1209w,4
-1191,PIK3CA,q546p,7
-1121,MET,v1188l,7
-2954,GNAS,q227l,2
-300,TMPRSS2,tmprss2-etv1 fusion,7
-1594,VHL,l128f,5
-2608,BRCA1,r1589h,5
-2370,PTPN11,t73i,7
-2278,BCOR,bcor-ccnb3 fusion,8
-2426,BRCA1,c64g,4
-1416,FGFR3,e466k,5
-555,SMAD3,v356r,1
-2511,BRCA1,f1761s,4
-2172,PTEN,k125r,3
-2589,BRCA1,r1699w,4
-2950,BCL10,deletion,1
-1223,PIK3CB,r48w,2
-3087,NOTCH1,r1594q,4
-1128,MET,l1195v,7
-1439,SPOP,s119n,4
-3038,KIT,w557_k558del,7
-2968,KIT,e839k,3
-1783,AR,q58_q59insl,1
-129,SF3B1,k666t,9
-1236,PIM1,y53h,6
-155,EGFR,e758g,2
-2042,MAP2K2,v35m,7
-424,TP53,r156h,4
-1165,PIK3CA,i31m,5
-3307,RUNX1,truncating mutations,1
-3294,RET,r886w,7
-2707,BRAF,r506_k507insvlr,7
-2818,BRCA2,l2721h,6
-594,SMAD4,v370d,1
-154,EGFR,h870r,5
-284,NKX2-1,a339v,7
-1094,MAP3K1,truncating mutations,6
-411,TP53,s241f,1
-1758,IDH1,a134d,4
-1490,FGFR2,fgfr2-fam76a fusion,7
-1406,FGFR3,r248c,7
-638,CDKN1B,deletion,4
-2296,PRDM1,p48r,4
-956,RBM10,v354e,4
-3182,AKT3,fusions,2
-3318,RUNX1,fusions,1
-525,TP53,r158c,1
-331,ROS1,lrig3-ros1 fusion,7
-1577,SDHC,r133*,4
-1448,SPOP,f102c,4
-3174,RAB35,f161l,7
-1980,CTNNB1,t41a,7
-1150,MET,t992i,7
-3303,RUNX1,p173s,4
-201,EGFR,l747f,2
-885,PDGFRA,s584l,7
-1507,ALK,g1128s,7
-1336,FGF4,amplification,6
-426,TP53,c275s,4
-1299,HRAS,a59t,2
-1888,MTOR,y1463s,2
-1937,CARD11,g123s,2
-1907,SMARCA4,g1232d,4
-749,ERBB2,d769y,7
-2712,BRAF,l485_p490delinsy,2
-2044,IL7R,t244_i245inscpt,7
-999,TSC1,v220f,1
-2393,PTPN11,e139d,2
-243,EGFR,t263p,7
-2747,BRAF,g466r,2
-2041,MAP2K2,e207k,7
-668,CDKN2A,r24p,4
-3096,NOTCH2,1_2009trunc,1
-238,EGFR,egfrviv,7
-1256,PIK3R1,q579_l581del,4
-2267,PTEN,d92h,4
-1633,MAP2K4,truncating mutations,1
-2822,BRCA2,a2717s,6
-512,TP53,c135y,9
-1032,TSC2,r905g,4
-2074,TET2,w1291r,1
-855,ABL1,l384m,2
-1830,PPP2R1A,r183p,1
-940,PDGFRB,ebf1-pdgfrb fusion,7
-1229,PIK3CB,d1067a,7
-2690,BRAF,i326v,5
-1103,BAP1,f170i,4
-1952,CTLA4,t17a,1
-2170,PTEN,s227f,4
-828,BRIP1,k52r,4
-3227,NTRK1,amplification,7
-3082,NOTCH1,i1616t,7
-1417,FGFR3,f384l,5
-1080,ARID1A,truncating mutations,1
-3001,KIT,l576p,7
-3282,RET,m980t,5
-1274,PIK3R2,a727v,5
-2674,BRCA1,m1652t,6
-1569,ALK,l1152p,7
-1468,FGFR2,g701s,6
-1036,TSC2,deletion,1
-276,EGFR,e746_s752delinsi,7
-2055,MYC,fusions,2
-2922,NFE2L2,d29y,7
-8,CBL,y371h,4
-3035,KIT,550_592del,7
-374,TP53,c277q,1
-3133,KRAS,a146t,7
-211,EGFR,egfr-kdd,7
-419,TP53,c176f,4
-1309,MLH1,v716m,5
-93,TGFBR1,p83l,4
-1486,FGFR2,l617m,7
-2991,KIT,e554_k558del,2
-3155,KRAS,d119n,2
-1978,CTNNB1,g34v,7
-1177,PIK3CA,n1068fs*4,7
-2997,KIT,v559_v560del,7
-3266,RET,k603q,2
-1767,IDH2,r172s,9
-2983,KIT,c443y,7
-686,CDKN2A,r112g,4
-2893,BRCA2,r3052q,6
-2134,KEAP1,r470c,4
-1408,FGFR3,v677i,5
-3247,DDR2,amplification,2
-1231,PIM1,n82k,1
-841,ABL1,fusions,2
-1754,IDH1,r132h,9
-2963,KIT,d816f,7
-547,SMAD2,n387p,6
-458,TP53,p278a,1
-2607,BRCA1,m1775v,5
-1981,CTNNB1,s33a,7
-2231,PTEN,h123q,4
-708,ERBB2,v659e,7
-3291,RET,c620r,7
-2542,BRCA1,y1703h,1
-1471,FGFR2,n549k,7
-710,ERBB2,v839g,6
-1928,SMO,amplification,6
-539,SMAD2,deletion,4
-2213,PTEN,f241s,4
-610,CDK4,r24c,7
-656,CDKN2A,n71s,4
-434,TP53,r110p,1
-2798,BRCA2,s384f,5
-1958,ATM,d1853n,5
-3261,RET,c634r,7
-156,EGFR,h773l,7
-1467,FGFR2,p253r,7
-147,EGFR,d770_n771insd,7
-2348,JAK2,tel-jak2 fusion,7
-1104,BAP1,i47f,4
-919,PDGFRA,v561d,7
-783,ERBB4,e452k,7
-3115,RAD51D,truncating mutations,1
-282,NKX2-1,fusions,2
-1891,MTOR,s2215y,7
-954,RBM10,truncating mutations,1
-1895,MTOR,c1483y,7
-104,MSH6,e1322*,4
-1562,ALK,r1231q,3
-2469,BRCA1,r170q,3
-2961,KIT,k558n,2
-463,TP53,h179r,4
-958,KDM5C,p480l,4
-38,DICER1,d1709a,1
-1717,POLE,l424v,4
-980,ETV1,ewsr1-etv1 fusion,7
-2344,JAK2,f1061w,6
-1762,IDH1,i99m,5
-617,FBXW7,r479l,4
-2951,BCL10,truncating mutations,1
-1313,MLH1,q689r,5
-952,PDGFRB,etv6-pdgfrb fusion,7
-199,EGFR,l704n,4
-793,ERBB4,fusions,2
-364,EPAS1,p531s,2
-2308,JAK1,a723d,7
-1694,PMS2,truncating mutations,1
-207,EGFR,r108k,7
-3287,RET,m918v,2
-829,ERCC3,r109*,4
-1424,FGFR3,a391e,7
-273,EGFR,d587h,7
-3312,RUNX1,tel-runx1 fusion,4
-51,PTPRT,y280h,1
-1381,FGFR1,cep110-fgfr1 fusion,7
-3141,KRAS,t58i,7
-305,TMPRSS2,m160v,3
-2525,BRCA1,f1704s,1
-88,RYBP,truncating mutations,1
-1892,MTOR,e2014k,7
-720,ERBB2,s310f,7
-613,CDK6,a197t,4
-1384,FGFR1,amplification,7
-1519,ALK,y1278s,7
-1596,VHL,v155a,4
-2562,BRCA1,y1853c,4
-2854,BRCA2,i1349t,6
-846,ABL1,f311l,2
-183,EGFR,l692f,2
-2979,KIT,h697y,7
-3052,KIT,e490k,2
-2019,MAP2K1,f53s,7
-1208,PIK3CA,d1029y,2
-2605,BRCA1,v1665m,5
-2382,PTPN11,v45l,7
-782,ERBB3,v104m,7
-814,ERCC2,p463l,1
-2953,GNAS,r844h,7
-3109,DNMT3B,dnmt3b7,8
-2183,PTEN,v217d,4
-633,FBXW7,r482q,4
-2350,JAK2,fusions,2
-1059,EWSR1,ewsr1-ddit3 fusion,7
+ID || Gene || Variation || Class
+696 || CDKN2B || || hypermethylation || 4
+2436 || BRCA1 || || m1689t || 1
+3044 || KIT || || y418_d419del || 7
+2513 || BRCA1 || || s1841a || 1
+2250 || PTEN || || t319del || 4
+3243 || DDR2 || || l63v || 7
+623 || FBXW7 || || r658q || 1
+1772 || XPO1 || || e571k || 2
+204 || EGFR || || amplification || 7
+3241 || DDR2 || || t654m || 6
+951 || PDGFRB || || kiaa1509-pdgfrb fusion || 2
+1558 || ALK || || n1178h || 7
+306 || H3F3A || || g35r || 8
+990 || TSC1 || || f158c || 4
+146 || EGFR || || e746_t751insip || 7
+2204 || PTEN || || y65c || 4
+2447 || BRCA1 || || v191i || 5
+554 || SMAD3 || || k341a || 1
+2088 || AGO2 || || amplification || 2
+2581 || BRCA1 || || v1688del || 1
+2209 || PTEN || || r130g || 4
+192 || EGFR || || n826y || 2
+3255 || CASP8 || || c248t || 3
+2653 || BRCA1 || || r1751p || 1
+1934 || CARD11 || || c49y || 7
+1144 || MET || || h1106d || 2
+3219 || NTRK1 || || bcan-ntrk1 fusion || 2
+1869 || MTOR || || f1888i || 7
+712 || ERBB2 || || c630y || 6
+1679 || FLT3 || || y599_d600inspapqimststlisenmnia || 7
+2252 || PTEN || || s170n || 4
+1354 || AKT1 || || q79k || 7
+2778 || BRCA2 || || l2396f || 6
+2902 || NF2 || || l46r || 1
+546 || SMAD2 || || k375a || 6
+847 || ABL1 || || y253f || 7
+104 || MSH6 || || e1322* || 4
+1959 || NUP93 || || g591v || 3
+563 || SMAD3 || || r373q || 4
+235 || EGFR || || t790m || 7
+837 || ABL1 || || bcr-abl1 fusion || 7
+1832 || PPP2R1A || || r258h || 6
+1696 || PMS2 || || r421* || 1
+115 || KMT2D || || deletion || 1
+1241 || YAP1 || || fusions || 2
+2992 || KIT || || p551_v555del || 7
+2567 || BRCA1 || || t1685a || 1
+1097 || AXIN1 || || truncating mutations || 1
+3078 || NOTCH1 || || truncating mutations upstream of transactivation domain || 1
+1239 || PIK3CD || || n334k || 7
+295 || CHEK2 || || p85l || 3
+1165 || PIK3CA || || i31m || 5
+2536 || BRCA1 || || l165p || 5
+1898 || MTOR || || a41t || 3
+305 || TMPRSS2 || || m160v || 3
+1947 || MEF2B || || d83v || 7
+2229 || PTEN || || f21a || 4
+1449 || SPOP || || m117i || 4
+985 || ETV6 || || r369w || 1
+1219 || PIK3CA || || m1043v || 7
+851 || ABL1 || || e255k || 2
+443 || TP53 || || g244r || 4
+2759 || BRAF || || v600g || 7
+1836 || PPP2R1A || || r183g || 1
+206 || EGFR || || l747_t751del || 7
+590 || SMAD4 || || r420h || 5
+996 || TSC1 || || t417i || 3
+1106 || BAP1 || || f81v || 4
+2729 || BRAF || || k601q || 7
+2045 || SOS1 || || m269r || 7
+1735 || MSH2 || || q395* || 4
+1080 || ARID1A || || truncating mutations || 1
+1778 || CREBBP || || r1446c || 1
+2457 || BRCA1 || || h1746q || 6
+149 || EGFR || || k745_a750del || 7
+1804 || ARAF || || s214t || 7
+169 || EGFR || || exon 19 deletion/insertion || 7
+860 || ABL1 || || f317l || 2
+956 || RBM10 || || v354e || 4
+1193 || PIK3CA || || h701p || 5
+2446 || BRCA1 || || l246v || 5
+673 || CDKN2A || || g35a || 4
+1130 || MET || || d1010h || 2
+2410 || FOXL2 || || c134w || 4
+613 || CDK6 || || a197t || 4
+2955 || GNAS || || q227r || 2
+35 || DICER1 || || g1809r || 4
+1729 || MSH2 || || e580* || 4
+2948 || KDR || || a1065t || 7
+2856 || BRCA2 || || r2973c || 5
+2687 || BRAF || || l485_p490del || 7
+1611 || VHL || || s65w || 4
+2256 || PTEN || || v343l || 4
+3196 || NRAS || || g12d || 7
+2220 || PTEN || || d162g || 4
+178 || EGFR || || p691s || 2
+2258 || PTEN || || m134l || 4
+1531 || ALK || || s1206y || 7
+766 || ERBB2 || || n857s || 2
+2758 || BRAF || || g469e || 2
+2583 || BRCA1 || || e1660g || 1
+0 || FAM58A || || truncating mutations || 1
+453 || TP53 || || h168r || 4
+2795 || BRCA2 || || t1354m || 6
+1590 || VHL || || r64p || 4
+1174 || PIK3CA || || e545q || 7
+1242 || YAP1 || || amplification || 7
+2318 || JAK2 || || l611v || 2
+1389 || FGFR1 || || erlin2?fgfr1 fusion || 7
+895 || PDGFRA || || y375_k455del || 7
+1553 || ALK || || a1099t || 3
+1866 || MTOR || || i2500m || 7
+2916 || NFE2L2 || || w24r || 7
+3099 || RAC1 || || p29s || 7
+1919 || SMO || || h231r || 2
+1023 || TSC2 || || v705m || 4
+726 || ERBB2 || || g660d || 7
+1232 || PIM1 || || h68y || 2
+1123 || MET || || n375s || 6
+1455 || FGFR2 || || k659n || 7
+2832 || BRCA2 || || n588d || 6
+1939 || CARD11 || || l251p || 7
+2720 || BRAF || || agk-braf fusion || 7
+2640 || BRCA1 || || n1730s || 5
+1003 || TSC1 || || v128del || 4
+1864 || MTOR || || a8s || 5
+2542 || BRCA1 || || y1703h || 1
+2575 || BRCA1 || || p1637l || 5
+706 || ERBB2 || || t798m || 2
+740 || ERBB2 || || d769h || 7
+955 || RBM10 || || deletion || 1
+942 || PDGFRB || || amplification || 6
+2862 || BRCA2 || || c554w || 6
+2804 || BRCA2 || || r2659t || 1
+3170 || RAF1 || || srgap3-raf1 fusion || 7
+2475 || BRCA1 || || r1699l || 1
+2910 || PAX8 || || pax8-ppar? fusion || 7
+189 || EGFR || || s768i || 7
+1667 || FLT3 || || v592a || 7
+3185 || RARA || || r276w || 6
+759 || ERBB2 || || d277h || 2
+924 || PDGFRA || || y849c || 7
+402 || TP53 || || q331h || 1
+811 || ERCC2 || || d513y || 1
+2721 || BRAF || || t599dup || 7
+362 || EPAS1 || || p531l || 2
+2578 || BRCA1 || || g1656d || 1
+2266 || PTEN || || d92v || 4
+1099 || BAP1 || || a95d || 4
+1260 || PIK3R1 || || r574fs || 4
+1424 || FGFR3 || || a391e || 7
+2396 || NF1 || || r1391s || 4
+242 || EGFR || || r776h || 7
+827 || BRIP1 || || deletion || 1
+2996 || KIT || || t574_r588delinsl || 2
+17 || CBL || || q367p || 4
+1061 || EWSR1 || || fusions || 2
+2437 || BRCA1 || || d96n || 6
+1210 || PIK3CA || || g106_r108del || 2
+1671 || FLT3 || || y842c || 7
+2442 || BRCA1 || || a1823t || 5
+3094 || NOTCH1 || || v1671i || 2
+1132 || MET || || x1009_splice || 7
+1490 || FGFR2 || || fgfr2-fam76a fusion || 7
+457 || TP53 || || a161t || 1
+768 || ERBB2 || || g778_p780dup || 7
+2631 || BRCA1 || || l1780p || 4
+284 || NKX2-1 || || a339v || 7
+2354 || STK11 || || l67p || 4
+2999 || KIT || || k509i || 7
+3116 || KRAS || || g13e || 2
+1774 || XRCC2 || || truncating mutations || 1
+1209 || PIK3CA || || r115l || 5
+504 || TP53 || || r282w || 1
+393 || TP53 || || r337c || 4
+2413 || PTPRD || || v1565i || 1
+2382 || PTPN11 || || v45l || 7
+2387 || PTPN11 || || a72s || 7
+3072 || NOTCH1 || || q2416* || 2
+259 || EGFR || || s464l || 2
+1983 || CTNNB1 || || w383r || 7
+687 || CDKN2A || || s56i || 4
+2307 || JAK1 || || v658f || 7
+1186 || PIK3CA || || n345i || 2
+3000 || KIT || || w557g || 2
+2572 || BRCA1 || || i89t || 6
+569 || SMAD3 || || d408h || 4
+940 || PDGFRB || || ebf1-pdgfrb fusion || 7
+857 || ABL1 || || m351t || 2
+2321 || JAK2 || || y1045* || 6
+987 || ETV6 || || etv6-flt3 fusion || 7
+2704 || BRAF || || p490_q494del || 2
+1477 || FGFR2 || || i642v || 1
+839 || ABL1 || || g250e || 2
+1008 || TSC1 || || r1097h || 3
+1142 || MET || || m1250t || 7
+352 || EP300 || || fusions || 2
+3231 || NTRK2 || || m713i || 1
+2319 || JAK2 || || k539l || 7
+517 || TP53 || || y234c || 4
+2831 || BRCA2 || || r2888c || 6
+1412 || FGFR3 || || c582f || 5
+3155 || KRAS || || d119n || 2
+1240 || PIK3CD || || e1021k || 7
+2867 || BRCA2 || || g602r || 6
+1703 || PMS2 || || e541k || 5
+3202 || BCL2L11 || || truncating mutations || 1
+853 || ABL1 || || y253h || 2
+1719 || KNSTRN || || r11k || 1
+429 || TP53 || || v157d || 4
+1252 || PIK3R1 || || n564d || 4
+1723 || APC || || i1307k || 1
+182 || EGFR || || t783a || 2
+2329 || JAK2 || || f537_k539delinsl || 7
+2986 || KIT || || v559c || 2
+1309 || MLH1 || || v716m || 5
+3178 || HNF1A || || p291qfs*51 || 1
+3024 || KIT || || k558_v559del || 2
+2327 || JAK2 || || bcr-jak2 fusion || 7
+1850 || CTCF || || h284p || 1
+1058 || EWSR1 || || ewsr1-yy1 fusion || 7
+3172 || RAF1 || || s257w || 7
+2392 || PTPN11 || || y62c || 7
+1796 || AR || || f876l || 2
+1572 || ALK || || r1275l || 2
+1322 || MLH1 || || p648l || 4
+558 || SMAD3 || || r287a || 4
+2523 || BRCA1 || || l1854p || 1
+1154 || KMT2C || || s3660l || 5
+1568 || ALK || || c1156y || 7
+802 || ERBB4 || || e836k || 7
+2495 || BRCA1 || || e1682v || 5
+166 || EGFR || || e746_a750del || 7
+1678 || FLT3 || || v579a || 7
+914 || PDGFRA || || d846y || 7
+2093 || ATRX || || truncating mutations || 1
+1781 || CREBBP || || q1500p || 5
+559 || SMAD3 || || deletion || 1
+2100 || CDK12 || || l996f || 4
+2675 || BRCA1 || || e1346k || 5
+1483 || FGFR2 || || s267_d273dup || 7
+2896 || BRCA2 || || q1396r || 6
+1116 || FANCA || || l210r || 4
+3292 || RET || || c634y || 7
+2680 || BRCA1 || || m18k || 6
+1399 || FGFR3 || || n540s || 7
+1073 || FOXA1 || || deletion || 1
+1414 || FGFR3 || || r669g || 7
+2829 || BRCA2 || || p655r || 6
+2727 || BRAF || || r462i || 3
+2824 || BRCA2 || || r2520q || 5
+1328 || MLH1 || || l622h || 6
+1518 || ALK || || i1171n || 7
+1423 || FGFR3 || || s249c || 7
+2254 || PTEN || || i122s || 4
+382 || TP53 || || q331r || 1
+2267 || PTEN || || d92h || 4
+343 || CDH1 || || deletion || 1
+1461 || FGFR2 || || l770v || 6
+376 || TP53 || || r337p || 1
+1033 || TSC2 || || s1653f || 4
+2018 || MAP2K1 || || e120q || 5
+2828 || BRCA2 || || r2842h || 6
+2598 || BRCA1 || || v1809f || 1
+2273 || PTEN || || truncating mutations || 1
+445 || TP53 || || h297n || 5
+2549 || BRCA1 || || e1682k || 5
+1539 || ALK || || t1343i || 5
+2242 || PTEN || || g165v || 4
+3229 || NTRK1 || || lmna-ntrk1 fusion || 7
+2570 || BRCA1 || || d1739g || 4
+380 || TP53 || || s241t || 4
+2953 || GNAS || || r844h || 7
+1714 || POLE || || v411l || 4
+643 || CDKN2A || || p114l || 4
+737 || ERBB2 || || y835f || 1
+257 || EGFR || || g719c || 2
+1903 || SMARCA4 || || r978* || 4
+81 || CCND3 || || i290r || 2
+2451 || BRCA1 || || y179c || 6
+2507 || BRCA1 || || d67y || 3
+2154 || PTEN || || d107y || 4
+1894 || MTOR || || e1799k || 7
+612 || AURKB || || overexpression || 2
+2151 || PTEN || || l112r || 4
+691 || CDKN2A || || e88k || 4
+780 || ERBB3 || || r669c || 6
+2425 || BRCA1 || || i68k || 6
+1301 || MLH1 || || r265s || 1
+3070 || NOTCH1 || || l1596h || 7
+1486 || FGFR2 || || l617m || 7
+2072 || TET2 || || h1904r || 1
+342 || CDH1 || || r732q || 1
+3040 || KIT || || k558_e562del || 2
+2947 || KDR || || d717v || 7
+3313 || RUNX1 || || h78q || 4
+347 || CDH1 || || a298t || 1
+835 || ERCC4 || || truncating mutations || 1
+2323 || JAK2 || || ssbp2-jak2 fusion || 2
+25 || CBL || || h398y || 4
+1034 || TSC2 || || v769e || 4
+370 || TP53 || || r273l || 4
+3013 || KIT || || i653t || 2
+3073 || NOTCH1 || || truncating mutations in the pest domain || 2
+2509 || BRCA1 || || v271l || 3
+2416 || PTPRD || || deletion || 4
+585 || SMAD4 || || truncating mutations || 1
+775 || ERBB3 || || p262h || 7
+1353 || AKT1 || || l78t || 7
+2335 || JAK2 || || atf7ip-jak2 fusion || 7
+258 || EGFR || || e330k || 7
+1446 || SPOP || || d130a || 1
+1096 || MAP3K1 || || t779fs || 1
+174 || EGFR || || a750_e758del || 7
+1722 || PIK3R3 || || truncating mutations || 1
+968 || ESR1 || || a546d || 7
+2718 || BRAF || || p61braf || 7
+621 || FBXW7 || || r479q || 4
+1090 || KLF4 || || k409q || 2
+3096 || NOTCH2 || || 1_2009trunc || 1
+3068 || NOTCH1 || || l1574p || 7
+2008 || MAP2K1 || || q58_e62del || 7
+2180 || PTEN || || n276s || 4
+605 || SMAD4 || || d351h || 4
+1125 || MET || || y1230c || 7
+2090 || KMT2B || || truncating mutations || 6
+1202 || PIK3CA || || p539r || 7
+2275 || BCOR || || zc3h7b-bcor fusion || 8
+2372 || PTPN11 || || e69k || 2
+225 || EGFR || || e709_t710delinsd || 7
+3209 || RB1 || || n480del || 5
+3015 || KIT || || n564_y578del || 2
+1264 || PIK3R1 || || r162* || 1
+2803 || BRCA2 || || n319t || 5
+2708 || BRAF || || fam131b-braf fusion || 7
+2160 || PTEN || || t401i || 4
+547 || SMAD2 || || n387p || 6
+2921 || NFE2L2 || || v32g || 7
+1342 || AKT1 || || q59e || 3
+1011 || TSC2 || || g1567d || 1
+1184 || PIK3CA || || k111n || 2
+1715 || POLE || || p286h || 4
+2058 || MYC || || amplification || 7
+3077 || NOTCH1 || || h2428q || 2
+1010 || TSC2 || || s1036p || 1
+3075 || NOTCH1 || || l1593p || 7
+1813 || RHOA || || e40q || 2
+662 || CDKN2A || || l32p || 4
+1035 || TSC2 || || q1503p || 1
+2007 || MAP2K1 || || amplification || 6
+30 || TERT || || h876q || 4
+820 || ERCC2 || || v242f || 1
+3037 || KIT || || p573_d579del || 7
+162 || EGFR || || h773y || 2
+2390 || PTPN11 || || s502t || 7
+638 || CDKN1B || || deletion || 4
+2108 || B2M || || m1v || 4
+1139 || MET || || d1010n || 2
+2463 || BRCA1 || || v1833m || 1
+2799 || BRCA2 || || e2663v || 1
+3192 || NRAS || || g13d || 7
+3158 || KRAS || || q22r || 2
+2767 || BRAF || || d594e || 7
+2132 || KEAP1 || || d422n || 4
+2398 || NF1 || || t1324n || 4
+682 || CDKN2A || || h83n || 4
+213 || EGFR || || v774m || 2
+3061 || MED12 || || g44s || 9
+2946 || KDR || || r961w || 6
+3294 || RET || || r886w || 7
+901 || PDGFRA || || d842i || 7
+1299 || HRAS || || a59t || 2
+1355 || AKT1 || || v271a || 7
+1889 || MTOR || || p2476l || 3
+2126 || CCND1 || || c47s || 7
+397 || TP53 || || r181l || 1
+1136 || MET || || h1094l || 7
+984 || ETV6 || || p214l || 4
+47 || PTPRT || || a707t || 1
+608 || SMAD4 || || h132y || 1
+2506 || BRCA1 || || m1775e || 1
+1351 || AKT1 || || q79e || 7
+2786 || BRCA2 || || k1690n || 6
+1979 || CTNNB1 || || s45del || 7
+1500 || FGFR2 || || e475k || 5
+1552 || ALK || || l1196q || 7
+829 || ERCC3 || || r109* || 4
+310 || ELF3 || || r331p || 1
+3206 || RB1 || || r661w || 6
+2998 || KIT || || m552_k558del || 2
+1366 || AKT1 || || l202f || 3
+2235 || PTEN || || i33del || 4
+2476 || BRCA1 || || v1804a || 6
+2730 || BRAF || || g469v || 2
+307 || H3F3A || || k28m || 8
+523 || TP53 || || i195t || 1
+3129 || KRAS || || g60d || 6
+1881 || MTOR || || a2034v || 2
+1980 || CTNNB1 || || t41a || 7
+1606 || VHL || || y112h || 1
+1401 || FGFR3 || || y647c || 2
+2260 || PTEN || || m35r || 4
+1078 || FOXA1 || || m253k || 1
+885 || PDGFRA || || s584l || 7
+2571 || BRCA1 || || s1297del || 5
+2668 || BRCA1 || || p1771r || 5
+2330 || JAK2 || || l983f || 6
+1408 || FGFR3 || || v677i || 5
+2744 || BRAF || || snd1-braf fusion || 7
+1225 || PIK3CB || || d1067v || 7
+671 || CDKN2A || || g23d || 4
+3311 || RUNX1 || || runx1-evi1 fusion || 4
+2515 || BRCA1 || || l82p || 6
+828 || BRIP1 || || k52r || 4
+349 || CDH1 || || d257n || 1
+1376 || AKT2 || || amplification || 7
+2689 || BRAF || || a598v || 7
+777 || ERBB3 || || t389k || 7
+318 || ROS1 || || s1986y || 2
+1588 || VHL || || p86h || 4
+3010 || KIT || || d814v || 7
+854 || ABL1 || || v299l || 2
+2821 || BRCA2 || || c1365y || 6
+3167 || RAF1 || || s259f || 7
+680 || CDKN2A || || a57v || 4
+267 || EGFR || || g810s || 7
+787 || ERBB4 || || v348l || 3
+496 || TP53 || || l344p || 4
+541 || SMAD2 || || y406h || 6
+1725 || APC || || deletion || 1
+1607 || VHL || || i151s || 1
+1020 || TSC2 || || e1552del || 4
+2659 || BRCA1 || || a1708v || 1
+432 || TP53 || || r213q || 4
+2837 || BRCA2 || || s2483n || 6
+3111 || RAD21 || || truncating mutations || 1
+1438 || SPOP || || w131g || 4
+849 || ABL1 || || e279k || 2
+2525 || BRCA1 || || f1704s || 1
+2460 || BRCA1 || || r170w || 5
+562 || SMAD3 || || r243a || 1
+628 || FBXW7 || || r505l || 4
+2967 || KIT || || t670i || 7
+2925 || NFE2L2 || || g81s || 7
+1941 || CARD11 || || l225li || 7
+3036 || KIT || || w557_v559delinsc || 2
+3054 || KIT || || v555_l576del || 7
+1522 || ALK || || g881d || 7
+2355 || STK11 || || m136r || 4
+2620 || BRCA1 || || n1236k || 5
+1300 || MLH1 || || l550p || 1
+1101 || BAP1 || || c91s || 4
+1847 || PPP6C || || s270l || 4
+2681 || BRAF || || d594n || 7
+1072 || FOXA1 || || l388m || 1
+3260 || RET || || t338i || 5
+335 || ROS1 || || cep85l-ros1 fusion || 2
+1771 || XPO1 || || c528s || 6
+3145 || KRAS || || s65n || 7
+1779 || CREBBP || || truncating mutations || 1
+1669 || FLT3 || || s451e || 7
+421 || TP53 || || c277r || 1
+1751 || IDH1 || || r132c || 9
+2364 || STK11 || || a205t || 4
+1924 || SMO || || s387n || 7
+3136 || KRAS || || a146v || 7
+1929 || SMO || || f460l || 7
+3245 || DDR2 || || g774v || 7
+1595 || VHL || || truncating mutations || 1
+2853 || BRCA2 || || e462g || 5
+1317 || MLH1 || || w714* || 4
+2612 || BRCA1 || || h1862l || 5
+3004 || KIT || || v559d || 7
+269 || EGFR || || e709g || 2
+2324 || JAK2 || || w1038c || 6
+5 || CBL || || v391i || 4
+3242 || DDR2 || || g253c || 7
+1320 || MLH1 || || r725c || 6
+374 || TP53 || || c277q || 1
+2710 || BRAF || || l597q || 7
+2044 || IL7R || || t244_i245inscpt || 7
+722 || ERBB2 || || l785f || 6
+2257 || PTEN || || y27s || 4
+200 || EGFR || || l861q || 7
+462 || TP53 || || g266r || 4
+749 || ERBB2 || || d769y || 7
+1619 || VHL || || e70k || 1
+2622 || BRCA1 || || s1722f || 4
+412 || TP53 || || dna binding domain deletions || 4
+1473 || FGFR2 || || fgfr2-bicc1 fusion || 7
+2389 || PTPN11 || || y63c || 7
+1699 || PMS2 || || s46i || 4
+846 || ABL1 || || f311l || 2
+3173 || RAF1 || || s259a || 7
+1655 || FLT3 || || e598_y599insdvdfreye || 7
+2816 || BRCA2 || || s1670a || 6
+2931 || NFE2L2 || || t80r || 7
+2822 || BRCA2 || || a2717s || 6
+1963 || MAPK1 || || amplification || 7
+1617 || VHL || || w117c || 4
+483 || TP53 || || v173l || 4
+2210 || PTEN || || h93q || 4
+2034 || MAP2K2 || || f57l || 2
+1762 || IDH1 || || i99m || 5
+493 || TP53 || || r156c || 1
+3102 || RAC1 || || amplification || 7
+350 || CDH1 || || epigenetic silencing || 1
+864 || ERG || || tmprss2-erg fusion || 7
+2341 || JAK2 || || y1045w || 6
+2670 || BRCA1 || || t1691k || 1
+2814 || BRCA2 || || k1434i || 6
+458 || TP53 || || p278a || 1
+2047 || SOS1 || || r552g || 7
+2774 || BRCA2 || || p168t || 6
+1280 || HRAS || || amplification || 2
+3131 || KRAS || || r164q || 6
+2071 || TET2 || || y1295a || 5
+1113 || FANCA || || deletion || 1
+3098 || RAC1 || || c157y || 7
+2761 || BRAF || || d287h || 2
+50 || PTPRT || || a209t || 1
+933 || PDGFRB || || nin-pdgfrb fusion || 2
+60 || PTPRT || || r453c || 1
+751 || ERBB2 || || l755p || 7
+1441 || SPOP || || g75r || 4
+455 || TP53 || || i255f || 1
+2692 || BRAF || || n581d || 2
+1519 || ALK || || y1278s || 7
+1411 || FGFR3 || || d646y || 5
+2672 || BRCA1 || || k45t || 6
+448 || TP53 || || g245s || 4
+2433 || BRCA1 || || f79s || 6
+2197 || PTEN || || g20e || 4
+1386 || FGFR1 || || k656e || 7
+1037 || TSC2 || || a889p || 4
+248 || EGFR || || a767_v769del || 2
+2182 || PTEN || || s362l || 5
+1953 || ATM || || e1978* || 1
+2472 || BRCA1 || || l358r || 5
+1787 || AR || || a159t || 1
+1741 || MSH2 || || e483* || 4
+2995 || KIT || || amplification || 2
+413 || TP53 || || r248k || 1
+321 || ROS1 || || ros1-cd74 fusion || 7
+3184 || TCF7L2 || || truncating mutations || 1
+74 || RAD50 || || deletion || 1
+1581 || MPL || || w515l || 7
+655 || CDKN2A || || g67s || 4
+2783 || BRCA2 || || s1424c || 6
+1860 || MTOR || || v2006l || 2
+2142 || KEAP1 || || truncating mutations || 1
+52 || PTPRT || || d927g || 4
+2075 || TET2 || || y1294a || 6
+2165 || PTEN || || p38l || 1
+2091 || ATR || || truncating mutations || 1
+3236 || NTRK3 || || fusions || 2
+1444 || SPOP || || f133l || 4
+947 || PDGFRB || || cep85l-pdgfrb fusion || 2
+2391 || PTPN11 || || d61n || 7
+2935 || BTK || || r544s || 2
+7 || CBL || || deletion || 1
+3225 || NTRK1 || || tpm3-ntrk1 fusion || 7
+1956 || ATM || || n2875k || 4
+3101 || RAC1 || || c18y || 7
+1102 || BAP1 || || truncating mutations || 1
+83 || RIT1 || || a77p || 7
+1988 || CTNNB1 || || s23r || 7
+2596 || BRCA1 || || g1788d || 1
+1085 || EZH2 || || y646s || 9
+3318 || RUNX1 || || fusions || 1
+2766 || BRAF || || l597v || 7
+2617 || BRCA1 || || v1736a || 4
+2983 || KIT || || c443y || 7
+58 || PTPRT || || f74s || 1
+2274 || BCOR || || bcor-rara fusion || 8
+1340 || AKT1 || || e267g || 2
+1487 || FGFR2 || || w290_i291delinsc || 7
+2219 || PTEN || || l23f || 4
+2956 || GNAS || || r201h || 7
+1743 || MSH2 || || r383* || 4
+1305 || MLH1 || || p654l || 6
+594 || SMAD4 || || v370d || 1
+3103 || RAC1 || || g12v || 7
+2309 || JAK1 || || r879c || 7
+2819 || BRCA2 || || y42c || 5
+160 || EGFR || || d761y || 2
+2901 || NF2 || || k413e || 6
+1156 || KMT2C || || truncating mutations || 1
+1153 || U2AF1 || || s34y || 9
+1887 || MTOR || || f2108l || 2
+1596 || VHL || || v155a || 4
+1458 || FGFR2 || || fgfr2-mgea5 fusion || 2
+2654 || BRCA1 || || c47g || 4
+1616 || VHL || || l118r || 1
+250 || EGFR || || i853t || 4
+2605 || BRCA1 || || v1665m || 5
+2290 || STAT3 || || s614r || 7
+446 || TP53 || || v272l || 1
+198 || EGFR || || exon 19 insertion || 7
+507 || TP53 || || t123a || 5
+2560 || BRCA1 || || m1411t || 6
+1563 || ALK || || v597a || 7
+2079 || TET2 || || m1293a || 6
+771 || ERBB2 || || g776_v777insyvma || 7
+1323 || MLH1 || || truncating mutations || 1
+1211 || PIK3CA || || g118d || 7
+3283 || RET || || e768d || 2
+1373 || AKT2 || || g161v || 9
+1777 || CREBBP || || r1446h || 1
+85 || RIT1 || || m90i || 7
+2613 || BRCA1 || || t1720i || 5
+167 || EGFR || || a864t || 7
+3217 || NTRK1 || || r342w || 7
+1235 || PIM1 || || e135k || 6
+1179 || PIK3CA || || n1044k || 7
+1163 || ARID1B || || truncating mutations || 1
+123 || SF3B1 || || e622d || 9
+2336 || JAK2 || || s1039f || 6
+46 || PTPRT || || t844m || 4
+1349 || AKT1 || || e49k || 7
+2057 || MYC || || igk-myc fusion || 7
+1737 || MSH2 || || a636p || 1
+246 || EGFR || || l838v || 7
+690 || CDKN2A || || r87p || 4
+1768 || IDH2 || || r172g || 8
+2942 || GNA11 || || q209l || 7
+180 || EGFR || || g719s || 7
+1623 || VHL || || s65l || 4
+2505 || BRCA1 || || d1739v || 4
+1797 || AR || || l272f || 5
+2724 || BRAF || || l597r || 2
+2604 || BRCA1 || || e1214k || 5
+456 || TP53 || || r158h || 4
+2812 || BRCA2 || || f1524v || 6
+2703 || BRAF || || trim24-braf fusion || 7
+2152 || PTEN || || a34d || 4
+1377 || AKT2 || || e17k || 7
+3306 || RUNX1 || || w279* || 1
+1454 || FGFR2 || || y375c || 7
+303 || TMPRSS2 || || t75m || 3
+331 || ROS1 || || lrig3-ros1 fusion || 7
+1868 || MTOR || || t1977k || 7
+2490 || BRCA1 || || g1788v || 4
+2370 || PTPN11 || || t73i || 7
+1792 || AR || || w742c || 7
+2716 || BRAF || || v487_p492delinsa || 2
+1598 || VHL || || h115r || 4
+1494 || FGFR2 || || k310r || 5
+3022 || KIT || || a502_y503dup || 7
+1041 || TSC2 || || l792r || 4
+3159 || KRAS || || q22e || 7
+1732 || MSH2 || || q337* || 4
+1155 || KMT2C || || a1685s || 4
+1921 || SMO || || n219d || 2
+2402 || NF1 || || s1463f || 4
+3250 || NSD1 || || nsd1-nup98 fusion || 2
+551 || SMAD2 || || r310h || 1
+1747 || MSH2 || || q429* || 4
+3230 || NTRK1 || || mprip-ntrk1 fusion || 7
+1220 || PIK3CB || || n553s || 2
+2084 || MYD88 || || l265p || 7
+1695 || PMS2 || || r802* || 1
+62 || PTPRT || || a1022e || 4
+1324 || MLH1 || || a120s || 4
+992 || TSC1 || || s35q || 4
+450 || TP53 || || y163c || 4
+18 || CBL || || m374v || 5
+3069 || NOTCH1 || || v1605del || 2
+238 || EGFR || || egfrviv || 7
+1161 || FAT1 || || truncating mutations || 1
+1925 || SMO || || i408v || 7
+6 || CBL || || v430m || 5
+2276 || BCOR || || deletion || 1
+304 || TMPRSS2 || || fusions || 2
+2827 || BRCA2 || || p1819s || 5
+1680 || FLT3 || || n841i || 7
+2177 || PTEN || || f347l || 4
+3108 || DNMT3B || || amplification || 2
+2723 || BRAF || || g464r || 7
+113 || MSH6 || || f1088lfs*5 || 4
+2112 || SRC || || q531* || 7
+2645 || BRCA1 || || s1164i || 1
+1821 || RHOA || || e40l || 2
+2249 || PTEN || || d24y || 4
+2198 || PTEN || || s170r || 4
+2562 || BRCA1 || || y1853c || 4
+449 || TP53 || || l348f || 1
+3286 || RET || || v804m || 7
+1469 || FGFR2 || || t341p || 7
+1332 || MLH1 || || r659l || 1
+1861 || MTOR || || i2500f || 7
+1594 || VHL || || l128f || 5
+3276 || RET || || r897q || 4
+2517 || BRCA1 || || e29v || 6
+2841 || BRCA2 || || l929s || 6
+2338 || JAK2 || || v1075f || 6
+1226 || PIK3CB || || d1067y || 7
+2908 || NF2 || || q324l || 5
+1750 || IDH1 || || y139d || 7
+1064 || EWSR1 || || ewsr1-creb1 fusion || 2
+1658 || FLT3 || || s840_n841insgs || 7
+87 || CCNE1 || || overexpression || 7
+2877 || BRCA2 || || k513r || 5
+2874 || BRCA2 || || d1420y || 6
+1734 || MSH2 || || d603n || 4
+2186 || PTEN || || a126g || 4
+1759 || IDH1 || || v294m || 5
+891 || PDGFRA || || g829r || 3
+486 || TP53 || || r175l || 4
+3139 || KRAS || || g12r || 7
+2138 || KEAP1 || || r320q || 4
+958 || KDM5C || || p480l || 4
+1481 || FGFR2 || || fgfr2-tacc3 fusion || 7
+2621 || BRCA1 || || r1699q || 4
+2973 || KIT || || y578c || 7
+2227 || PTEN || || r159g || 4
+1940 || CARD11 || || d387v || 2
+1585 || CARM1 || || s217t || 1
+1636 || MAP2K4 || || g85r || 4
+617 || FBXW7 || || r479l || 4
+1394 || FGFR3 || || k650e || 7
+2006 || MAP2K1 || || d65n || 5
+925 || PDGFRA || || bcr-pdgfra fusion || 7
+226 || EGFR || || a763_y764insfqea || 7
+353 || EP300 || || y1414c || 4
+2113 || SRC || || amplification || 2
+912 || PDGFRA || || amplification || 7
+218 || EGFR || || e746_t751delinsa || 7
+1018 || TSC2 || || t1623i || 4
+488 || TP53 || || r280a || 1
+2361 || STK11 || || deletion || 1
+1819 || RHOA || || e40t || 2
+101 || TGFBR2 || || deletion || 1
+1426 || FGFR3 || || k650n || 2
+995 || TSC1 || || r246k || 3
+1445 || SPOP || || y87n || 4
+2725 || BRAF || || papss1-braf fusion || 7
+1194 || PIK3CA || || r93w || 7
+2059 || MYCN || || amplification || 7
+3207 || RB1 || || w563l || 6
+1129 || MET || || x963_splice || 7
+3089 || NOTCH1 || || g2430a || 7
+337 || ROS1 || || c2060g || 2
+3002 || KIT || || a504_y505ins || 2
+1630 || MAP2K4 || || r154w || 4
+1822 || RHOA || || g17a || 4
+1273 || PIK3R2 || || d557h || 1
+2031 || MAP2K1 || || d67n || 7
+2496 || BRCA1 || || m1783l || 5
+208 || EGFR || || v774a || 2
+328 || ROS1 || || l1951r || 6
+1631 || MAP2K4 || || r228k || 4
+2377 || PTPN11 || || a72v || 7
+692 || CDKN2A || || g93w || 4
+2792 || BRCA2 || || t3349a || 6
+779 || ERBB3 || || q809r || 7
+1833 || PPP2R1A || || s256f || 1
+1054 || TSC2 || || l448p || 1
+390 || TP53 || || y220s || 4
+832 || ERCC4 || || deletion || 1
+2882 || BRCA2 || || d2723g || 1
+2557 || BRCA1 || || v1833e || 1
+2763 || BRAF || || k601e || 7
+1460 || FGFR2 || || g271e || 1
+979 || ETV1 || || fusions || 2
+1084 || EZH2 || || y646c || 9
+2172 || PTEN || || k125r || 3
+155 || EGFR || || e758g || 2
+1495 || FGFR2 || || d101y || 2
+1744 || MSH2 || || s860l || 5
+2884 || BRCA2 || || h2074n || 6
+863 || CEBPA || || truncating mutations || 1
+1990 || MAP2K1 || || l115r || 6
+84 || RIT1 || || a77t || 2
+2103 || CDK12 || || d887n || 1
+2492 || BRCA1 || || a1708e || 4
+1528 || ALK || || g1123s || 7
+1338 || KMT2A || || truncating mutations || 1
+3107 || DNMT3A || || truncating mutations || 1
+1352 || AKT1 || || g311d || 8
+2373 || PTPN11 || || e76k || 7
+686 || CDKN2A || || r112g || 4
+2153 || PTEN || || e157g || 4
+203 || EGFR || || l747_e749del || 7
+1199 || PIK3CA || || p449_l455del || 7
+1676 || FLT3 || || l611_e612inscssdneyfyvdfreyeydlkwefprenl || 7
+3247 || DDR2 || || amplification || 2
+482 || TP53 || || g334r || 3
+3315 || RUNX1 || || runx1-runx1t1 fusion || 4
+1437 || SPOP || || w131a || 1
+2912 || NFE2L2 || || e82g || 7
+2597 || BRCA1 || || s59r || 6
+1637 || MAP2K4 || || r304* || 4
+1379 || FGFR1 || || fgfr1op1-fgfr1 fusion || 7
+909 || PDGFRA || || t674i || 2
+1844 || IGF1R || || g1125a || 1
+254 || EGFR || || w731l || 7
+1782 || AR || || l702h || 7
+2590 || BRCA1 || || l28p || 6
+1807 || ARAF || || s214c || 7
+2484 || BRCA1 || || p1776s || 6
+260 || EGFR || || r841k || 1
+2281 || CIC || || truncating mutations || 1
+1433 || SPOP || || r121q || 4
+677 || CDKN2A || || d108n || 1
+270 || EGFR || || e709k || 7
+1661 || FLT3 || || r834q || 7
+234 || EGFR || || l703p || 2
+1157 || KMT2C || || deletion || 1
+2938 || NFKBIA || || e14* || 7
+197 || EGFR || || exon 20 insertion || 7
+2797 || BRCA2 || || r2304c || 6
+2375 || PTPN11 || || q79r || 2
+2420 || BRCA1 || || r1835p || 1
+903 || PDGFRA || || kif5b-pdgfra fusion || 7
+3064 || MED12 || || deletion || 1
+472 || TP53 || || a347t || 1
+1007 || TSC1 || || l180p || 4
+611 || CDK4 || || k22a || 7
+1629 || MAP2K4 || || v321m || 4
+1546 || ALK || || kif5b-alk fusion || 7
+1851 || CTCF || || truncating mutations || 1
+1224 || PIK3CB || || fusions || 2
+377 || TP53 || || p278s || 4
+1383 || FGFR1 || || e664k || 1
+426 || TP53 || || c275s || 4
+1462 || FGFR2 || || r203c || 7
+1907 || SMARCA4 || || g1232d || 4
+2236 || PTEN || || y16c || 4
+988 || ETV6 || || etv6-ntrk3 fusion || 7
+1276 || PIK3R2 || || s273c || 5
+1200 || PIK3CA || || h1047l || 7
+1817 || RHOA || || t19n || 4
+2760 || BRAF || || v600d_k601insfglat || 7
+1432 || SPOP || || m117v || 4
+1027 || TSC2 || || r905q || 4
+1055 || TSC2 || || p1709l || 1
+3198 || RASA1 || || l481f || 1
+3307 || RUNX1 || || truncating mutations || 1
+2039 || MAP2K2 || || f57c || 7
+2194 || PTEN || || h123d || 4
+470 || TP53 || || r248q || 1
+256 || EGFR || || t34_a289del || 7
+63 || PTPRT || || q984k || 4
+2858 || BRCA2 || || d2665g || 5
+88 || RYBP || || truncating mutations || 1
+505 || TP53 || || r267p || 2
+1435 || SPOP || || y87c || 4
+1272 || PIK3R2 || || n561d || 7
+400 || TP53 || || r273c || 1
+1580 || MPL || || w515k || 2
+1575 || SDHB || || s100f || 4
+2934 || FUBP1 || || truncating mutations || 1
+648 || CDKN2A || || q50* || 4
+2185 || PTEN || || t167a || 4
+534 || SMAD2 || || r321q || 4
+858 || ABL1 || || v289f || 2
+2133 || KEAP1 || || deletion || 1
+736 || ERBB2 || || t733i || 2
+1140 || MET || || x1008_splice || 7
+1978 || CTNNB1 || || g34v || 7
+1336 || FGF4 || || amplification || 6
+2230 || PTEN || || r130l || 4
+1015 || TSC2 || || truncating mutations || 1
+2322 || JAK2 || || spag9-jak2 fusion || 2
+2002 || MAP2K1 || || k97m || 4
+1205 || PIK3CA || || e542q || 2
+1948 || MEF2B || || y69h || 4
+2444 || BRCA1 || || k38n || 6
+2951 || BCL10 || || truncating mutations || 1
+3106 || DNMT3A || || deletion || 1
+2294 || WHSC1L1 || || amplification || 6
+2888 || BRCA2 || || r174c || 1
+2114 || GATA3 || || truncating mutations || 1
+2656 || BRCA1 || || m1663k || 5
+1532 || ALK || || strn-alk fusion || 2
+441 || TP53 || || m133t || 1
+1175 || PIK3CA || || v344a || 2
+1513 || ALK || || ranbp2-alk fusion || 7
+2616 || BRCA1 || || p1771l || 5
+1253 || PIK3R1 || || w237_y242del || 1
+2966 || KIT || || i563_l576del || 2
+1065 || EWSR1 || || ewsr1-etv4 fusion || 2
+572 || SMAD3 || || v277d || 4
+2035 || MAP2K2 || || k101m || 6
+2380 || PTPN11 || || m504v || 7
+106 || MSH6 || || g39e || 5
+1071 || FOXA1 || || g87r || 1
+1121 || MET || || v1188l || 7
+2682 || BRAF || || e501k || 6
+2268 || PTEN || || r173h || 4
+2343 || JAK2 || || amplification || 7
+36 || DICER1 || || g1809k || 4
+700 || CDKN2B || || a23e || 4
+463 || TP53 || || h179r || 4
+322 || ROS1 || || lima1-ros1 fusion || 2
+2293 || STAT3 || || f384v || 2
+2743 || BRAF || || d594v || 7
+2143 || KEAP1 || || g186r || 4
+2988 || KIT || || m541l || 2
+72 || RAD50 || || l234fs || 1
+388 || TP53 || || r248w || 4
+2531 || BRCA1 || || s1497a || 5
+818 || ERCC2 || || d423n || 1
+365 || EPAS1 || || a530t || 2
+1187 || PIK3CA || || e545k || 7
+2184 || PTEN || || g129a || 1
+275 || EGFR || || l838p || 2
+845 || ABL1 || || e459k || 2
+1798 || AR || || q120e || 5
+792 || ERBB4 || || d595v || 7
+2849 || BRCA2 || || h1966y || 6
+249 || EGFR || || g863s || 2
+703 || ERBB2 || || e812k || 6
+2440 || BRCA1 || || p1856s || 5
+3124 || KRAS || || y32s || 7
+2898 || BRCA2 || || g1529r || 6
+2789 || BRCA2 || || a2643g || 5
+1218 || PIK3CA || || e542v || 7
+251 || EGFR || || l833v || 7
+2588 || BRCA1 || || s4f || 6
+1419 || FGFR3 || || g375c || 7
+120 || PBRM1 || || n1333gfs* || 4
+1985 || CTNNB1 || || i35s || 7
+825 || BRIP1 || || r173c || 4
+444 || TP53 || || p316l || 1
+1709 || POLE || || s297f || 1
+323 || ROS1 || || v2098i || 2
+1682 || FLT3 || || e598_y599insglvqvtgssdneyfyvdfreye || 7
+253 || EGFR || || v769m || 2
+938 || PDGFRB || || fusions || 2
+1402 || FGFR3 || || k650q || 2
+3157 || KRAS || || f28l || 7
+1727 || APC || || a290t || 1
+720 || ERBB2 || || s310f || 7
+3146 || KRAS || || d153v || 7
+2940 || NFKBIA || || m37k || 2
+401 || TP53 || || e221q || 6
+545 || SMAD2 || || d300h || 1
+1524 || ALK || || i1171t || 7
+1185 || PIK3CA || || q60k || 5
+1230 || PIM1 || || l193f || 1
+923 || PDGFRA || || d842y || 7
+2431 || BRCA1 || || l1407p || 1
+815 || ERCC2 || || l461v || 1
+1969 || CTNNB1 || || k335i || 7
+1111 || FANCA || || h492r || 4
+1198 || PIK3CA || || amplification || 2
+2634 || BRCA1 || || w1718l || 1
+288 || BRD4 || || amplification || 7
+1659 || FLT3 || || a627t || 2
+2367 || JUN || || amplification || 7
+2756 || BRAF || || e586k || 7
+2 || CBL || || q249e || 2
+494 || TP53 || || y236d || 4
+701 || CDKN2C || || deletion || 1
+2360 || STK11 || || r304w || 4
+474 || TP53 || || i251s || 1
+2707 || BRAF || || r506_k507insvlr || 7
+492 || TP53 || || r248l || 1
+431 || TP53 || || r337h || 1
+1440 || SPOP || || s80r || 4
+730 || ERBB2 || || v750e || 5
+1365 || AKT1 || || r23a || 7
+750 || ERBB2 || || t798i || 8
+2199 || PTEN || || k125m || 4
+2304 || JAK1 || || y652h || 7
+2540 || BRCA1 || || k65m || 6
+929 || PDGFRA || || v544_l545insavlvllviviisli || 7
+340 || ROS1 || || fig-ros1 fusion || 7
+153 || EGFR || || l858m || 2
+2011 || MAP2K1 || || i111p || 2
+41 || DICER1 || || truncating mutations || 1
+596 || SMAD4 || || p130s || 4
+1928 || SMO || || amplification || 6
+2790 || BRCA2 || || l2106p || 6
+1439 || SPOP || || s119n || 4
+2851 || BRCA2 || || e2856a || 5
+2310 || JAK1 || || a634d || 7
+919 || PDGFRA || || v561d || 7
+1150 || MET || || t992i || 7
+281 || NKX2-1 || || amplification || 7
+1718 || KNSTRN || || s24f || 4
+1238 || PIK3CD || || e525k || 7
+460 || TP53 || || f341c || 1
+3032 || KIT || || n822i || 7
+2879 || BRCA2 || || w2626c || 6
+1645 || FLT3 || || f590g || 7
+627 || FBXW7 || || t205a || 2
+1207 || PIK3CA || || e579k || 2
+2648 || BRCA1 || || c44f || 4
+989 || TSC1 || || m224r || 4
+71 || CCND2 || || amplification || 2
+3074 || NOTCH1 || || i1680n || 7
+2920 || NFE2L2 || || t80k || 7
+1287 || HRAS || || q61l || 7
+2000 || MAP2K1 || || q56p || 7
+3189 || NRAS || || g13v || 2
+865 || ERG || || ewsr1-erg fusion || 7
+646 || CDKN2A || || l97r || 4
+2958 || MGA || || deletion || 1
+899 || PDGFRA || || d842_h845del || 7
+1489 || FGFR2 || || k641n || 2
+560 || SMAD3 || || y297a || 1
+887 || PDGFRA || || v536e || 7
+188 || EGFR || || exon 19 deletion || 7
+1166 || PIK3CA || || g106d || 2
+976 || ESR1 || || y537c || 7
+1028 || TSC2 || || v1673d || 1
+2860 || BRCA2 || || r2602t || 1
+1036 || TSC2 || || deletion || 1
+2287 || STAT3 || || d661y || 7
+2049 || SOS1 || || e846k || 7
+3291 || RET || || c620r || 7
+1766 || IDH2 || || r140q || 9
+79 || CCND3 || || t283a || 7
+12 || CBL || || r420q || 4
+778 || ERBB3 || || amplification || 7
+871 || PDGFRA || || c450_k451insmiewmi || 7
+1576 || RAD54L || || g325r || 4
+405 || TP53 || || c242f || 1
+383 || TP53 || || h115n || 6
+2780 || BRCA2 || || v894i || 6
+657 || CDKN2A || || r80p || 1
+3012 || KIT || || n822y || 2
+2283 || CIC || || fusions || 1
+1841 || SETD2 || || r1625c || 4
+972 || ESR1 || || v422del || 7
+2326 || JAK2 || || pcm1-jak2 fusion || 7
+761 || ERBB2 || || g309e || 7
+1961 || NUP93 || || k442nfs* || 1
+581 || SMAD4 || || r378a || 1
+1736 || MSH2 || || w345* || 4
+789 || ERBB4 || || y285c || 7
+2847 || BRCA2 || || d806h || 6
+2116 || GATA3 || || r177pfs*126 || 4
+264 || EGFR || || e868g || 7
+1075 || FOXA1 || || l455m || 1
+2650 || BRCA1 || || q1756c || 1
+2609 || BRCA1 || || i26n || 6
+112 || MSH6 || || e946* || 4
+475 || TP53 || || f134y || 1
+1738 || MSH2 || || a272v || 5
+3109 || DNMT3B || || dnmt3b7 || 8
+538 || SMAD2 || || w368h || 5
+542 || SMAD2 || || k420a || 1
+1829 || PPP2R1A || || p179r || 1
+747 || ERBB2 || || g309a || 7
+1339 || KMT2A || || fusions || 2
+591 || SMAD4 || || y513a || 6
+1374 || AKT2 || || fusions || 2
+3309 || RUNX1 || || d171g || 1
+2965 || KIT || || d816n || 7
+587 || SMAD4 || || r515g || 4
+3204 || RB1 || || l607i || 1
+3228 || NTRK1 || || tfg-ntrk1 fusion || 7
+2024 || MAP2K1 || || e144k || 7
+1372 || AKT2 || || r368c || 7
+2157 || PTEN || || a121v || 3
+2944 || KDR || || c482r || 2
+170 || EGFR || || egfrvv || 7
+537 || SMAD2 || || v319d || 1
+1191 || PIK3CA || || q546p || 7
+1808 || ARAF || || g322s || 7
+1936 || CARD11 || || g116s || 7
+729 || ERBB2 || || v842i || 7
+2238 || PTEN || || h61d || 4
+2403 || NF1 || || truncating mutations || 1
+1397 || FGFR3 || || d641n || 7
+2212 || PTEN || || g251c || 4
+3065 || NOTCH1 || || i1616n || 7
+384 || TP53 || || p219s || 4
+1542 || ALK || || f1245v || 7
+843 || ABL1 || || l387m || 2
+1549 || ALK || || l1204f || 3
+641 || CDKN1B || || truncating mutations || 1
+201 || EGFR || || l747f || 2
+2208 || PTEN || || a126s || 4
+746 || ERBB2 || || d821n || 2
+1541 || ALK || || l1198f || 7
+536 || SMAD2 || || f346v || 5
+810 || ERCC2 || || d609e || 1
+2462 || BRCA1 || || v1713a || 4
+650 || CDKN2A || || truncating mutations || 1
+3020 || KIT || || v559g || 7
+1069 || ACVR1 || || g328e || 2
+1886 || MTOR || || t1977s || 3
+1721 || KNSTRN || || p26s || 1
+1877 || MTOR || || l2230v || 7
+2137 || KEAP1 || || s243c || 4
+525 || TP53 || || r158c || 1
+452 || TP53 || || n235d || 4
+43 || DICER1 || || deletion || 1
+278 || EGFR || || g465e || 2
+3112 || RAD51C || || truncating mutations || 1
+1312 || MLH1 || || r659* || 4
+1653 || FLT3 || || i836del || 7
+3195 || NRAS || || t50i || 2
+907 || PDGFRA || || g853d || 7
+2610 || BRCA1 || || n1819s || 5
+575 || SMAD3 || || p336s || 4
+2226 || PTEN || || v343e || 4
+784 || ERBB4 || || ezr-erbb4 fusion || 7
+826 || BRIP1 || || truncating mutations || 1
+2061 || SOX9 || || f12l || 4
+2409 || NF1 || || r1204g || 4
