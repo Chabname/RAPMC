@@ -1,4 +1,4 @@
-ID || Gene || Variation || Class
+ID||Gene||Variation||Class
 696 || CDKN2B || || hypermethylation || 4
 2436 || BRCA1 || || m1689t || 1
 3044 || KIT || || y418_d419del || 7

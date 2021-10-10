@@ -1,4 +1,4 @@
-ID || Gene || Variation || Class
+ID||Gene||Variation||Class
 2003 || MAP2K1 || || e102_i103del || 7
 685 || CDKN2A || || i49s || 4
 2614 || BRCA1 || || m1r || 1
