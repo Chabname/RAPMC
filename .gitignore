@@ -4,5 +4,9 @@ datas/test_variants
 datas/training_text
 datas/training_variants
 src/__pycache__/*
+
 results/*.model
+!results/cbow_3284.model
+!results/cbow_time_compilation.txt
+
 notebook/.ipynb_checkpoints/*
