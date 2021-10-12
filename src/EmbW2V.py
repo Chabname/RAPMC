@@ -148,12 +148,12 @@ def show_similarities(mod_path, word_sim, top_number):
     model = Word2Vec.load(mod_path)
     try:
         sims_mut = model.wv.most_similar(word_sim, topn = top_number) 
-        print("List of words most similar to '" + word_sim + "' :")
-        print(sims_mut)
-        print("____________________________________________________________________")
+        #print("____________________________________________________________________")
+        return ("List of words most similar to {word} :\n {sim} \n").format(word=word_sim, sim=sims_mut)
     except:
-        print("this wrd does not exist into the model : " + word_sim)
-        pass
+        str_err = "this word does not exist into the model : {word}".format(word=word_sim)
+        print(str_err)
+        return str_err
    
 
 ######################################################
@@ -186,7 +186,7 @@ def model_test(f_path, type):
         cbow_test.cbow()
         print("__________________________Word similarities_________________________")
 
-        show_similarities(cbow_test.model_path,"mutation" ,20)
+        print(show_similarities(cbow_test.model_path,"mutation" ,20))
 
         print("____________________________________________________________________")
 
@@ -198,7 +198,7 @@ def model_test(f_path, type):
         skipgram_test.skipgram()
         print("__________________________Word similarities_________________________")
 
-        show_similarities(skipgram_test.model_path,"mutation" ,20)
+        print(show_similarities(skipgram_test.model_path,"mutation" ,20))
 
         print("____________________________________________________________________")
 
@@ -216,27 +216,39 @@ def model_test(f_path, type):
 ##                      TEST                       ##
 ######################################################
 
-#model_test("datas/cbl_clean_article.txt")
-#model_test("datas/sample_data_clean.txt")
-#model_test("datas/all_data_clean.txt")
+model_test("datas/700_score1_data_clean.txt","cbow")
 
+#with open('results/cbow_3284.txt', 'w') as f:
+#    print("__________________________CBOW SIMILARITIES_________________________", file=f)
+#    f.write(str(show_similarities("results/cbow_3284.model","mutation" ,20)))
+#    print("\n____________________________________________________________________", file=f)
+#    f.write(str(show_similarities("results/cbow_3284.model","cbl" ,20)))
+#    print("\n____________________________________________________________________", file=f)
+#    f.write(str(show_similarities("results/cbow_3284.model","ptprt" ,20)))
+#    print("\n____________________________________________________________________", file=f)
+#    f.write(str(show_similarities("results/cbow_3284.model","brca1" ,20)))
+#    print("\n____________________________________________________________________", file=f)
+#    f.write(str(show_similarities("results/cbow_3284.model","rheb" ,20)))
+#    print("\n____________________________________________________________________", file=f)
+#    f.write(str(show_similarities("results/cbow_3284.model","tert" ,20)))
+#    print("\n____________________________________________________________________", file=f)
+#    f.write(str(show_similarities("results/cbow_3284.model","mycn" ,20)))
+#    print("\n____________________________________________________________________", file=f)
+#    f.write(str(show_similarities("results/cbow_3284.model","v391i" ,20)))
+#    print("\n____________________________________________________________________", file=f)
+#    f.write(str(show_similarities("results/cbow_3284.model","truncating mutations" ,20)))
+#    print("\n____________________________________________________________________", file=f)
+#    f.write(str(show_similarities("results/cbow_3284.model","r1095h" ,20)))
+#    print("\n____________________________________________________________________", file=f)
+#    f.write(str(show_similarities("results/cbow_3284.model","f1088sfs*2" ,20)))
+#    print("\n____________________________________________________________________", file=f)
+#    f.write(str(show_similarities("results/cbow_3284.model","deletion" ,20)))
+#    print("\n____________________________________________________________________", file=f)
+#    f.write(str(show_similarities("results/cbow_3284.model","fusion" ,20)))
+#    print("\n____________________________________________________________________", file=f)
+#    f.write(str(show_similarities("results/cbow_3284.model","insertion" ,20)))
+#    print("\n____________________________________________________________________", file=f)
 
-#print("__________________________CBOW SIMILARITIES_________________________")
-#show_similarities("results/cbow_23.model","mutation" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_23.model","cbl" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_23.model","ptprt" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_23.model","brca1" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_23.model","rheb" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_23.model","tert" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_23.model","mycn" ,20)
-#print("____________________________________________________________________")
-#
 #
 #print("________________________SkipGram SIMILARITIES_______________________")
 #show_similarities("results/skipgram_23.model","mutation" ,20)
@@ -317,9 +329,11 @@ def model_test(f_path, type):
 #print("____________________________________________________________________")
 
 
-#model = Word2Vec.load("results/cbow_700_lem.model")
+model = Word2Vec.load("results/cbow_700_lem.model")
+print(model)
 #print(model.wv.vocab)
-#print(model.wv.index())
+#print(model.wv.index_to_key)
+#print(model.wv.key_to_index)
 
 ######################################################
 ##                      /TEST                       ##
