@@ -10,6 +10,8 @@ warnings.filterwarnings(action = 'ignore')
 from gensim.models import Word2Vec
 import time
 
+from wordcloud import WordCloud, STOPWORDS
+import matplotlib.pyplot as plt
 
 ######################################################
 ##                TEST Imports                      ##
@@ -156,6 +158,22 @@ def show_similarities(mod_path, word_sim, top_number):
         return str_err
    
 
+def plot_similarities(mod_path, words_sim, top_number):
+    model = Word2Vec.load(mod_path)
+    sims_mut = []
+    for word in words_sim:
+        sims_mut.append(model.wv.most_similar(word, topn = top_number))
+    for similarity in sims_mut:
+        text = ""
+        for word, dist in similarity:
+            word_freq = [word] * int(dist*1000)
+            text += " ".join(word_freq)
+        wordcloud = WordCloud(collocations=False).generate(text)
+        plt.imshow(wordcloud, interpolation='bilinear')
+        plt.axis("off")
+        plt.show()
+
+
 ######################################################
 ##                TEST Functions                    ##
 ######################################################
@@ -216,7 +234,9 @@ def model_test(f_path, type):
 ##                      TEST                       ##
 ######################################################
 
-model_test("datas/700_score1_data_clean.txt","cbow")
+#model_test("datas/700_score1_data_clean.txt","cbow")
+
+plot_similarities("results/cbow_3284.model",["l861p"] , 20)
 
 #with open('results/cbow_3284.txt', 'w') as f:
 #    print("__________________________CBOW SIMILARITIES_________________________", file=f)
