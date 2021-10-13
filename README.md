@@ -92,7 +92,7 @@ This create a new model whiwh will learn  by running `launch.py`
 | `--type` | Input **t**ype of the model to create | `both` |
 | `--winsize` | **s**ize of the context window for the model | `20` |
 
-> ⚠️ **Warning!**
+> ℹ️ **Info**
 >
 > `--type` takes only trhree values :
 > - cbow
