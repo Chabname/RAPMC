@@ -234,7 +234,7 @@ def model_test(f_path, type):
 ##                      TEST                       ##
 ######################################################
 
-#model_test("datas/700_score1_data_clean.txt","cbow")
+#model_test("datas/10_score1_data_clean.txt","both")
 
 plot_similarities("results/cbow_3284.model",["l861p"] , 20)
 
@@ -349,8 +349,8 @@ plot_similarities("results/cbow_3284.model",["l861p"] , 20)
 #print("____________________________________________________________________")
 
 
-model = Word2Vec.load("results/cbow_700_lem.model")
-print(model)
+#model = Word2Vec.load("results/cbow_700_lem.model")
+#print(model)
 #print(model.wv.vocab)
 #print(model.wv.index_to_key)
 #print(model.wv.key_to_index)

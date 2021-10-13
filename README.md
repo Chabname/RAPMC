@@ -25,7 +25,7 @@
 
 Install [**miniconda**](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) and [**git**](https://git-scm.com/).
 
-### StrucAlign environment
+### RAPMC environment
 
 Clone [RAPMC repository](https://github.com/Chabname/RAPMC).
 
@@ -47,6 +47,21 @@ And activate it.
 
 ### Modules
 
-- Word2Vec
-    - nltk (into KERAS env for conda)
-    - gensim (need to add into conda env)
+- wordcloud
+- numpy
+- pandas
+- seaborn
+- matplotlib
+- nltk
+- gensim
+- tensorflow
+- keras
+- sklearn
+- scikit-plot
+- jupyter
+
+```
+$ conda install numpy pandas seaborn matplotlib tensorflow keras nltk gensim jupyter
+$ pip install wordcloud scikit-plot sklearn
+
+```
