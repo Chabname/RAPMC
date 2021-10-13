@@ -1,4 +1,4 @@
-import nltk
+#import nltk
 #nltk.download('punkt')
 #nltk.download('wordnet')
 
@@ -10,6 +10,8 @@ warnings.filterwarnings(action = 'ignore')
 from gensim.models import Word2Vec
 import time
 
+from wordcloud import WordCloud, STOPWORDS
+import matplotlib.pyplot as plt
 
 ######################################################
 ##                TEST Imports                      ##
@@ -26,9 +28,9 @@ from Datas import Articles
 class EmbW2V:
     model_path="results/"
     
-    def __init__(self, datas):
+    def __init__(self, datas, win_size = 5):
         self.datas = datas
-
+        self.win_size = win_size
 
 
 
@@ -91,7 +93,7 @@ class EmbW2V:
 
         # Create CBOW model
         model = Word2Vec(self.datas.iloc[0]["Text"], min_count = 1, vector_size = 100,
-                        window = 5,  workers=4)
+                        window = self.win_size,  workers=4)
         model.save(self.model_path)
 
         for article in self.datas.iterrows():
@@ -121,7 +123,7 @@ class EmbW2V:
 
         # Create Skip Gram model
         model = Word2Vec(self.datas.iloc[0]["Text"], min_count = 1, vector_size = 100,
-                            window = 5, sg = 1,  workers=4)
+                            window = self.win_size, sg = 1,  workers=4)
         model.save(self.model_path)
 
         for article in self.datas.iterrows():
@@ -148,13 +150,29 @@ def show_similarities(mod_path, word_sim, top_number):
     model = Word2Vec.load(mod_path)
     try:
         sims_mut = model.wv.most_similar(word_sim, topn = top_number) 
-        print("List of words most similar to '" + word_sim + "' :")
-        print(sims_mut)
-        print("____________________________________________________________________")
+        #print("____________________________________________________________________")
+        return ("List of words most similar to {word} :\n {sim} \n").format(word=word_sim, sim=sims_mut)
     except:
-        print("this wrd does not exist into the model : " + word_sim)
-        pass
+        str_err = "this word does not exist into the model : {word}".format(word=word_sim)
+        print(str_err)
+        return str_err
    
+
+def plot_similarities(mod_path, words_sim, top_number):
+    model = Word2Vec.load(mod_path)
+    sims_mut = []
+    for word in words_sim:
+        sims_mut.append(model.wv.most_similar(word, topn = top_number))
+    for similarity in sims_mut:
+        text = ""
+        for word, dist in similarity:
+            word_freq = [word] * int(dist*1000)
+            text += " ".join(word_freq)
+        wordcloud = WordCloud(collocations=False).generate(text)
+        plt.imshow(wordcloud, interpolation='bilinear')
+        plt.axis("off")
+        plt.show()
+
 
 ######################################################
 ##                TEST Functions                    ##
@@ -171,7 +189,7 @@ def show_similarities(mod_path, word_sim, top_number):
 #       To run it : 
 #               Uncomment the line into the "TEST" section and run this file only
 #       DON'T FORGET to comment again after testing !
-def model_test(f_path, type): 
+def model_test(f_path, type, win_size): 
     print("_______________________________Word2Vec_____________________________")
     print("____________________________________________________________________")
     start_time = time.perf_counter()
@@ -180,25 +198,25 @@ def model_test(f_path, type):
     articles = Articles(f_path)
 
     if type in( "cbow", "both"):
-        cbow_test = EmbW2V(articles.datas)
+        cbow_test = EmbW2V(articles.datas, win_size)
         cbow_test.preprocess_datas()
 
         cbow_test.cbow()
         print("__________________________Word similarities_________________________")
 
-        show_similarities(cbow_test.model_path,"mutation" ,20)
+        print(show_similarities(cbow_test.model_path,"mutation" ,20))
 
         print("____________________________________________________________________")
 
 
     if type in ("skipgram", "both") :
-        skipgram_test = EmbW2V(articles.datas)
+        skipgram_test = EmbW2V(articles.datas, win_size)
         skipgram_test.preprocess_datas()
 
         skipgram_test.skipgram()
         print("__________________________Word similarities_________________________")
 
-        show_similarities(skipgram_test.model_path,"mutation" ,20)
+        print(show_similarities(skipgram_test.model_path,"mutation" ,20))
 
         print("____________________________________________________________________")
 
@@ -216,27 +234,41 @@ def model_test(f_path, type):
 ##                      TEST                       ##
 ######################################################
 
-#model_test("datas/cbl_clean_article.txt")
-#model_test("datas/sample_data_clean.txt")
-#model_test("datas/all_data_clean.txt")
+#model_test("datas/10_score1_data_clean.txt","both", 20)
 
+#plot_similarities("results/cbow_3284.model",["l861p"] , 20)
 
-#print("__________________________CBOW SIMILARITIES_________________________")
-#show_similarities("results/cbow_23.model","mutation" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_23.model","cbl" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_23.model","ptprt" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_23.model","brca1" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_23.model","rheb" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_23.model","tert" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_23.model","mycn" ,20)
-#print("____________________________________________________________________")
-#
+#with open('results/cbow_3284.txt', 'w') as f:
+#    print("__________________________CBOW SIMILARITIES_________________________", file=f)
+#    f.write(str(show_similarities("results/cbow_3284.model","mutation" ,20)))
+#    print("\n____________________________________________________________________", file=f)
+#    f.write(str(show_similarities("results/cbow_3284.model","cbl" ,20)))
+#    print("\n____________________________________________________________________", file=f)
+#    f.write(str(show_similarities("results/cbow_3284.model","ptprt" ,20)))
+#    print("\n____________________________________________________________________", file=f)
+#    f.write(str(show_similarities("results/cbow_3284.model","brca1" ,20)))
+#    print("\n____________________________________________________________________", file=f)
+#    f.write(str(show_similarities("results/cbow_3284.model","rheb" ,20)))
+#    print("\n____________________________________________________________________", file=f)
+#    f.write(str(show_similarities("results/cbow_3284.model","tert" ,20)))
+#    print("\n____________________________________________________________________", file=f)
+#    f.write(str(show_similarities("results/cbow_3284.model","mycn" ,20)))
+#    print("\n____________________________________________________________________", file=f)
+#    f.write(str(show_similarities("results/cbow_3284.model","v391i" ,20)))
+#    print("\n____________________________________________________________________", file=f)
+#    f.write(str(show_similarities("results/cbow_3284.model","truncating mutations" ,20)))
+#    print("\n____________________________________________________________________", file=f)
+#    f.write(str(show_similarities("results/cbow_3284.model","r1095h" ,20)))
+#    print("\n____________________________________________________________________", file=f)
+#    f.write(str(show_similarities("results/cbow_3284.model","f1088sfs*2" ,20)))
+#    print("\n____________________________________________________________________", file=f)
+#    f.write(str(show_similarities("results/cbow_3284.model","deletion" ,20)))
+#    print("\n____________________________________________________________________", file=f)
+#    f.write(str(show_similarities("results/cbow_3284.model","fusion" ,20)))
+#    print("\n____________________________________________________________________", file=f)
+#    f.write(str(show_similarities("results/cbow_3284.model","insertion" ,20)))
+#    print("\n____________________________________________________________________", file=f)
+
 #
 #print("________________________SkipGram SIMILARITIES_______________________")
 #show_similarities("results/skipgram_23.model","mutation" ,20)
@@ -318,8 +350,10 @@ def model_test(f_path, type):
 
 
 #model = Word2Vec.load("results/cbow_700_lem.model")
+#print(model)
 #print(model.wv.vocab)
-#print(model.wv.index())
+#print(model.wv.index_to_key)
+#print(model.wv.key_to_index)
 
 ######################################################
 ##                      /TEST                       ##
