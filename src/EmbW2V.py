@@ -1,9 +1,14 @@
+import nltk
+nltk.download('stopwords')
 from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.stem import WordNetLemmatizer
+from nltk.corpus import stopwords
+from nltk.tokenize import RegexpTokenizer
 import warnings
 warnings.filterwarnings(action = 'ignore')
 from gensim.models import Word2Vec
 import time
+import string
 
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
@@ -42,23 +47,25 @@ class EmbW2V:
         start_time = time.perf_counter()
         # Replaces escape character with space
         articles = self.datas.replace("\n", " ")
-
-        data = []
+        word_vector = []
         lemmatizer = WordNetLemmatizer()
 
         # Init the Wordnet Lemmatizer
-        for article in articles.iterrows():
+        for index, article in articles.iterrows():
             # iterate through each sentence in the file
-            for i in sent_tokenize(article[1]["Text"]):
+            for sentence in sent_tokenize(article["Text"]):
+                sent_clean = sentence.translate(str.maketrans('', '', string.punctuation))
                 temp = []
 
                 # tokenize the sentence into words
-                for j in word_tokenize(i):
-                    temp.append(lemmatizer.lemmatize(j.lower()))
+                list_words = list(set(word_tokenize(sent_clean)) - set(stopwords.words('english')))
+                for word in list_words:
+                    temp.append(lemmatizer.lemmatize(word.lower()))
 
-                data.append(temp)
-            article[1]["Text"] = data
-
+                word_vector.append(temp)
+            articles.loc[index]["Text"] = word_vector
+            print(word_vector)
+            #print(articles.loc[index]["Text"])
         self.datas = articles
         
 
@@ -99,6 +106,7 @@ class EmbW2V:
 
         for article in self.datas.iterrows():
             model = Word2Vec.load(self.model_path)
+            #print(article[1]["Text"])
             model.train(article[1]["Text"], total_examples = len(article), epochs=15)
 
         stop_time = time.perf_counter()
@@ -256,7 +264,8 @@ def model_test(f_path, type, win_size):
 ##                      TEST                       ##
 ######################################################
 
-#model_test("datas/10_score1_data_clean.txt","both", 20)
+model_test("datas/10_score1_data_clean.txt","both", 20)
+print(show_similarities("results/cbow_11.model","mutation" ,20))
 
 #plot_similarities("results/cbow_3284.model",["l861p"] , 20)
 
