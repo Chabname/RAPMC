@@ -47,6 +47,7 @@ And activate it.
 
 ### Modules
 
+- python 3.8.11
 - wordcloud
 - numpy
 - pandas
@@ -60,16 +61,18 @@ And activate it.
 - scikit-plot
 - jupyter
 
-### Memo For creating env manually
+### Creating manually the environment
 
 ```
+$ conda create env -n RAPMC python=3.8
+$ conda activate RAPMC
 $ conda install numpy pandas seaborn matplotlib tensorflow keras nltk gensim jupyter
 $ pip install wordcloud scikit-plot sklearn
 
 ```
 > ℹ️ **Info**
 >
-> If using the yaml file tese stpes are not necessary
+> If using the yaml, file these steps are not necessary
 
 
 
