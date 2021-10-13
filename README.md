@@ -67,3 +67,39 @@ $ conda install numpy pandas seaborn matplotlib tensorflow keras nltk gensim jup
 $ pip install wordcloud scikit-plot sklearn
 
 ```
+> ℹ️ **Info**
+>
+> If using the yaml file tese stpes are not necessary
+
+
+
+## Create a Word2Vec Model
+
+This create a new model whiwh will learn  by running `launch.py`
+
+> ⚠️ **Warning!**
+>
+> Run the script <u>**only** from the project's parent directory</u>:
+> 
+> `% python src/launch.py`
+
+ Options | Description | Default value |
+|:-------:|-------------|---------------|
+| `-caf` | Input **c**lean **a**rticle **f**ile | `datas/all_data_clean.txt` |
+| `--type` | Input **t**ype of the model to create | `both` |
+| `--winsize` | **s**ize of the context window for the model | `20` |
+
+> ⚠️ **Warning!**
+>
+> `--type` takes only trhree values :
+> - cbow
+> - skipgram
+> - both
+
+> **Exemple**
+>
+> ```
+> $ python src/launch.py --type skipgram 
+> ```
+
+
