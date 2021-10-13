@@ -60,6 +60,8 @@ And activate it.
 - scikit-plot
 - jupyter
 
+### Memo For creating env manually
+
 ```
 $ conda install numpy pandas seaborn matplotlib tensorflow keras nltk gensim jupyter
 $ pip install wordcloud scikit-plot sklearn
