@@ -1,4 +1,4 @@
-import nltk
+#import nltk
 #nltk.download('punkt')
 #nltk.download('wordnet')
 
@@ -28,9 +28,9 @@ from Datas import Articles
 class EmbW2V:
     model_path="results/"
     
-    def __init__(self, datas):
+    def __init__(self, datas, win_size = 5):
         self.datas = datas
-
+        self.win_size = win_size
 
 
 
@@ -93,7 +93,7 @@ class EmbW2V:
 
         # Create CBOW model
         model = Word2Vec(self.datas.iloc[0]["Text"], min_count = 1, vector_size = 100,
-                        window = 5,  workers=4)
+                        window = self.win_size,  workers=4)
         model.save(self.model_path)
 
         for article in self.datas.iterrows():
@@ -123,7 +123,7 @@ class EmbW2V:
 
         # Create Skip Gram model
         model = Word2Vec(self.datas.iloc[0]["Text"], min_count = 1, vector_size = 100,
-                            window = 5, sg = 1,  workers=4)
+                            window = self.win_size, sg = 1,  workers=4)
         model.save(self.model_path)
 
         for article in self.datas.iterrows():
@@ -189,7 +189,7 @@ def plot_similarities(mod_path, words_sim, top_number):
 #       To run it : 
 #               Uncomment the line into the "TEST" section and run this file only
 #       DON'T FORGET to comment again after testing !
-def model_test(f_path, type): 
+def model_test(f_path, type, win_size): 
     print("_______________________________Word2Vec_____________________________")
     print("____________________________________________________________________")
     start_time = time.perf_counter()
@@ -198,7 +198,7 @@ def model_test(f_path, type):
     articles = Articles(f_path)
 
     if type in( "cbow", "both"):
-        cbow_test = EmbW2V(articles.datas)
+        cbow_test = EmbW2V(articles.datas, win_size)
         cbow_test.preprocess_datas()
 
         cbow_test.cbow()
@@ -210,7 +210,7 @@ def model_test(f_path, type):
 
 
     if type in ("skipgram", "both") :
-        skipgram_test = EmbW2V(articles.datas)
+        skipgram_test = EmbW2V(articles.datas, win_size)
         skipgram_test.preprocess_datas()
 
         skipgram_test.skipgram()
@@ -234,9 +234,9 @@ def model_test(f_path, type):
 ##                      TEST                       ##
 ######################################################
 
-#model_test("datas/10_score1_data_clean.txt","both")
+#model_test("datas/10_score1_data_clean.txt","both", 20)
 
-plot_similarities("results/cbow_3284.model",["l861p"] , 20)
+#plot_similarities("results/cbow_3284.model",["l861p"] , 20)
 
 #with open('results/cbow_3284.txt', 'w') as f:
 #    print("__________________________CBOW SIMILARITIES_________________________", file=f)
