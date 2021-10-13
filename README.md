@@ -47,6 +47,7 @@ And activate it.
 
 ### Modules
 
+- python 3.8.11
 - wordcloud
 - numpy
 - pandas
@@ -60,10 +61,48 @@ And activate it.
 - scikit-plot
 - jupyter
 
-### Memo For creating env manually
+### Creating manually the environment
 
+> ℹ️ **Info**
+>
+> If using the yaml, file these steps are not necessary
 ```
+$ conda create env -n RAPMC python=3.8
+$ conda activate RAPMC
 $ conda install numpy pandas seaborn matplotlib tensorflow keras nltk gensim jupyter
 $ pip install wordcloud scikit-plot sklearn
 
 ```
+
+
+
+## Create a Word2Vec Model
+
+This create a new model whiwh will learn  by running `launch.py`
+
+> ⚠️ **Warning!**
+>
+> Run the script <u>**only** from the project's parent directory</u>:
+> 
+> `% python src/launch.py`
+
+ Options | Description | Default value |
+|:-------:|-------------|---------------|
+| `-caf` | Input **c**lean **a**rticle **f**ile | `datas/all_data_clean.txt` |
+| `--type` | Input **t**ype of the model to create | `both` |
+| `--winsize` | **s**ize of the context window for the model | `20` |
+
+> ℹ️ **Info**
+>
+> `--type` takes only trhree values :
+> - cbow
+> - skipgram
+> - both
+
+> **Exemple**
+>
+> ```
+> $ python src/launch.py --type skipgram 
+> ```
+
+
