@@ -63,6 +63,9 @@ And activate it.
 
 ### Creating manually the environment
 
+> ℹ️ **Info**
+>
+> If using the yaml, file these steps are not necessary
 ```
 $ conda create env -n RAPMC python=3.8
 $ conda activate RAPMC
@@ -70,9 +73,6 @@ $ conda install numpy pandas seaborn matplotlib tensorflow keras nltk gensim jup
 $ pip install wordcloud scikit-plot sklearn
 
 ```
-> ℹ️ **Info**
->
-> If using the yaml, file these steps are not necessary
 
 
 
