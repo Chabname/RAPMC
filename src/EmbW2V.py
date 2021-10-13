@@ -1,16 +1,11 @@
-#import nltk
-#nltk.download('punkt')
-#nltk.download('wordnet')
-
 from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.stem import WordNetLemmatizer
 import warnings
 warnings.filterwarnings(action = 'ignore')
-#import gensim
 from gensim.models import Word2Vec
 import time
 
-from wordcloud import WordCloud, STOPWORDS
+from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 
 ######################################################
@@ -28,7 +23,7 @@ from Datas import Articles
 class EmbW2V:
     model_path="results/"
     
-    def __init__(self, datas, win_size = 5):
+    def __init__(self, datas, win_size):
         self.datas = datas
         self.win_size = win_size
 
@@ -85,7 +80,13 @@ class EmbW2V:
     ## details : 
     #       
     def cbow(self):
+        """"
+    
+        Parameters:
 
+        Returns:
+
+        """
         print("_______________________________CBOW_____________________________")
         start_time = time.perf_counter()
         length_datas = len(self.datas)
@@ -115,6 +116,13 @@ class EmbW2V:
     ## details : 
     #       
     def skipgram(self): 
+        """"
+    
+        Parameters:
+
+        Returns:
+
+        """
         print("_______________________________Skip Gram_____________________________")  
         start_time = time.perf_counter()
 
@@ -147,6 +155,13 @@ class EmbW2V:
 ## details : 
 # 
 def show_similarities(mod_path, word_sim, top_number):
+    """"
+    
+    Parameters:
+        
+    Returns:
+        
+    """
     model = Word2Vec.load(mod_path)
     try:
         sims_mut = model.wv.most_similar(word_sim, topn = top_number) 
@@ -159,6 +174,13 @@ def show_similarities(mod_path, word_sim, top_number):
    
 
 def plot_similarities(mod_path, words_sim, top_number):
+    """"
+    
+    Parameters:
+        
+    Returns:
+        
+    """
     model = Word2Vec.load(mod_path)
     sims_mut = []
     for word in words_sim:
@@ -183,7 +205,7 @@ def plot_similarities(mod_path, words_sim, top_number):
 ## input :
 #       f_path : (string) 
 ## output :
-#       n 
+#       na 
 ## details : 
 #       This function is used to see the result of 
 #       To run it : 
@@ -269,84 +291,6 @@ def model_test(f_path, type, win_size):
 #    f.write(str(show_similarities("results/cbow_3284.model","insertion" ,20)))
 #    print("\n____________________________________________________________________", file=f)
 
-#
-#print("________________________SkipGram SIMILARITIES_______________________")
-#show_similarities("results/skipgram_23.model","mutation" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_23.model","cbl" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_23.model","ptprt" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_23.model","brca1" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_23.model","rheb" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_23.model","tert" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_23.model","mycn" ,20)
-#print("____________________________________________________________________")
-
-
-#print("__________________________CBOW SIMILARITIES_________________________")
-#show_similarities("results/cbow_700.model","mutation" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_700.model","cbl" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_700.model","ptprt" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_700.model","brca1" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_700.model","rheb" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_700.model","tert" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_700.model","mycn" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_700.model","v391i" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_700.model","truncating mutations" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_700.model","r1095h" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_700.model","f1088sfs*2" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_700.model","deletion" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_700.model","fusion" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_700.model","insertion" ,20)
-#print("____________________________________________________________________")
-#
-#
-#print("________________________SkipGram SIMILARITIES_______________________")
-#show_similarities("results/skipgram_700.model","mutation" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_700.model","cbl" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_700.model","ptprt" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_700.model","brca1" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_700.model","rheb" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_700.model","tert" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_700.model","mycn" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_700.model","v391i" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_700.model","truncating" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_700.model","r1095h" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_700.model","f1088sfs*2" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_700.model","deletion" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_700.model","fusion" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_700.model","insertion" ,20)
-#print("____________________________________________________________________")
 
 
 #model = Word2Vec.load("results/cbow_700_lem.model")

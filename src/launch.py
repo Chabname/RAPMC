@@ -11,14 +11,14 @@ import EmbW2V
 def main():
     """Launch the application"""
     parser = argparse.ArgumentParser()
-    parser.add_argument('-trt', 
-                        type=str, 
-                        default="datas/training_text", 
-                        help='File path of ')
-    parser.add_argument('-trv', 
-                        type=str, 
-                        default="result/training_variants", 
-                        help='File path of ')
+#    parser.add_argument('-trt', 
+#                        type=str, 
+#                        default="datas/training_text", 
+#                        help='File path of ')
+#    parser.add_argument('-trv', 
+#                        type=str, 
+#                        default="result/training_variants", 
+#                        help='File path of ')
 
     parser.add_argument('-caf',
                         type=str, 
@@ -30,7 +30,7 @@ def main():
                         help='Choose the type of the model between cbow or skipgram')
     parser.add_argument('--winsize', 
                         type=str, 
-                        default="5", 
+                        default="20", 
                         help='Give the context window size for cbow or skipgram')
     opt = parser.parse_args()
 
