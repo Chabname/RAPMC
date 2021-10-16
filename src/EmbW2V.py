@@ -15,7 +15,7 @@ import multiprocessing
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 
-from Epoch import EpochLogger
+#from Epoch import EpochLogger
 
 ######################################################
 ##                TEST Imports                      ##
