@@ -108,13 +108,13 @@ def model(data_file):
     model = build_model(bert_layer, max_len=500)
     model.summary()
 
-    checkpoint = tf.keras.callbacks.ModelCheckpoint('model_bert.h5', monitor='val_accuracy', save_best_only=True, verbose=1)
+    checkpoint = tf.keras.callbacks.ModelCheckpoint('../../results/model_bert.h5', monitor='val_accuracy', save_best_only=True, verbose=1)
     earlystopping = tf.keras.callbacks.EarlyStopping(monitor='val_accuracy', patience=3,verbose=1)
 
     train_sh = model.fit(
         train_input, YD_train,
         validation_split=0.2,
-        epochs=30,
+        epochs=2,
         callbacks=[checkpoint, earlystopping],
         batch_size=32,
         verbose=1
@@ -127,8 +127,7 @@ def model(data_file):
     plt.ylabel('loss')
     plt.xlabel('epoch')
     plt.legend(['train', 'val'], loc = 'upper left')
-    plt.show()
-    plt.savefig("loss_plot.PNG")
+    plt.savefig("../../results/loss_plot.PNG")
 
     plt.figure(1).clear()
     plt.plot(train_sh.history['accuracy'])
@@ -137,7 +136,7 @@ def model(data_file):
     plt.ylabel('Accuracy')
     plt.xlabel('Epoch')
     plt.legend(['Train', 'Test'], loc='upper left')
-    plt.savefig("acc_plot.jpg")
+    plt.savefig("../../results/acc_plot.jpg")
 
 
 
