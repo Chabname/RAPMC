@@ -114,7 +114,7 @@ def model(data_file):
     train_sh = model.fit(
         train_input, YD_train,
         validation_split=0.2,
-        epochs=2,
+        epochs=20,
         callbacks=[checkpoint, earlystopping],
         batch_size=32,
         verbose=1
