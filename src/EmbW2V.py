@@ -1,17 +1,21 @@
 #import nltk
-#nltk.download('punkt')
-#nltk.download('wordnet')
-
+#nltk.download('stopwords')
 from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.stem import WordNetLemmatizer
+#from nltk.corpus import stopwords
+#from nltk.tokenize import RegexpTokenizer
 import warnings
 warnings.filterwarnings(action = 'ignore')
-#import gensim
 from gensim.models import Word2Vec
 import time
+import sys
+import multiprocessing
+#import string
 
-from wordcloud import WordCloud, STOPWORDS
+from wordcloud import WordCloud
 import matplotlib.pyplot as plt
+
+#from Epoch import EpochLogger
 
 ######################################################
 ##                TEST Imports                      ##
@@ -27,10 +31,13 @@ from Datas import Articles
 
 class EmbW2V:
     model_path="results/"
-    
-    def __init__(self, datas, win_size = 5):
+
+    def __init__(self, datas, win_size, epoch, batch):
         self.datas = datas
         self.win_size = win_size
+        self.epoch = epoch
+        self.batch = batch
+        self.data_size = len(self.datas)
 
 
 
@@ -45,24 +52,32 @@ class EmbW2V:
     def preprocess_datas(self):
         print("_______________________________Preprocessing_____________________________")
         start_time = time.perf_counter()
+        prog = 0
+
         # Replaces escape character with space
         articles = self.datas.replace("\n", " ")
-
-        data = []
+        all_vect = []
         lemmatizer = WordNetLemmatizer()
-
         # Init the Wordnet Lemmatizer
         for article in articles.iterrows():
+            word_vector = []
             # iterate through each sentence in the file
-            for i in sent_tokenize(article[1]["Text"]):
+            for sentence in sent_tokenize(article[1]["Text"]):
+                #sent_clean = sentence.translate(str.maketrans('', '', string.punctuation))
                 temp = []
 
                 # tokenize the sentence into words
-                for j in word_tokenize(i):
-                    temp.append(lemmatizer.lemmatize(j.lower()))
+                #list_words = list(set(word_tokenize(sent_clean)) - set(stopwords.words('english')))
+                list_words = list(set(word_tokenize(sentence)))
+                for word in list_words:
+                    temp.append(lemmatizer.lemmatize(word))
 
-                data.append(temp)
-            article[1]["Text"] = data
+                word_vector.append(temp)
+
+            all_vect.append(word_vector)
+
+        
+        articles["Text"] = all_vect
 
         self.datas = articles
         
@@ -84,21 +99,24 @@ class EmbW2V:
     #       
     ## details : 
     #       
-    def cbow(self):
+    def cbow(self, workers, vec_size):
+        """"
+    
+        Parameters:
 
+        Returns:
+
+        """
         print("_______________________________CBOW_____________________________")
         start_time = time.perf_counter()
-        length_datas = len(self.datas)
-        self.model_path = self.model_path + "cbow_"+str(length_datas)+".model"
+        self.model_path = self.model_path + "cbow_"+str(self.data_size)+ "_" + str(self.win_size) + ".model"
 
         # Create CBOW model
-        model = Word2Vec(self.datas.iloc[0]["Text"], min_count = 1, vector_size = 100,
-                        window = self.win_size,  workers=4)
-        model.save(self.model_path)
-
-        for article in self.datas.iterrows():
-            model = Word2Vec.load(self.model_path)
-            model.train(article[1]["Text"], total_examples = len(article), epochs=15)
+        model = Word2Vec(self.datas.iloc[0]["Text"], min_count = 1, vector_size = vec_size,
+                        window = self.win_size,  workers=workers, batch_words = self.batch)
+        model.save(self.model_path)            
+            
+        self.train_model()
 
         stop_time = time.perf_counter()
         print("____________________________________________________________________")
@@ -114,21 +132,25 @@ class EmbW2V:
     #       
     ## details : 
     #       
-    def skipgram(self): 
+    def skipgram(self, workers, vec_size): 
+        """"
+    
+        Parameters:
+
+        Returns:
+
+        """
         print("_______________________________Skip Gram_____________________________")  
         start_time = time.perf_counter()
 
-        length_datas = len(self.datas)
-        self.model_path = self.model_path + "skipgram_"+str(length_datas)+".model"
+        self.model_path = self.model_path + "skipgram_"+str(self.data_size)+ "_" + str(self.win_size) + ".model"
 
         # Create Skip Gram model
-        model = Word2Vec(self.datas.iloc[0]["Text"], min_count = 1, vector_size = 100,
-                            window = self.win_size, sg = 1,  workers=4)
+        model = Word2Vec(self.datas.iloc[0]["Text"], min_count = 1, vector_size = vec_size,
+                            window = self.win_size, sg = 1,  workers=workers, batch_words = self.batch)
         model.save(self.model_path)
 
-        for article in self.datas.iterrows():
-            model = Word2Vec.load(self.model_path)
-            model.train(article[1]["Text"], total_examples = len(article), epochs=15)
+        self.train_model()
 
         
         stop_time = time.perf_counter()
@@ -136,6 +158,85 @@ class EmbW2V:
         print("Skip Gram finished in {} seconds".format(stop_time-start_time))
         print("____________________________________________________________________")
 
+
+    ## function : 
+    #       skipgram
+    ## input :
+    #       data : 
+    ## output :
+    #       
+    ## details : 
+    # 
+    def train_model(self):
+        prog = 0
+        for article in self.datas.iterrows():
+            self.progress(prog, self.data_size, status='Training the model')
+            #if article[0]==48:
+            #    print(article[1]["Text"])
+            #    break
+            model = Word2Vec.load(self.model_path)
+            model.train(article[1]["Text"], 
+                    total_examples = len(article), 
+                    epochs = self.epoch, 
+                    compute_loss = True) 
+                    #callbacks=[EpochLogger(self.epoch)])
+            
+            prog +=1
+
+    ## function : 
+    #       mod_path
+    ## input :
+    #       data : 
+    ## output :
+    #       
+    ## details : 
+    # 
+    def plot_similarities(self, words_sim, top_number):
+        """"
+
+        Parameters:
+
+        Returns:
+
+        """
+        model = Word2Vec.load(self.model_path)
+        sims_mut = []
+        
+        for word in words_sim:
+            try:
+                sims_mut.append(model.wv.most_similar(word, topn = top_number))
+            except:
+                str_err = "this word does not exist into the model : {word}".format(word=word)
+                print(str_err)
+        for similarity in sims_mut:
+            text = ""
+            for word, dist in similarity:
+                word_freq = [word] * int(dist*1000)
+                text += " ".join(word_freq)
+            wordcloud = WordCloud(collocations=False).generate(text)
+            plt.imshow(wordcloud, interpolation='bilinear')
+            plt.axis("off")
+            plt.show()
+
+
+
+    ## function : 
+    #       mod_path
+    ## input :
+    #       data : 
+    ## output :
+    #       
+    ## details : 
+    #   
+    def progress(self, count, total, status=''):
+        bar_len = 60
+        filled_len = int(round(bar_len * count / float(total)))
+
+        percents = round(100.0 * count / float(total), 1)
+        bar = '=' * filled_len + '-' * (bar_len - filled_len)
+
+        sys.stdout.write('[%s] %s%s ...%s\r' % (bar, percents, '%', status))
+        sys.stdout.flush()
 
 
 ## function : 
@@ -147,6 +248,13 @@ class EmbW2V:
 ## details : 
 # 
 def show_similarities(mod_path, word_sim, top_number):
+    """"
+    
+    Parameters:
+        
+    Returns:
+        
+    """
     model = Word2Vec.load(mod_path)
     try:
         sims_mut = model.wv.most_similar(word_sim, topn = top_number) 
@@ -158,20 +266,7 @@ def show_similarities(mod_path, word_sim, top_number):
         return str_err
    
 
-def plot_similarities(mod_path, words_sim, top_number):
-    model = Word2Vec.load(mod_path)
-    sims_mut = []
-    for word in words_sim:
-        sims_mut.append(model.wv.most_similar(word, topn = top_number))
-    for similarity in sims_mut:
-        text = ""
-        for word, dist in similarity:
-            word_freq = [word] * int(dist*1000)
-            text += " ".join(word_freq)
-        wordcloud = WordCloud(collocations=False).generate(text)
-        plt.imshow(wordcloud, interpolation='bilinear')
-        plt.axis("off")
-        plt.show()
+
 
 
 ######################################################
@@ -183,25 +278,28 @@ def plot_similarities(mod_path, words_sim, top_number):
 ## input :
 #       f_path : (string) 
 ## output :
-#       n 
+#       na 
 ## details : 
 #       This function is used to see the result of 
 #       To run it : 
 #               Uncomment the line into the "TEST" section and run this file only
 #       DON'T FORGET to comment again after testing !
-def model_test(f_path, type, win_size): 
+def model_test(f_path, type, win_size, epoch, batch): 
     print("_______________________________Word2Vec_____________________________")
     print("____________________________________________________________________")
     start_time = time.perf_counter()
+
+    cores = multiprocessing.cpu_count() 
 
     """Launch Word2Vec"""
     articles = Articles(f_path)
 
     if type in( "cbow", "both"):
-        cbow_test = EmbW2V(articles.datas, win_size)
+        cbow_test = EmbW2V(articles.datas, win_size, epoch, batch)
         cbow_test.preprocess_datas()
+        #print(cbow_test.datas["Text"][33])
 
-        cbow_test.cbow()
+        cbow_test.cbow(workers = cores, vec_size = 100)
         print("__________________________Word similarities_________________________")
 
         print(show_similarities(cbow_test.model_path,"mutation" ,20))
@@ -210,19 +308,20 @@ def model_test(f_path, type, win_size):
 
 
     if type in ("skipgram", "both") :
-        skipgram_test = EmbW2V(articles.datas, win_size)
-        skipgram_test.preprocess_datas()
+        #skipgram_test = EmbW2V(articles.datas, win_size, epoch, batch)
+        #skipgram_test.preprocess_datas()
 
-        skipgram_test.skipgram()
+        #skipgram_test.skipgram(workers = cores, vec_size = 100)
         print("__________________________Word similarities_________________________")
 
-        print(show_similarities(skipgram_test.model_path,"mutation" ,20))
+        #print(show_similarities(skipgram_test.model_path,"mutation" ,20))
 
         print("____________________________________________________________________")
 
     stop_time = time.perf_counter()
     print("____________________________________________________________________")
     print("Word2vec finished in {} seconds".format(stop_time-start_time))
+
 
 ######################################################
 ##                 /TEST  functions                 ##
@@ -234,119 +333,18 @@ def model_test(f_path, type, win_size):
 ##                      TEST                       ##
 ######################################################
 
-#model_test("datas/10_score1_data_clean.txt","both", 20)
+#model_test("datas/701_mix_data_clean.txt","both", 20, 100, 1000)
+#model_test("datas/all_data_clean.txt","both", 50, 500, 1000)
+#print(show_similarities("results/cbow_701.model","cell" ,20))
 
-#plot_similarities("results/cbow_3284.model",["l861p"] , 20)
-
-#with open('results/cbow_3284.txt', 'w') as f:
-#    print("__________________________CBOW SIMILARITIES_________________________", file=f)
-#    f.write(str(show_similarities("results/cbow_3284.model","mutation" ,20)))
-#    print("\n____________________________________________________________________", file=f)
-#    f.write(str(show_similarities("results/cbow_3284.model","cbl" ,20)))
-#    print("\n____________________________________________________________________", file=f)
-#    f.write(str(show_similarities("results/cbow_3284.model","ptprt" ,20)))
-#    print("\n____________________________________________________________________", file=f)
-#    f.write(str(show_similarities("results/cbow_3284.model","brca1" ,20)))
-#    print("\n____________________________________________________________________", file=f)
-#    f.write(str(show_similarities("results/cbow_3284.model","rheb" ,20)))
-#    print("\n____________________________________________________________________", file=f)
-#    f.write(str(show_similarities("results/cbow_3284.model","tert" ,20)))
-#    print("\n____________________________________________________________________", file=f)
-#    f.write(str(show_similarities("results/cbow_3284.model","mycn" ,20)))
-#    print("\n____________________________________________________________________", file=f)
-#    f.write(str(show_similarities("results/cbow_3284.model","v391i" ,20)))
-#    print("\n____________________________________________________________________", file=f)
-#    f.write(str(show_similarities("results/cbow_3284.model","truncating mutations" ,20)))
-#    print("\n____________________________________________________________________", file=f)
-#    f.write(str(show_similarities("results/cbow_3284.model","r1095h" ,20)))
-#    print("\n____________________________________________________________________", file=f)
-#    f.write(str(show_similarities("results/cbow_3284.model","f1088sfs*2" ,20)))
-#    print("\n____________________________________________________________________", file=f)
-#    f.write(str(show_similarities("results/cbow_3284.model","deletion" ,20)))
-#    print("\n____________________________________________________________________", file=f)
-#    f.write(str(show_similarities("results/cbow_3284.model","fusion" ,20)))
-#    print("\n____________________________________________________________________", file=f)
-#    f.write(str(show_similarities("results/cbow_3284.model","insertion" ,20)))
-#    print("\n____________________________________________________________________", file=f)
-
+#cbow_test = EmbW2V([], 0, 0, 0)
+#cbow_test.model_path = "results/cbow_3316_5.model"
+#cbow_test.plot_similarities(["mutation", "cell", "amplification", "egfr"] , 20)
 #
-#print("________________________SkipGram SIMILARITIES_______________________")
-#show_similarities("results/skipgram_23.model","mutation" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_23.model","cbl" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_23.model","ptprt" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_23.model","brca1" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_23.model","rheb" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_23.model","tert" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_23.model","mycn" ,20)
-#print("____________________________________________________________________")
+#cbow_test2 = EmbW2V([], 0, 0, 0)
+#cbow_test2.model_path = "results/cbow_3316_50.model"
+#cbow_test2.plot_similarities(["mutation", "cell", "amplification", "egfr"] , 20)
 
-
-#print("__________________________CBOW SIMILARITIES_________________________")
-#show_similarities("results/cbow_700.model","mutation" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_700.model","cbl" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_700.model","ptprt" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_700.model","brca1" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_700.model","rheb" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_700.model","tert" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_700.model","mycn" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_700.model","v391i" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_700.model","truncating mutations" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_700.model","r1095h" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_700.model","f1088sfs*2" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_700.model","deletion" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_700.model","fusion" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/cbow_700.model","insertion" ,20)
-#print("____________________________________________________________________")
-#
-#
-#print("________________________SkipGram SIMILARITIES_______________________")
-#show_similarities("results/skipgram_700.model","mutation" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_700.model","cbl" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_700.model","ptprt" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_700.model","brca1" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_700.model","rheb" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_700.model","tert" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_700.model","mycn" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_700.model","v391i" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_700.model","truncating" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_700.model","r1095h" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_700.model","f1088sfs*2" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_700.model","deletion" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_700.model","fusion" ,20)
-#print("____________________________________________________________________")
-#show_similarities("results/skipgram_700.model","insertion" ,20)
-#print("____________________________________________________________________")
 
 
 #model = Word2Vec.load("results/cbow_700_lem.model")
