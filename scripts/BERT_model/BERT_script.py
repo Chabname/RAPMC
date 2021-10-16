@@ -114,7 +114,7 @@ def model(data_file):
     train_sh = model.fit(
         train_input, YD_train,
         validation_split=0.2,
-        epochs=30,
+        epochs=2,
         callbacks=[checkpoint, earlystopping],
         batch_size=32,
         verbose=1
@@ -127,7 +127,6 @@ def model(data_file):
     plt.ylabel('loss')
     plt.xlabel('epoch')
     plt.legend(['train', 'val'], loc = 'upper left')
-    plt.show()
     plt.savefig("../../results/loss_plot.PNG")
 
     plt.figure(1).clear()
