@@ -61,7 +61,7 @@ def main():
     
 
     #EmbW2V.model_test(opt.caf, opt.type, opt.winsize, opt.epoch, opt.batch)
-    print("Num GPUs Available: ", len(tf.config.list_physical_devices('GPU')))
+    print("Num GPUs Available: ", len(tf.config.list_logical_devices('GPU')))
        
 
 main()
