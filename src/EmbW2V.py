@@ -1,5 +1,8 @@
-#import nltk
-#nltk.download('stopwords')
+import nltk
+nltk.download('punkt')
+nltk.download('wordnet')
+nltk.download('stopwords')
+
 from pickle import TRUE
 from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.stem import WordNetLemmatizer
@@ -212,6 +215,7 @@ class EmbW2V:
                 word_freq = [word] * int(dist*1000)
                 text += " ".join(word_freq)
             wordcloud = WordCloud(collocations=False).generate(text)
+            plt.figure(figsize=(20,10))
             plt.imshow(wordcloud, interpolation='bilinear')
             plt.axis("off")
             plt.show()
