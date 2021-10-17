@@ -66,8 +66,8 @@ def main():
 
     EmbW2V.main(opt.caf, opt.type, opt.winsize, opt.epoch, opt.batch, opt.stopword)
 
-    print(tf.__version__)
-    print("Num GPUs Available: ", len(tf.config.list_physical_devices()))
+    #print(tf.__version__)
+    #print("Num GPUs Available: ", len(tf.config.list_physical_devices()))
 
        
 
