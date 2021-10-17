@@ -9,6 +9,7 @@ scripts/BERT_model/__pycache__/*
 
 results/*.model
 !results/cbow_3284.model
-!results/cbow_time_compilation.txt
+!results/model1_time_compilation.txt
+!results/skipgram_3284.model
 
 notebook/.ipynb_checkpoints/*
