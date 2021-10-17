@@ -1,8 +1,9 @@
 #import nltk
 #nltk.download('stopwords')
+from pickle import TRUE
 from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.stem import WordNetLemmatizer
-#from nltk.corpus import stopwords
+from nltk.corpus import stopwords
 #from nltk.tokenize import RegexpTokenizer
 import warnings
 warnings.filterwarnings(action = 'ignore')
@@ -10,22 +11,16 @@ from gensim.models import Word2Vec
 import time
 import sys
 import multiprocessing
-#import string
+import string
 
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 
 #from Epoch import EpochLogger
 
-######################################################
-##                TEST Imports                      ##
-######################################################
 
 from Datas import Articles
 
-######################################################
-##                /TEST Imports                     ##
-######################################################
 
 
 
@@ -49,9 +44,10 @@ class EmbW2V:
     #       articles : (dataframe)
     ## details : 
     #       
-    def preprocess_datas(self):
+    def preprocess_datas(self, clean_stopword):
         print("_______________________________Preprocessing_____________________________")
         start_time = time.perf_counter()
+
         prog = 0
 
         # Replaces escape character with space
@@ -60,21 +56,24 @@ class EmbW2V:
         lemmatizer = WordNetLemmatizer()
         # Init the Wordnet Lemmatizer
         for article in articles.iterrows():
+            self.progress(prog, len(articles), status='Preparing Datas')
             word_vector = []
             # iterate through each sentence in the file
             for sentence in sent_tokenize(article[1]["Text"]):
-                #sent_clean = sentence.translate(str.maketrans('', '', string.punctuation))
+                sent_clean = sentence.translate(str.maketrans('', '', string.punctuation))
                 temp = []
-
                 # tokenize the sentence into words
-                #list_words = list(set(word_tokenize(sent_clean)) - set(stopwords.words('english')))
-                list_words = list(set(word_tokenize(sentence)))
+                if clean_stopword : 
+                    list_words = list(set(word_tokenize(sent_clean)) - set(stopwords.words('english')))
+                else:
+                    list_words = list(set(word_tokenize(sentence)))
                 for word in list_words:
                     temp.append(lemmatizer.lemmatize(word))
 
                 word_vector.append(temp)
 
             all_vect.append(word_vector)
+            prog += 1
 
         
         articles["Text"] = all_vect
@@ -109,7 +108,7 @@ class EmbW2V:
         """
         print("_______________________________CBOW_____________________________")
         start_time = time.perf_counter()
-        self.model_path = self.model_path + "cbow_"+str(self.data_size)+ "_" + str(self.win_size) + ".model"
+        self.model_path = self.model_path + "cbow_A" + str(self.data_size) + "_WS" + str(self.win_size) + "_E" + str(self.epoch) +"_B" + str(self.batch) +".model"
 
         # Create CBOW model
         model = Word2Vec(self.datas.iloc[0]["Text"], min_count = 1, vector_size = vec_size,
@@ -143,7 +142,7 @@ class EmbW2V:
         print("_______________________________Skip Gram_____________________________")  
         start_time = time.perf_counter()
 
-        self.model_path = self.model_path + "skipgram_"+str(self.data_size)+ "_" + str(self.win_size) + ".model"
+        self.model_path = self.model_path + "skipgram_A" + str(self.data_size) + "_WS" + str(self.win_size) + "_E" + str(self.epoch) +"_B" + str(self.batch) +".model"
 
         # Create Skip Gram model
         model = Word2Vec(self.datas.iloc[0]["Text"], min_count = 1, vector_size = vec_size,
@@ -178,8 +177,7 @@ class EmbW2V:
             model.train(article[1]["Text"], 
                     total_examples = len(article), 
                     epochs = self.epoch, 
-                    compute_loss = True) 
-                    #callbacks=[EpochLogger(self.epoch)])
+                    compute_loss = True)
             
             prog +=1
 
@@ -267,24 +265,15 @@ def show_similarities(mod_path, word_sim, top_number):
    
 
 
-
-
-######################################################
-##                TEST Functions                    ##
-######################################################
-
 ## function : 
-#       model_test
+#       main
 ## input :
 #       f_path : (string) 
 ## output :
 #       na 
 ## details : 
-#       This function is used to see the result of 
-#       To run it : 
-#               Uncomment the line into the "TEST" section and run this file only
-#       DON'T FORGET to comment again after testing !
-def model_test(f_path, type, win_size, epoch, batch): 
+#       
+def main(f_path, type, win_size, epoch, batch, stop_word): 
     print("_______________________________Word2Vec_____________________________")
     print("____________________________________________________________________")
     start_time = time.perf_counter()
@@ -296,7 +285,7 @@ def model_test(f_path, type, win_size, epoch, batch):
 
     if type in( "cbow", "both"):
         cbow_test = EmbW2V(articles.datas, win_size, epoch, batch)
-        cbow_test.preprocess_datas()
+        cbow_test.preprocess_datas(stop_word)
         #print(cbow_test.datas["Text"][33])
 
         cbow_test.cbow(workers = cores, vec_size = 100)
@@ -308,13 +297,13 @@ def model_test(f_path, type, win_size, epoch, batch):
 
 
     if type in ("skipgram", "both") :
-        #skipgram_test = EmbW2V(articles.datas, win_size, epoch, batch)
-        #skipgram_test.preprocess_datas()
+        skipgram_test = EmbW2V(articles.datas, win_size, epoch, batch)
+        skipgram_test.preprocess_datas(stop_word)
 
-        #skipgram_test.skipgram(workers = cores, vec_size = 100)
+        skipgram_test.skipgram(workers = cores, vec_size = 100)
         print("__________________________Word similarities_________________________")
 
-        #print(show_similarities(skipgram_test.model_path,"mutation" ,20))
+        print(show_similarities(skipgram_test.model_path,"mutation" ,20))
 
         print("____________________________________________________________________")
 
@@ -323,9 +312,6 @@ def model_test(f_path, type, win_size, epoch, batch):
     print("Word2vec finished in {} seconds".format(stop_time-start_time))
 
 
-######################################################
-##                 /TEST  functions                 ##
-######################################################
 
 
 
@@ -333,18 +319,27 @@ def model_test(f_path, type, win_size, epoch, batch):
 ##                      TEST                       ##
 ######################################################
 
-#model_test("datas/701_mix_data_clean.txt","both", 20, 100, 1000)
-#model_test("datas/all_data_clean.txt","both", 50, 500, 1000)
+#main("datas/701_mix_data_clean.txt","both", 20, 100, 1000, True)
+#main("datas/all_data_clean.txt", type = "both", win_size = 50, epoch = 500, batch = 1000, False)
 #print(show_similarities("results/cbow_701.model","cell" ,20))
 
 #cbow_test = EmbW2V([], 0, 0, 0)
 #cbow_test.model_path = "results/cbow_3316_5.model"
 #cbow_test.plot_similarities(["mutation", "cell", "amplification", "egfr"] , 20)
-#
-#cbow_test2 = EmbW2V([], 0, 0, 0)
-#cbow_test2.model_path = "results/cbow_3316_50.model"
-#cbow_test2.plot_similarities(["mutation", "cell", "amplification", "egfr"] , 20)
 
+#cbow_test2 = EmbW2V([], 0, 0, 0)
+#cbow_test2.model_path = "results/cbow_A3316_WS50_E500_B1000.model"
+#cbow_test2.plot_similarities(["mutation", "cell", "amplification", "egfr", "cancer", "heterozygous", "variant"] , 20)
+
+#cbow_test3 = EmbW2V([], 0, 0, 0)
+#cbow_test3.model_path = "results/cbow_3284.model"
+#cbow_test3.plot_similarities(["mutation", "cell", "amplification", "egfr"] , 20)
+#cbow_test3.plot_similarities(["cancer", "heterozygous", "variant"] , 20)
+#
+#skipgram_test = EmbW2V([], 0, 0, 0)
+#skipgram_test.model_path = "results/skipgram_3284.model"
+#skipgram_test.plot_similarities(["mutation", "cell", "amplification", "egfr"] , 20)
+#skipgram_test.plot_similarities(["cancer", "heterozygous", "variant"] , 20)
 
 
 #model = Word2Vec.load("results/cbow_700_lem.model")

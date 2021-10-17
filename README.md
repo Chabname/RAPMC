@@ -56,10 +56,13 @@ And activate it.
 - nltk
 - gensim
 - tensorflow
+- tensorflow_hub
 - keras
 - sklearn
 - scikit-plot
 - jupyter
+- transformers
+- sentencepiece
 
 ### Creating manually the environment
 
@@ -69,8 +72,8 @@ And activate it.
 ```
 $ conda create env -n RAPMC python=3.8
 $ conda activate RAPMC
-$ conda install numpy pandas seaborn matplotlib tensorflow keras nltk gensim jupyter
-$ pip install wordcloud scikit-plot sklearn
+$ conda install numpy pandas seaborn matplotlib tensorflow keras nltk gensim jupyter transformers
+$ pip install wordcloud scikit-plot sklearn tensorflow_hub sentencepiece
 
 ```
 

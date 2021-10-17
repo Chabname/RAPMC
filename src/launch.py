@@ -35,12 +35,16 @@ def main():
                         help='Give the context window size for cbow or skipgram')
     parser.add_argument('--epoch',
                         type=int, 
-                        default=100, 
+                        default=10000, 
                         help='Number of epoch : fraining word 2 vec modele')
     parser.add_argument('--batch', 
                         type=int, 
                         default=10000, 
                         help='Batch size for word 2 vec')
+    parser.add_argument('--stopword', 
+                        type=bool, 
+                        default=True, 
+                        help='Cleaning stop_words')
     opt = parser.parse_args()
 
 #    print("Training text = " + str(opt.trt))
@@ -58,10 +62,13 @@ def main():
     print("Number of epoch : " + str(opt.epoch))
     print("Batch size : " + str(opt.batch))
 
-    
+ 
 
-    #EmbW2V.model_test(opt.caf, opt.type, opt.winsize, opt.epoch, opt.batch)
-    print("Num GPUs Available: ", len(tf.config.list_logical_devices('GPU')))
+    EmbW2V.main(opt.caf, opt.type, opt.winsize, opt.epoch, opt.batch, opt.stopword)
+
+    print(tf.__version__)
+    print("Num GPUs Available: ", len(tf.config.list_physical_devices()))
+
        
 
 main()
