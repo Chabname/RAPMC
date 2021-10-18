@@ -92,8 +92,12 @@ This create a new model whiwh will learn  by running `launch.py`
  Options | Description | Default value |
 |:-------:|-------------|---------------|
 | `-caf` | Input **c**lean **a**rticle **f**ile | `datas/all_data_clean.txt` |
-| `--type` | Input **t**ype of the model to create | `both` |
-| `--winsize` | **s**ize of the context window for the model | `20` |
+|`-t`, `--type` | Input **t**ype of the model to create | `both` |
+| `-ws`, `--winsize` | **w**indow **s**ize of the context for the model | `20` |
+| `-e`, `--epoch` | Number of **e**poch for training the model | `20` |
+| `-b`, `--batch` | Number of **b**atch for training the model | `10000` |
+| `-sw`, `--stopword` | Deleting **s**top**w**ords | `True` |
+| `-r`, `--repeat` | **r**epeat the article vector to amplify datas | `2000` |
 
 > ℹ️ **Info**
 >
