@@ -65,17 +65,18 @@ def lemm(text):
     temp = []
     list_words = list(set(word_tokenize(text)))
     for word in list_words:
-        temp.append(lemmatizer.lemmatize(word))
+        if len(word) > 2:
+            temp.append(lemmatizer.lemmatize(word))
     return list(set(temp))
             
 
-def get_features(article, tokenizer, model):
+def get_features(lemmatized_text, tokenizer, model):
     token = []
     max_len = 0
-    
-    for chunk in lemm(article):
+    for chunk in lemmatized_text:
+
         token.append(tokenizer.encode(chunk, add_special_tokens=True))
-        
+
     for i in token:
         if len(i) > max_len:
             max_len = len(i)
@@ -94,9 +95,9 @@ def get_features(article, tokenizer, model):
         
     features = last_hidden_states[0][:,0,:].numpy()
     
-    print("SHAPE" ,features.shape)
     tsne = PCA(n_components=50)
     tsne_results = tsne.fit_transform(features.T)
+    print("SHAPE" ,features.shape, tsne_results.shape)
     
     return tsne_results.T.flatten()
 
@@ -114,18 +115,16 @@ def do_features_parallel(all_articles, args):
     final_dtf = pd.DataFrame(list(all_vec))
     return final_dtf
 
-# def testing_parallel(args):
-#     all_articles, dataset = get_data(args.data_file)
-
-#     dtf = do_features_parallel(all_articles.head(100), args)
-#     print(dtf)
-
 def model(args):
     clean_text, clean_dtf = get_data(args.data_file)
+    lemmatized_text = clean_text.apply(lambda line: lemm(line))
+    nb_word = lemmatized_text.apply(lambda line: len(line))
 
-    labels = pd.get_dummies(clean_dtf['Class'].head(10)).values
-    features = do_features_parallel(clean_text.head(10), args)
-    features.to_csv("../../datas/tsne_data.csv")
+    sup_50 = nb_word[nb_word > 50].index
+
+    labels = pd.get_dummies(clean_dtf.loc[sup_50,'Class']).values
+    features = do_features_parallel(lemmatized_text.loc[sup_50,], args)
+    features.to_csv("../../datas/pca_50_data.csv")
     XD_train, XD_test, YD_train, YD_test = train_test_split(features,
      labels, test_size = 0.2, random_state = 42)
 
