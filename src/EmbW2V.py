@@ -15,6 +15,7 @@ import time
 import sys
 import multiprocessing
 import string
+import numpy as np
 
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
@@ -47,7 +48,7 @@ class EmbW2V:
     #       articles : (dataframe)
     ## details : 
     #       
-    def preprocess_datas(self, clean_stopword):
+    def preprocess_datas(self, clean_stopword, repeat):
         print("_______________________________Preprocessing_____________________________")
         start_time = time.perf_counter()
 
@@ -74,8 +75,11 @@ class EmbW2V:
                     temp.append(lemmatizer.lemmatize(word))
 
                 word_vector.append(temp)
-
-            all_vect.append(word_vector)
+                #word_vector = np.repeat(word_vector, repeat, axis=0)
+            #repeats = np.tile(word_vector, (repeat, 1))
+            all_vect.append(np.repeat(word_vector, repeat, axis=0))
+            #print(all_vect)
+            #all_vect.append(word_vector)   
             prog += 1
 
         
@@ -173,7 +177,7 @@ class EmbW2V:
         prog = 0
         for article in self.datas.iterrows():
             self.progress(prog, self.data_size, status='Training the model')
-            #if article[0]==48:
+            #if article[0]==1:
             #    print(article[1]["Text"])
             #    break
             model = Word2Vec.load(self.model_path)
@@ -235,7 +239,7 @@ class EmbW2V:
         filled_len = int(round(bar_len * count / float(total)))
 
         percents = round(100.0 * count / float(total), 1)
-        bar = '=' * filled_len + '-' * (bar_len - filled_len)
+        bar = '#' * filled_len + '.' * (bar_len - filled_len)
 
         sys.stdout.write('[%s] %s%s ...%s\r' % (bar, percents, '%', status))
         sys.stdout.flush()
@@ -277,7 +281,7 @@ def show_similarities(mod_path, word_sim, top_number):
 #       na 
 ## details : 
 #       
-def main(f_path, type, win_size, epoch, batch, stop_word): 
+def main(f_path, type, win_size, epoch, batch, stop_word, repeat): 
     print("_______________________________Word2Vec_____________________________")
     print("____________________________________________________________________")
     start_time = time.perf_counter()
@@ -289,7 +293,7 @@ def main(f_path, type, win_size, epoch, batch, stop_word):
 
     if type in( "cbow", "both"):
         cbow_test = EmbW2V(articles.datas, win_size, epoch, batch)
-        cbow_test.preprocess_datas(stop_word)
+        cbow_test.preprocess_datas(stop_word, repeat)
         #print(cbow_test.datas["Text"][33])
 
         cbow_test.cbow(workers = cores, vec_size = 100)
@@ -302,7 +306,7 @@ def main(f_path, type, win_size, epoch, batch, stop_word):
 
     if type in ("skipgram", "both") :
         skipgram_test = EmbW2V(articles.datas, win_size, epoch, batch)
-        skipgram_test.preprocess_datas(stop_word)
+        skipgram_test.preprocess_datas(stop_word, repeat)
 
         skipgram_test.skipgram(workers = cores, vec_size = 100)
         print("__________________________Word similarities_________________________")
@@ -323,7 +327,7 @@ def main(f_path, type, win_size, epoch, batch, stop_word):
 ##                      TEST                       ##
 ######################################################
 
-#main("datas/701_mix_data_clean.txt","both", 20, 100, 1000, True)
+#main("datas/701_mix_data_clean.txt","both", 20, 20, 10000, True, 2000)
 #main("datas/all_data_clean.txt", type = "both", win_size = 50, epoch = 500, batch = 1000, False)
 #print(show_similarities("results/cbow_701.model","cell" ,20))
 
