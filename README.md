@@ -106,7 +106,7 @@ This create a new model whiwh will learn  by running `launch.py`
 > - skipgram
 > - both
 
-> **Exemple**
+> **Example**
 >
 > ```
 > $ python src/launch.py --type skipgram 
