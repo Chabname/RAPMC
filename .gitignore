@@ -11,5 +11,6 @@ results/*.model
 !results/cbow_3284.model
 !results/model1_time_compilation.txt
 !results/skipgram_3284.model
+!results/cbow_A3316_WS20_E10000_B10000.model
 
 notebook/.ipynb_checkpoints/*
