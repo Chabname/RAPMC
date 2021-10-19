@@ -98,6 +98,7 @@ This create a new model whiwh will learn  by running `launch.py`
 | `-b`, `--batch` | Number of **b**atch for training the model | `10000` |
 | `-sw`, `--stopword` | Deleting **s**top**w**ords | `True` |
 | `-r`, `--repeat` | **r**epeat the article vector to amplify datas | `2000` |
+| `-c`, `--concat` | **c**oncat all the articles before training | `True` |
 
 > ℹ️ **Info**
 >

@@ -1,25 +1,11 @@
-#import os
 import argparse
-#import pandas as pd
-#import re
-
-from Datas import Articles
-#from Datas import Variants
 import EmbW2V 
-import tensorflow as tf
+
 
 
 def main():
     """Launch the application"""
     parser = argparse.ArgumentParser()
-#    parser.add_argument('-trt', 
-#                        type=str, 
-#                        default="datas/training_text", 
-#                        help='File path of ')
-#    parser.add_argument('-trv', 
-#                        type=str, 
-#                        default="result/training_variants", 
-#                        help='File path of ')
 
     parser.add_argument('-caf',
                         type=str, 
@@ -36,7 +22,7 @@ def main():
     parser.add_argument('-e', '--epoch',
                         type=int, 
                         default=20, 
-                        help='Number of epoch : fraining word 2 vec modele')
+                        help='Number of epoch : fraining word2vec modele')
     parser.add_argument('-b', '--batch', 
                         type=int, 
                         default=10000, 
@@ -49,30 +35,27 @@ def main():
                         type=int, 
                         default=2000, 
                         help='Reapeating article vector to amplifie datas')
+    parser.add_argument('-c', '--concat', 
+                        type=bool, 
+                        default=True,
+                        help='Concat all articles and replace each articles by the concatenation')
     opt = parser.parse_args()
 
-#    print("Training text = " + str(opt.trt))
-#    print("Training variants = " + str(opt.trv))
-#
-#    train_text = Articles(opt.trt)
-#    #print(train_text)
-#
-#    train_variants = Variants(opt.trv)
-#    #print(train_variants)
+
 
     print("Clean file : " + str(opt.caf))
     print("Modele type : " + str(opt.type))
     print("Context window size : " + str(opt.winsize))
     print("Number of epoch : " + str(opt.epoch))
     print("Batch size : " + str(opt.batch))
+    print("Cleaning StopWords : " + str(opt.stopword))
     print("Repeat : " + str(opt.repeat))
+    print("concatening all articles : " + str(opt.concat))
 
  
 
-    EmbW2V.main(opt.caf, opt.type, opt.winsize, opt.epoch, opt.batch, opt.stopword, opt.repeat)
+    EmbW2V.main(opt.caf, opt.type, opt.winsize, opt.epoch, opt.batch, opt.stopword, opt.repeat, opt.concat)
 
-    #print(tf.__version__)
-    #print("Num GPUs Available: ", len(tf.config.list_physical_devices()))
 
        
 
