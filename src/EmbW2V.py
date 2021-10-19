@@ -192,40 +192,30 @@ class EmbW2V:
         split_filename = self.model_path.split("/")
         filename = split_filename[len(split_filename) - 1]
         loss_logger = LossLogger(filename)
-        data_length = 0
         if not self.concat:
-            data_length = self.data_size
-        else:
-            data_length = self.repeat
-            #for article in self.datas.iterrows():
-            #    self.progress(prog, self.data_size, status='Training the model')
-            #    #if article[0]==1:
-            #    #    print(article[1]["Text"])
-            #    #    break
-            #    model = Word2Vec.load(self.model_path)
-            #    model.train(article[1]["Text"], 
-            #            total_examples = len(article), 
-            #            epochs = self.epoch, 
-            #            callbacks=[loss_logger], 
-            #            compute_loss = True)
-            #    if loss_logger.epoch == self.epoch +1:
-            #        loss_logger.epoch=1
-            #    prog +=1
-        #else:
-        for i in range(data_length):
-            self.progress(prog, data_length, status='Training the model')
-            #if article[0]==1:
-            #    print(article[1]["Text"])
-            #    break
-            model = Word2Vec.load(self.model_path)
-            model.train(self.datas.iloc[i]["Text"], 
-                    total_examples = data_length, 
+            for article in self.datas.iterrows():
+                self.progress(prog, self.data_size, status='Training the model')
+                model = Word2Vec.load(self.model_path)
+                model.train(article[1]["Text"], 
+                    total_examples = len(article),
                     epochs = self.epoch, 
                     callbacks=[loss_logger], 
                     compute_loss = True)
-            if loss_logger.epoch == self.epoch +1:
-                loss_logger.epoch=1
-            prog +=1
+                if loss_logger.epoch == self.epoch +1:
+                    loss_logger.epoch=1
+                prog +=1
+        else:
+            for _ in range(self.repeat):
+                self.progress(prog, self.repeat, status='Training the model')
+                model = Word2Vec.load(self.model_path)
+                model.train(self.datas.iloc[0]["Text"], 
+                        total_examples = self.repeat, 
+                        epochs = self.epoch, 
+                        callbacks=[loss_logger], 
+                        compute_loss = True)
+                if loss_logger.epoch == self.epoch +1:
+                    loss_logger.epoch=1
+                prog +=1
 
     ## function : 
     #       mod_path
@@ -366,11 +356,39 @@ def main(f_path, type, win_size, epoch, batch, stop_word, repeat, concat):
 ##                      TEST                       ##
 ######################################################
 
-#main("datas/701_mix_data_clean.txt", type = "both", win_size = 50, epoch = 15, batch = 10000, stop_word = True, repeat = 2000, concat = True)
-#main("datas/701_mix_data_clean.txt", type = "both", win_size = 50, epoch = 15, batch = 10000, stop_word = True, repeat = 0, concat = False)
-#main("datas/701_mix_data_clean.txt", type = "both", win_size = 50, epoch = 15, batch = 10000, stop_word = True, repeat = 2000, concat = False)
-#main("datas/all_data_clean.txt", type = "both", win_size = 50, epoch = 500, batch = 1000, stop_word = False, repeat = 0, concat = True)
-#print(show_similarities("results/cbow_701.model","cell" ,20))
+#main("datas/701_mix_data_clean.txt", 
+#       type = "cbow", 
+#       win_size = 20, 
+#       epoch = 15, 
+#       batch = 10000, 
+#       stop_word = True, 
+#       repeat = 2000, 
+#       concat = True)
+main("datas/701_mix_data_clean.txt", 
+        type = "cbow", 
+        win_size = 20, 
+        epoch = 15, 
+        batch = 10000, 
+        stop_word = True, 
+        repeat = 200, 
+        concat = True)
+#main("datas/701_mix_data_clean.txt", 
+#       type = "both", 
+#       win_size = 50, 
+#       epoch = 15, 
+#       batch = 10000, 
+#       stop_word = True, 
+#       repeat = 0, 
+#       concat = False)
+#main("datas/701_mix_data_clean.txt", 
+#       type = "cbow", 
+#       win_size = 50, 
+#       epoch = 15, 
+#       batch = 10000, 
+#       stop_word = True, 
+#       repeat = 2000, 
+#       concat = False)
+
 
 
 #model = Word2Vec.load("results/cbow_700_lem.model")
