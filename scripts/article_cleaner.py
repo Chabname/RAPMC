@@ -244,6 +244,8 @@ def extract_match(line):
     # score 6 ?
     return text,7
 
+
+
 def prepare_datas(file_text, file_variant, file_out, is_training):
     print("____________________________Cleaning Datas__________________________")
     print("____________________________________________________________________")
@@ -280,6 +282,8 @@ def prepare_datas(file_text, file_variant, file_out, is_training):
     stop_time = time.perf_counter()
     print("____________________________________________________________________")
     print("Cleaning datas finished in {} seconds".format(stop_time-start_time))
+
+
 
 def main(is_training):
     if is_training:

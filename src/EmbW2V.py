@@ -318,7 +318,7 @@ def main(f_path, type, win_size, epoch, batch, stop_word, repeat, concat):
     cores = multiprocessing.cpu_count() 
 
     """Launch Word2Vec"""
-    articles = Articles(f_path)
+    articles = Articles(f_path, True)
 
     if type in( "cbow", "both"):
         cbow_test = EmbW2V(articles.datas, win_size, epoch, batch, concat, repeat)
