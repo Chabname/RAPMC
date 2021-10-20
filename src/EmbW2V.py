@@ -364,14 +364,14 @@ def main(f_path, type, win_size, epoch, batch, stop_word, repeat, concat):
 #       stop_word = True, 
 #       repeat = 2000, 
 #       concat = True)
-main("datas/701_mix_data_clean.txt", 
-        type = "cbow", 
-        win_size = 20, 
-        epoch = 15, 
-        batch = 10000, 
-        stop_word = True, 
-        repeat = 200, 
-        concat = True)
+#main("datas/701_mix_data_clean.txt", 
+#        type = "cbow", 
+#        win_size = 20, 
+#        epoch = 15, 
+#        batch = 10000, 
+#        stop_word = True, 
+#        repeat = 200, 
+#        concat = True)
 #main("datas/701_mix_data_clean.txt", 
 #       type = "both", 
 #       win_size = 50, 
