@@ -1,4 +1,7 @@
 import re
+import pandas as pd
+import numpy as np
+import time
 
 amino_acid_dict = {'C' : 'CYS', 'D' : 'ASP', 'S' : 'SER', 'Q' : 'GLN', 'K' : 'LYS',
     'I' : 'ILE', 'P' : 'PRO', 'T' : 'THR', 'F' : 'PHE', 'N' : 'ASN', 
@@ -240,3 +243,53 @@ def extract_match(line):
             
     # score 6 ?
     return text,7
+
+def prepare_datas(file_text, file_variant, file_out, is_training):
+    print("____________________________Cleaning Datas__________________________")
+    print("____________________________________________________________________")
+    start_time = time.perf_counter()
+
+    text = pd.read_csv(file_text, sep = '\|\|')
+    text.index.name = "ID"
+    text.columns = ["Text"]
+    variant = pd.read_csv(file_variant)
+    variant.set_index("ID",inplace = True)
+    
+    concatenate_data = pd.merge(variant, text, on="ID").dropna()
+    concatenate_data["Text"] = concatenate_data.apply(lambda line: clean_text(line["Text"]), axis = 1)
+    concatenate_data["Variation"] = variant["Variation"].apply(lambda line: line.lower())
+   
+
+    clean_match_data = concatenate_data.apply(lambda x: extract_match(x), axis = 1)
+    clean_match = pd.DataFrame(list(clean_match_data), columns = ["Text","Score"], index = clean_match_data.index)
+    clean_match.index.name = "ID"
+
+    new_data = pd.merge(concatenate_data,clean_match, on = "ID")
+    if(is_training):
+        final_data = new_data.loc[:,["Gene","Variation","Class","Text_y","Score"]]
+        final_data.columns = ["Gene","Variation","Class","Text","Score"]
+        dtf = pd.merge(pd.DataFrame(final_data.index), final_data, on ="ID")
+        np.savetxt(file_out,dtf, fmt = "%d || %s || %s || %d || %s || %d", header= "||".join(dtf.columns), comments='')
+    else:
+        final_data = new_data.loc[:,["Gene","Variation","Text_y","Score"]]
+        final_data.columns = ["Gene","Variation","Text","Score"]
+        dtf = pd.merge(pd.DataFrame(final_data.index), final_data, on ="ID")
+        np.savetxt(file_out,dtf, fmt = "%d || %s || %s || %s || %d", header= "||".join(dtf.columns), comments='')
+
+   
+    stop_time = time.perf_counter()
+    print("____________________________________________________________________")
+    print("Cleaning datas finished in {} seconds".format(stop_time-start_time))
+
+def main(is_training):
+    if is_training:
+        file_text = "datas/training_text"
+        file_variant = "datas/training_variants"
+        file_out = "datas/training_clean"
+    else:
+        file_text = "datas/test_text"
+        file_variant = "datas/test_variants"
+        file_out = "datas/test_clean"
+    prepare_datas(file_text, file_variant, file_out, is_training)
+
+main(False)
