@@ -23,7 +23,7 @@
 
 ## Installation
 
-### Requierments
+### Requierements
 
 Install [**miniconda**](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) and [**git**](https://git-scm.com/).
 
@@ -104,7 +104,7 @@ This create a new model which will learn  by running `train_embed.py`
 
 > ℹ️ **Info**
 >
-> `--type` takes only trhree values :
+> `--type` takes only thrree values :
 > - cbow
 > - skipgram
 > - both
@@ -132,7 +132,6 @@ This create a choosen model which will learn new aticles by running `new_learn_e
 |:-------:|-------------|---------------|
 | `-tc`, `-tc` | Input **c**lean **a**rticle **f**ile | `datas/all_data_clean.txt` |
 |`-tm`, `--testclean`| Input **c**lean **a**rticle **f**ile | None |
-|`-t`, `--type` | Input **t**ype of the model to create | None |
 | `-ws`, `--winsize` | **w**indow **s**ize of the context for the model | `20` |
 | `-e`, `--epoch` | Number of **e**poch for training the model | `20` |
 | `-b`, `--batch` | Number of **b**atch for training the model | `10000` |
@@ -140,29 +139,24 @@ This create a choosen model which will learn new aticles by running `new_learn_e
 | `-r`, `--repeat` | **r**epeat the article vector to amplify datas | `2000` |
 | `-c`, `--concat` | **c**oncat all the articles before training | `True` |
 
-> ℹ️ **Info**
->
-> `--type` takes only trhree values :
-> - cbow
-> - skipgram
 
 > **Example 1**
 >
 > ```
-> $ python src/new_learn_embed.py -t skipgram -tm datas/skipgram_3284.model
+> $ python src/new_learn_embed.py -tm datas/skipgram_3284.model
 > ```
 >**Example 2**
 >
 > ```
-> $ python src/new_learn_embed.py -t cbow -tm datas/cbow_3284.model
+> $ python src/new_learn_embed.py -tm datas/cbow_3284.model
 > ```
 >**Example 3**
 >
 > ```
-> $ python src/new_learn_embed.py -t cbow -tm datas/cbow_A3316_WS20_E15_B10000_R2000_CTrue.model
+> $ python src/new_learn_embed.py -tm datas/cbow_A3316_WS20_E15_B10000_R2000_CTrue.model
 > ```
 >**Example 4**
 >
 > ```
-> $ python src/new_learn_embed.py -t skipgram -tm datas/skipgram_A3316_WS20_E15_B10000_R2000_CTrue.model
+> $ python src/new_learn_embed.py -tm datas/skipgram_A3316_WS20_E15_B10000_R2000_CTrue.model
 > ```

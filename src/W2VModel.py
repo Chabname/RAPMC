@@ -48,7 +48,7 @@ class W2V(Model):
         emb_model.train_model()
 
 
-def main(data_file, learned_mod_path, type, win_size, epoch, batch, stopword, repeat, concat):
+def main(data_file, learned_mod_path, win_size, epoch, batch, stopword, repeat, concat):
     print("_________________________Model using Word2Vec_______________________")
     print("____________________________________________________________________")
     start_time = time.perf_counter()

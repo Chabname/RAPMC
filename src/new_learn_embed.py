@@ -22,10 +22,6 @@ def main():
                         type=str, 
                         help='File with all test text cleaned concatenate with gene',
                         required=True)
-    parser.add_argument('-t', '--type',
-                        type=str, 
-                        help='Choose the type of the model between cbow or skipgram',
-                        required=True,)
     parser.add_argument('-ws', '--winsize', 
                         type=int, 
                         default=20, 
@@ -56,7 +52,6 @@ def main():
 
     print("Clean file : " + str(opt.testclean))
     print("Modele path : " + str(opt.trainedmodel))
-    print("Modele type : " + str(opt.type))
     print("Context window size : " + str(opt.winsize))
     print("Number of epoch : " + str(opt.epoch))
     print("Batch size : " + str(opt.batch))
@@ -66,12 +61,11 @@ def main():
 
     W2VModel.main(str(opt.testclean), 
                 str(opt.trainedmodel),
-                type = str(opt.type), 
-                win_size = str(opt.winsize), 
-                epoch = str(opt.epoch), 
-                batch = str(opt.batch), 
-                stopword = str(opt.stopword), 
-                repeat = str(opt.repeat), 
-                concat = str(opt.concat))
+                win_size = opt.winsize, 
+                epoch = opt.epoch, 
+                batch = opt.batch, 
+                stopword = opt.stopword, 
+                repeat = opt.repeat, 
+                concat = opt.concat)
 
 main()
