@@ -19,6 +19,8 @@
 - [training_text](https://www.kaggle.com/c/msk-redefining-cancer-treatment/data?select=training_text.zipar)
 - [training_variants](https://www.kaggle.com/c/msk-redefining-cancer-treatment/data?select=training_variants.zip))
 
+<br><br>
+
 ## Installation
 
 ### Requierments
@@ -77,17 +79,17 @@ $ pip install wordcloud scikit-plot sklearn tensorflow_hub sentencepiece
 
 ```
 
-
+<br><br>
 
 ## Create a Word2Vec Model
 
-This create a new model whiwh will learn  by running `launch.py`
+This create a new model which will learn  by running `train_embed.py`
 
 > ⚠️ **Warning!**
 >
 > Run the script <u>**only** from the project's parent directory</u>:
 > 
-> `% python src/launch.py`
+> `% python src/train_embed.py`
 
  Options | Description | Default value |
 |:-------:|-------------|---------------|
@@ -110,7 +112,57 @@ This create a new model whiwh will learn  by running `launch.py`
 > **Example**
 >
 > ```
-> $ python src/launch.py --type skipgram 
+> $ python src/train_embed.py --type skipgram 
 > ```
 
 
+<br><br>
+
+## Train Word2Vec Model with new articles
+
+This create a choosen model which will learn new aticles by running `new_learn_embed.py`
+
+> ⚠️ **Warning!**
+>
+> Run the script <u>**only** from the project's parent directory</u>:
+> 
+> `% python src/train_embed.py`
+
+ Options | Description | Default value |
+|:-------:|-------------|---------------|
+| `-tc`, `-tc` | Input **c**lean **a**rticle **f**ile | `datas/all_data_clean.txt` |
+|`-tm`, `--testclean`| Input **c**lean **a**rticle **f**ile | None |
+|`-t`, `--type` | Input **t**ype of the model to create | None |
+| `-ws`, `--winsize` | **w**indow **s**ize of the context for the model | `20` |
+| `-e`, `--epoch` | Number of **e**poch for training the model | `20` |
+| `-b`, `--batch` | Number of **b**atch for training the model | `10000` |
+| `-sw`, `--stopword` | Deleting **s**top**w**ords | `True` |
+| `-r`, `--repeat` | **r**epeat the article vector to amplify datas | `2000` |
+| `-c`, `--concat` | **c**oncat all the articles before training | `True` |
+
+> ℹ️ **Info**
+>
+> `--type` takes only trhree values :
+> - cbow
+> - skipgram
+
+> **Example 1**
+>
+> ```
+> $ python src/new_learn_embed.py -t skipgram -tm datas/skipgram_3284.model
+> ```
+>**Example 2**
+>
+> ```
+> $ python src/new_learn_embed.py -t cbow -tm datas/cbow_3284.model
+> ```
+>**Example 3**
+>
+> ```
+> $ python src/new_learn_embed.py -t cbow -tm datas/cbow_A3316_WS20_E15_B10000_R2000_CTrue.model
+> ```
+>**Example 4**
+>
+> ```
+> $ python src/new_learn_embed.py -t skipgram -tm datas/skipgram_A3316_WS20_E15_B10000_R2000_CTrue.model
+> ```

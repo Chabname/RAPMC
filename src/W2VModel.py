@@ -27,7 +27,7 @@ class W2V(Model):
 
 
     def pre_processing(self):
-        articles = Articles(self.data_file)
+        articles = Articles(self.data_file, False)
         emb_model = EmbW2V(articles.datas, self.win_size, self.epoch, self.batch, self.concat, self.repeat)
         emb_model.preprocess_datas(self.stopword)
         return emb_model
@@ -44,8 +44,8 @@ class W2V(Model):
     def train_embeded_model(self):
         emb_model = self.pre_processing()
         emb_model.model_path = self.model_path
+        print("Path of the new model : " + emb_model.model_path)
         emb_model.train_model()
-        print(emb_model.model_path)
 
 
 def main(data_file, learned_mod_path, type, win_size, epoch, batch, stopword, repeat, concat):
@@ -64,15 +64,15 @@ def main(data_file, learned_mod_path, type, win_size, epoch, batch, stopword, re
     print("Word2vec finished in {} seconds".format(stop_time-start_time))
 
 
-main("datas/701_mix_data_clean.txt", 
-        "results/cbow_A701_WS20_E15_B10000_R20_CTrue.model",
-        type = "cbow", 
-        win_size = 20, 
-        epoch = 15, 
-        batch = 10000, 
-        stopword = True, 
-        repeat = 200, 
-        concat = True)
-
+#main("datas/sample_test_clean", 
+#        "results/cbow_A701_WS20_E15_B10000_R20_CTrue.model",
+#        type = "cbow", 
+#        win_size = 20, 
+#        epoch = 15, 
+#        batch = 10000, 
+#        stopword = True, 
+#        repeat = 20, 
+#        concat = True)
+#
 
     
