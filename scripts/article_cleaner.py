@@ -251,7 +251,7 @@ def prepare_datas(file_text, file_variant, file_out, is_training):
     print("____________________________________________________________________")
     start_time = time.perf_counter()
 
-    text = pd.read_csv(file_text, sep = '\|\|')
+    text = pd.read_csv(file_text, sep = '\|\|', engine='python')
     text.index.name = "ID"
     text.columns = ["Text"]
     variant = pd.read_csv(file_variant)
@@ -271,12 +271,12 @@ def prepare_datas(file_text, file_variant, file_out, is_training):
         final_data = new_data.loc[:,["Gene","Variation","Class","Text_y","Score"]]
         final_data.columns = ["Gene","Variation","Class","Text","Score"]
         dtf = pd.merge(pd.DataFrame(final_data.index), final_data, on ="ID")
-        np.savetxt(file_out,dtf, fmt = "%d || %s || %s || %d || %s || %d", header= "||".join(dtf.columns), comments='')
+        np.savetxt(file_out,dtf, fmt = "%d||%s||%s||%d||%s||%d", header= "||".join(dtf.columns), comments='')
     else:
         final_data = new_data.loc[:,["Gene","Variation","Text_y","Score"]]
         final_data.columns = ["Gene","Variation","Text","Score"]
         dtf = pd.merge(pd.DataFrame(final_data.index), final_data, on ="ID")
-        np.savetxt(file_out,dtf, fmt = "%d || %s || %s || %s || %d", header= "||".join(dtf.columns), comments='')
+        np.savetxt(file_out,dtf, fmt = "%d||%s||%s||%s||%d", header= "||".join(dtf.columns), comments='')
 
    
     stop_time = time.perf_counter()
