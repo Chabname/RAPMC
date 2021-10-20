@@ -1,5 +1,7 @@
 from nltk.corpus import stopwords
+import pandas as pd
 import re
+
 
 class Model:
     model_path="results/"
@@ -20,3 +22,12 @@ class Model:
         data = data.apply(lambda x: re.sub("⇓","",x))
     
         return data
+
+
+    def get_data(self, data_file):
+        dtf = pd.read_csv(data_file, sep = "\|\|", engine = "python")
+        X = self.pre_processing(dtf["Text"])
+        dataset = dtf.drop(columns = ["Score"], axis = 0)
+        return X, dataset
+    
+    
