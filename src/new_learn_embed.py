@@ -1,6 +1,5 @@
 import argparse
-import W2VModel 
-import os
+import W2VModel
 
 def choose_type():
     type_model = input("Enter the type of the model (cbow or skipgram) ")
