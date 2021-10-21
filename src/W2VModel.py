@@ -4,7 +4,6 @@ from EmbW2V import EmbW2V
 
 from gensim.models import Word2Vec
 import time
-import multiprocessing
 
 class W2V(Model):
     model_path="results/"
@@ -49,11 +48,9 @@ class W2V(Model):
 
 
 def main(data_file, learned_mod_path, win_size, epoch, batch, stopword, repeat, concat):
-    print("_________________________Model using Word2Vec_______________________")
+    print("__________________Training W2V Model with new datas_________________")
     print("____________________________________________________________________")
     start_time = time.perf_counter()
-
-    cores = multiprocessing.cpu_count() 
 
     w2vmodel = W2V(data_file, learned_mod_path, win_size, epoch, batch, concat, repeat, stopword)
     w2vmodel.copy_embeded_model()
@@ -61,7 +58,7 @@ def main(data_file, learned_mod_path, win_size, epoch, batch, stopword, repeat, 
 
     stop_time = time.perf_counter()
     print("____________________________________________________________________")
-    print("Word2vec finished in {} seconds".format(stop_time-start_time))
+    print("Training finished in {} seconds".format(stop_time-start_time))
 
 
 #main("datas/sample_test_clean", 
