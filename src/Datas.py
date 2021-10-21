@@ -6,7 +6,7 @@ class Articles:
     def __init__(self, f_path, is_training):
         """ Initialize the datas
         """
-        self.datas = pd.read_csv(f_path, sep = "\|\|", engine = 'python')
+        self.datas = pd.read_csv(f_path, sep = "\|\|\|", engine = 'python')
         if is_training:
             self.datas.columns = ["ID","Gene","Variation","Class","Text","Score"]
         else:
