@@ -10,7 +10,7 @@ class W2V(Model):
     model_path="results/"
 
     def __init__(self, data_file, learned_mod_path, win_size, epoch, batch, stopword, repeat, concat):
-        """ Initialize Low matrix before completing
+        """ Initialize Word2Vec model
 
         Keyword arguments:
                 data_file -- 
@@ -75,4 +75,10 @@ def main(data_file, learned_mod_path, win_size, epoch, batch, stopword, repeat, 
 #        concat = True)
 #
 
-    
+def test():
+    model = Word2Vec.load("datas/cbow_A3316_WS20_E20_B10000_R2000_CTrue.model")
+
+    print(model.wv.get_vector("egfr"))
+    #model.wv.index_to_key()
+
+test()

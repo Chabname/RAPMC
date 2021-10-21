@@ -50,6 +50,7 @@ And activate it.
 ### Modules
 
 - python 3.8.11
+- python-levenshtein
 - wordcloud
 - numpy
 - pandas
@@ -74,7 +75,7 @@ And activate it.
 ```
 $ conda create env -n RAPMC python=3.8
 $ conda activate RAPMC
-$ conda install numpy pandas seaborn matplotlib tensorflow keras nltk gensim jupyter transformers
+$ conda install numpy pandas seaborn matplotlib tensorflow keras nltk gensim jupyter transformers python-levenshtein
 $ pip install wordcloud scikit-plot sklearn tensorflow_hub sentencepiece
 
 ```

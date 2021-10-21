@@ -297,4 +297,4 @@ def main(is_training):
         file_out = "datas/test_clean"
     prepare_datas(file_text, file_variant, file_out, is_training)
 
-main(False)
+main(True)
