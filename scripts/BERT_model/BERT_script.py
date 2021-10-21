@@ -35,8 +35,7 @@ import sys
 from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.stem import WordNetLemmatizer
 from joblib import Parallel, delayed
-from sklearn.decomposition import PCA
-from sklearn.manifold import TSNE
+
 import transformers as ppb
 import matplotlib.pyplot as plt
 import math
@@ -200,10 +199,10 @@ def get_input_data(args):
     return features, labels
 
 def model(args):
-    features, labels = get_input_data(args)
+    # features, labels = get_input_data(args)
 
-    # features = pd.read_pickle("../../../data/array_data_scibert.pkl")
-    # labels = np.load("../../../data/labels_scibert.npy")
+    features = pd.read_pickle("../../../data/array_data_scibert_prot4.pkl")
+    labels = np.load("../../../data/labels_scibert.npy")
     XD_train, XD_test, YD_train, YD_test = train_test_split(features,
      labels, test_size = 0.2, random_state = 42, stratify=labels)
 
@@ -212,14 +211,15 @@ def model(args):
     # YD_train = YD_train.reshape(YD_train.shape[0],7)
 
     model = Sequential([
-        layers.Conv1D(128, 2, activation='relu',strides = 2, input_shape = (XD_train.shape[1],1)),
-        layers.MaxPooling1D(),
-        layers.Conv1D(256, 2, activation='relu',strides = 2),
-        layers.MaxPooling1D(2, strides=2),
-        # layers.LSTM(64, recurrent_dropout=0.2, dropout=0.2,input_shape = (XD_train.shape[1],1)),
-        layers.Flatten(),
-        layers.Dense(36, activation='relu'),
+        # layers.Conv1D(128, 2, activation='relu',strides = 2, input_shape = (XD_train.shape[1],1)),
+        # layers.MaxPooling1D(),
+        # layers.Conv1D(256, 2, activation='relu',strides = 2),
+        # layers.MaxPooling1D(2, strides=2),
+        # # layers.LSTM(64, recurrent_dropout=0.2, dropout=0.2,input_shape = (XD_train.shape[1],1)),
+        layers.Dense(126, activation='relu', input_shape = (XD_train.shape[1],1)),
         layers.Dropout(0.2),
+        layers.Flatten(),
+
         layers.Dense(9, activation='softmax')
     ])
     model.summary()
