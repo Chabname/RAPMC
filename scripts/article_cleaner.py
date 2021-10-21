@@ -79,6 +79,7 @@ def find_match(text, word):
     final_match = "".join(list(map(join_tuple_string, match_text)))
     return final_match
 
+
 def extract_match(line):
     
     
@@ -271,12 +272,12 @@ def prepare_datas(file_text, file_variant, file_out, is_training):
         final_data = new_data.loc[:,["Gene","Variation","Class","Text_y","Score"]]
         final_data.columns = ["Gene","Variation","Class","Text","Score"]
         dtf = pd.merge(pd.DataFrame(final_data.index), final_data, on ="ID")
-        np.savetxt(file_out,dtf, fmt = "%d||%s||%s||%d||%s||%d", header= "||".join(dtf.columns), comments='')
+        np.savetxt(file_out,dtf, fmt = "%d|||%s|||%s|||%d|||%s|||%d", header= "|||".join(dtf.columns), comments='')
     else:
         final_data = new_data.loc[:,["Gene","Variation","Text_y","Score"]]
         final_data.columns = ["Gene","Variation","Text","Score"]
         dtf = pd.merge(pd.DataFrame(final_data.index), final_data, on ="ID")
-        np.savetxt(file_out,dtf, fmt = "%d||%s||%s||%s||%d", header= "||".join(dtf.columns), comments='')
+        np.savetxt(file_out,dtf, fmt = "%d|||%s|||%s|||%s|||%d", header= "|||".join(dtf.columns), comments='')
 
    
     stop_time = time.perf_counter()
