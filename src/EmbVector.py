@@ -36,8 +36,7 @@ class Vector():
         prog = 0
         new_data = []
         not_found_var_list =[]
-
-        #TODO is_training ?
+        
         if self.is_training:
             datas_vect = pd.DataFrame(columns =['Gene', 'Variation', 'Sum', 'Class'])
         else:
@@ -46,31 +45,48 @@ class Vector():
         for _, row in datas_df.iterrows():
             self.progress(prog, size_datas_df, "Getting datas vectors")
             var_clean=""
+            gene_clean = clean_word(row['Gene'])
+
             try:
-                gene_clean = clean_word(row['Gene'])
                 vec_gene = self.model.wv.get_vector(gene_clean)
-                var_list = row['Variation'].split(" ")
-                
-                var_clean = clean_word(var_list[0])
-                vec_var = self.model.wv.get_vector(var_clean)
-                if(len(var_list)>1):
-                    for ind_var in range(1, len(var_list)):
-                        var_clean = clean_word(var_list[ind_var])
-                        vec_var = vec_var + self.model.wv.get_vector(var_clean)
-
-                if self.is_training:
-                    new_data.append([vec_gene, vec_var, vec_gene + vec_var, row['Class']])
-                else:
-                    new_data.append([vec_gene, vec_var, vec_gene + vec_var])
-
-                prog += 1
-
             except:
                 line = row
                 line['Target'] = var_clean
                 not_found_var_list.append(line)
                 prog += 1
                 continue
+
+            var_list = row['Variation'].split(" ")
+            
+            var_clean = clean_word(var_list[0])
+
+            try:
+                vec_var = self.model.wv.get_vector(var_clean)
+            except:
+                line = row
+                line['Target'] = var_clean
+                not_found_var_list.append(line)
+                prog += 1
+                continue
+
+            if(len(var_list)>1):
+                for ind_var in range(1, len(var_list)):
+                    var_clean = clean_word(var_list[ind_var])
+                    try:
+                        vec_var = vec_var + self.model.wv.get_vector(var_clean)
+                    except:
+                        line = row
+                        line['Target'] = var_clean
+                        not_found_var_list.append(line)
+                        prog += 1
+                        continue
+            if self.is_training:
+                new_data.append([vec_gene, vec_var, vec_gene + vec_var, row['Class']])
+            else:
+                new_data.append([vec_gene, vec_var, vec_gene + vec_var])
+            prog += 1
+
+            
 
         split_filename = self.model_path.split("/")
         modele_name = split_filename[len(split_filename) - 1]
@@ -92,6 +108,8 @@ class Vector():
                         fmt = "%s\t\t\t%s\t\t\t%s", 
                         header= "\t\t\t".join(not_found_var.columns), 
                         comments='')
+            
+        print(len(not_found_var))
         
         stop_time = time.perf_counter()
         print("____________________________________________________________________")
@@ -125,7 +143,7 @@ def main(data_file, model_path, is_training):
     
     
 
-#main("datas/test_clean", "datas/cbow_A3316_WS20_E20_B10000_R2000_CTrue.model", True)
+#main("datas/training_clean", "datas/cbow_A3316_WS20_E20_B10000_R2000_CTrue.model", True)
 #main("datas/training_clean", "datas/cbow_3284.model", True)
 #main("datas/training_clean", "datas/skipgram_3284.model", True)
 #main("datas/test_clean", "results/Copy_cbow_A701_WS20_E15_B10000_R200_CTrue.model", False)
