@@ -8,9 +8,11 @@ scripts/__pycache__/*
 scripts/BERT_model/__pycache__/*
 
 results/*.model
+results/log*
 !results/cbow_3284.model
 !results/model1_time_compilation.txt
 !results/skipgram_3284.model
 !results/cbow_A3316_WS20_E10000_B10000.model
+!results/cbow_A3316_WS20_E20_B10000_R2000_CTrue.model
 
 notebook/.ipynb_checkpoints/*
