@@ -85,5 +85,10 @@ if __name__ == "__main__":
     plot_pred(pred_scibert)
 
     # Saving the dataframe (without index !)
-    print(kaggle_dtf(model, features_kaggle))
-    #dtf.to_csv("../results/sci_bert_kaggle.csv",index = False)
+    # dtf.to_csv("../results/sci_bert_kaggle.csv",index = False)
+
+
+
+    # Direct way : 
+    # dtf = kaggle_dtf(model, features_kaggle)
+    # dtf.to_csv("../results/sci_bert_kaggle.csv",index = False)
