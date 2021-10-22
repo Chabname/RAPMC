@@ -63,7 +63,7 @@ if __name__ == "__main__":
 
     # Load test text data (vectorized / emmbedded)
 
-    # Here, vectorized with Scibert
+    # Data vectorized with Scibert
     features_kaggle = pd.read_pickle("../../data/array_full_data_scibert_KAGGLE.pkl")
 
     # Correct shape
