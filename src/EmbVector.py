@@ -23,7 +23,7 @@ class Vector():
         self.data_file = data_file
         self.is_training = is_training
 
-    def get_vector_datas(self):
+    def get_vector_datas(self, is_notebook):
         print("________________________Getting datas vectors_______________________")
         print("____________________________________________________________________")
         start_time = time.perf_counter()
@@ -36,6 +36,8 @@ class Vector():
         prog = 0
         new_data = []
         not_found_var_list =[]
+
+        log_file_path = ""
         
         if self.is_training:
             datas_vect = pd.DataFrame(columns =['Gene', 'Variation', 'Sum', 'Class'])
@@ -90,7 +92,9 @@ class Vector():
 
         split_filename = self.model_path.split("/")
         modele_name = split_filename[len(split_filename) - 1]
-        log_file_path = "results/log_not_found_words_" + modele_name + ".txt"
+        if is_notebook:
+            log_file_path = "../"
+        log_file_path += "results/log_not_found_words_" + modele_name + ".txt"
 
         if self.is_training:
             not_found_var = pd.DataFrame(not_found_var_list, columns =['Gene', 'Variation', 'Class', 'Target'])
@@ -109,13 +113,13 @@ class Vector():
                         header= "\t\t\t".join(not_found_var.columns), 
                         comments='')
             
-        print(len(not_found_var))
+        print("Number of genes/variations not foud : " + str(len(not_found_var)))
         
         stop_time = time.perf_counter()
         print("____________________________________________________________________")
         print("Getting vectors finished in {} seconds".format(stop_time-start_time))
 
-        return datas_vect
+        self.vectors = datas_vect
 
 
     def progress(self, count, total, status=''):
@@ -137,13 +141,14 @@ def clean_word(word):
     return clean_var
 
 
-def main(data_file, model_path, is_training):
-    vector = Vector(data_file, model_path, is_training)
-    vect = vector.get_vector_datas()
+def main(data_file, model_path, is_training, is_notebook):
+    datas = Vector(data_file, model_path, is_training)
+    datas.get_vector_datas(is_notebook)
+    print (datas.vectors)
     
     
 
-#main("datas/training_clean", "datas/cbow_A3316_WS20_E20_B10000_R2000_CTrue.model", True)
-#main("datas/training_clean", "datas/cbow_3284.model", True)
-#main("datas/training_clean", "datas/skipgram_3284.model", True)
-#main("datas/test_clean", "results/Copy_cbow_A701_WS20_E15_B10000_R200_CTrue.model", False)
+#main("datas/training_clean", "datas/cbow_A3316_WS20_E20_B10000_R2000_CTrue.model", True, False)
+#main("datas/training_clean", "datas/cbow_3284.model", True, False)
+#main("datas/training_clean", "datas/skipgram_3284.model", True, False)
+#main("datas/test_clean", "results/Copy_cbow_A701_WS20_E15_B10000_R200_CTrue.model", False, False)
