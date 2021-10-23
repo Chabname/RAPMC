@@ -66,6 +66,8 @@ And activate it.
 - jupyter
 - transformers
 - sentencepiece
+- pydot
+- graphviz
 
 ### Creating manually the environment
 
@@ -76,7 +78,7 @@ And activate it.
 $ conda create env -n RAPMC python=3.8
 $ conda activate RAPMC
 $ conda install numpy pandas seaborn matplotlib tensorflow keras nltk gensim jupyter transformers python-levenshtein
-$ pip install wordcloud scikit-plot sklearn tensorflow_hub sentencepiece
+$ pip install wordcloud scikit-plot sklearn tensorflow_hub sentencepiece pydot graphviz
 
 ```
 

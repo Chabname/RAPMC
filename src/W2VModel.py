@@ -75,7 +75,9 @@ def main(data_file, learned_mod_path, win_size, epoch, batch, stopword, repeat, 
 def test():
     model = Word2Vec.load("datas/cbow_A3316_WS20_E20_B10000_R2000_CTrue.model")
 
-    print(model.wv.get_vector("egfr"))
+    #print(model.wv.get_vector("egfr"))
+    print(model.wv.most_similar(positive=['mutation', 'egfr'], negative=['cdkn2c','8p','clcs','9p23–24']))
+    
     #model.wv.index_to_key()
 
 test()
