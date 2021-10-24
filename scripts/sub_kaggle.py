@@ -23,7 +23,7 @@ def predict_class(model, text_x):
 
     
 def get_sub(one_hot_pred):
-    """Get the dataframe in Kaggle format"""
+    """Get the dataframe in Kaggle format (stage 1 and stage 2)"""
 
     # Dataframe with class columns
     all_pred = pd.DataFrame(one_hot_pred,
@@ -33,9 +33,15 @@ def get_sub(one_hot_pred):
     # Adding ID column
     pred_dtf = pd.concat([pd.DataFrame(all_pred.index, columns = ["ID"]), all_pred], axis = 1)
 
-    # Kaggle need only ID 1:986
-    pred_kaggle = pred_dtf.loc[1:986]
-    return pred_kaggle
+    # Kaggle need only ID 1:986 if stage 1 data
+    try:
+        pred_dtf.loc[987]
+    except:# if stage 2, add 1 on ID value (intial ID : 0:985 --> 986 row but Kaggle need a ID = 986)
+        pred_dtf["ID"] = pred_dtf["ID"].apply(lambda x: x+1)
+    else: 
+        pred_dtf = pred_dtf.loc[1:986]
+
+    return pred_dtf
 
     
 def plot_pred(class_pred):
@@ -86,8 +92,6 @@ if __name__ == "__main__":
 
     # Saving the dataframe (without index !)
     # dtf.to_csv("../results/sci_bert_kaggle.csv",index = False)
-
-
 
     # Direct way : 
     # dtf = kaggle_dtf(model, features_kaggle)
