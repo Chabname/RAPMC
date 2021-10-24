@@ -3,13 +3,14 @@ import numpy as np
 
 import string
 import time
-import multiprocessing
 import sys 
 
 from Datas import Articles
 
 from gensim.models import Word2Vec
 from nltk.stem import WordNetLemmatizer
+from nltk.tokenize import sent_tokenize, word_tokenize
+from nltk.corpus import stopwords
 
 class Vector():
     def __init__(self, data_file, model_path, is_training):
@@ -109,21 +110,20 @@ class Vector():
 
 
             if type_sum == "clean_art":
-                art_list = row['Text'].split(" ")
-            
-                art_clean = clean_word(art_list[0])
+                article = preprocess_article(row['Text'])
                 vec_art =  np.full((1, 100), 0)
-
-                for ind_art in range(len(art_list)):
-                    art_clean = clean_word(art_list[ind_art])
-                    try:
-                        vec_art = vec_art + self.model.wv.get_vector(art_clean)
-                    except:
-                        line = row
-                        line['Target'] = art_clean
-                        not_found_art_list.append(line)
-                        continue
+                for sentence in article :
+                    for word in sentence:
+                        try:
+                            vec_art = vec_art + self.model.wv.get_vector(word)
+                        except:
+                            line = row
+                            line['Target'] = word
+                            not_found_art_list.append(line)
+                            continue
                 sum_vec = vec_art
+
+
 
             prog += 1
             if self.is_training:
@@ -181,6 +181,23 @@ class Vector():
         sys.stdout.flush()
 
 
+def preprocess_article(article):
+    # Replaces escape character with space
+    word_vector = []
+    lemmatizer = WordNetLemmatizer()
+    # Init the Wordnet Lemmatizer
+    word_vector = []
+    # iterate through each sentence in the file
+    for sentence in sent_tokenize(article):
+        sent_clean = sentence.translate(str.maketrans('', '', string.punctuation))
+        temp = []
+        # tokenize the sentence into words
+        list_words = list(set(word_tokenize(sent_clean)) - set(stopwords.words('english')))
+        for word in list_words:
+            temp.append(lemmatizer.lemmatize(word))
+        word_vector.append(temp)
+    return word_vector
+
 
 def clean_word(word):
     lemmatizer = WordNetLemmatizer()
@@ -195,7 +212,7 @@ def main(data_file, model_path, is_training, is_notebook):
         top_number only use with best_sim or sim_gene_var
     """
     datas = Vector(data_file, model_path, is_training)
-    datas.get_vector_datas(is_notebook,"sim_gene_var")
+    datas.get_vector_datas(is_notebook,"gene_var")
     print (datas.vectors['Sum'])
     
     
