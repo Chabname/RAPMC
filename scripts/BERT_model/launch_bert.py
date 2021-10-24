@@ -42,7 +42,7 @@ def main():
 
     config = tf.compat.v1.ConfigProto()
     config.gpu_options.allow_growth = True 
-    config.gpu_options.per_process_gpu_memory_fraction = 0.99
+    config.gpu_options.per_process_gpu_memory_fraction = 0.80
 
     session = tf.compat.v1.Session(config=config)
     os.environ["TF_GPU_ALLOCATOR"] = "cuda_malloc_async"
