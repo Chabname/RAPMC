@@ -10,7 +10,7 @@ def main():
     parser.add_argument('-i',
                         dest = "data_file",                  
                         type=str, 
-                        default="../../datas/all_data_clean.txt", 
+                        default="../../../data/concat_text_class.txt", 
                         help='Cleaned articles')
     parser.add_argument('-c',
                         dest = "cpu",                  
@@ -42,7 +42,7 @@ def main():
 
     config = tf.compat.v1.ConfigProto()
     config.gpu_options.allow_growth = True 
-    config.gpu_options.per_process_gpu_memory_fraction = 0.7
+    config.gpu_options.per_process_gpu_memory_fraction = 0.80
 
     session = tf.compat.v1.Session(config=config)
     os.environ["TF_GPU_ALLOCATOR"] = "cuda_malloc_async"
