@@ -19,9 +19,11 @@
 - [training_text](https://www.kaggle.com/c/msk-redefining-cancer-treatment/data?select=training_text.zipar)
 - [training_variants](https://www.kaggle.com/c/msk-redefining-cancer-treatment/data?select=training_variants.zip))
 
+<br><br>
+
 ## Installation
 
-### Requierments
+### Requierements
 
 Install [**miniconda**](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) and [**git**](https://git-scm.com/).
 
@@ -48,6 +50,7 @@ And activate it.
 ### Modules
 
 - python 3.8.11
+- python-levenshtein
 - wordcloud
 - numpy
 - pandas
@@ -56,10 +59,15 @@ And activate it.
 - nltk
 - gensim
 - tensorflow
+- tensorflow_hub
 - keras
 - sklearn
 - scikit-plot
 - jupyter
+- transformers
+- sentencepiece
+- pydot
+- graphviz
 
 ### Creating manually the environment
 
@@ -69,40 +77,89 @@ And activate it.
 ```
 $ conda create env -n RAPMC python=3.8
 $ conda activate RAPMC
-$ conda install numpy pandas seaborn matplotlib tensorflow keras nltk gensim jupyter
-$ pip install wordcloud scikit-plot sklearn
+$ conda install numpy pandas seaborn matplotlib tensorflow keras nltk gensim jupyter transformers python-levenshtein
+$ pip install wordcloud scikit-plot sklearn tensorflow_hub sentencepiece pydot graphviz
 
 ```
 
-
+<br><br>
 
 ## Create a Word2Vec Model
 
-This create a new model whiwh will learn  by running `launch.py`
+This create a new model which will learn  by running `train_embed.py`
 
 > ⚠️ **Warning!**
 >
 > Run the script <u>**only** from the project's parent directory</u>:
 > 
-> `% python src/launch.py`
+> `% python src/train_embed.py`
 
  Options | Description | Default value |
 |:-------:|-------------|---------------|
 | `-caf` | Input **c**lean **a**rticle **f**ile | `datas/all_data_clean.txt` |
-| `--type` | Input **t**ype of the model to create | `both` |
-| `--winsize` | **s**ize of the context window for the model | `20` |
+|`-t`, `--type` | Input **t**ype of the model to create | `both` |
+| `-ws`, `--winsize` | **w**indow **s**ize of the context for the model | `20` |
+| `-e`, `--epoch` | Number of **e**poch for training the model | `20` |
+| `-b`, `--batch` | Number of **b**atch for training the model | `10000` |
+| `-sw`, `--stopword` | Deleting **s**top**w**ords | `True` |
+| `-r`, `--repeat` | **r**epeat the article vector to amplify datas | `2000` |
+| `-c`, `--concat` | **c**oncat all the articles before training | `True` |
 
 > ℹ️ **Info**
 >
-> `--type` takes only trhree values :
+> `--type` takes only thrree values :
 > - cbow
 > - skipgram
 > - both
 
-> **Exemple**
+> **Example**
 >
 > ```
-> $ python src/launch.py --type skipgram 
+> $ python src/train_embed.py --type skipgram 
 > ```
 
 
+<br><br>
+
+## Train Word2Vec Model with new articles
+
+This create a choosen model which will learn new aticles by running `new_learn_embed.py`
+
+> ⚠️ **Warning!**
+>
+> Run the script <u>**only** from the project's parent directory</u>:
+> 
+> `% python src/train_embed.py`
+
+ Options | Description | Default value |
+|:-------:|-------------|---------------|
+| `-tc`, `-tc` | Input **c**lean **a**rticle **f**ile | `datas/all_data_clean.txt` |
+|`-tm`, `--testclean`| Input **c**lean **a**rticle **f**ile | None |
+| `-ws`, `--winsize` | **w**indow **s**ize of the context for the model | `20` |
+| `-e`, `--epoch` | Number of **e**poch for training the model | `20` |
+| `-b`, `--batch` | Number of **b**atch for training the model | `10000` |
+| `-sw`, `--stopword` | Deleting **s**top**w**ords | `True` |
+| `-r`, `--repeat` | **r**epeat the article vector to amplify datas | `2000` |
+| `-c`, `--concat` | **c**oncat all the articles before training | `True` |
+
+
+> **Example 1**
+>
+> ```
+> $ python src/new_learn_embed.py -tm datas/skipgram_3284.model
+> ```
+>**Example 2**
+>
+> ```
+> $ python src/new_learn_embed.py -tm datas/cbow_3284.model
+> ```
+>**Example 3**
+>
+> ```
+> $ python src/new_learn_embed.py -tm datas/cbow_A3316_WS20_E20_B10000_R2000_CTrue.model
+> ```
+>**Example 4**
+>
+> ```
+> $ python src/new_learn_embed.py -tm datas/skipgram_A3316_WS20_E15_B10000_R2000_CTrue.model
+> ```

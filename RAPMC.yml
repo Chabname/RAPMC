@@ -1,5 +1,6 @@
 name: RAPMC
 channels:
+  - conda-forge
   - defaults
 dependencies:
   - _libgcc_mutex=0.1=main
@@ -7,12 +8,14 @@ dependencies:
   - _tflow_select=2.3.0=mkl
   - absl-py=0.13.0=py38h06a4308_0
   - aiohttp=3.7.4.post0=py38h7f8727e_2
+  - anyio=3.3.3=py38h578d9bd_0
   - argon2-cffi=20.1.0=py38h27cfd23_1
   - astor=0.8.1=py38h06a4308_0
   - astunparse=1.6.3=py_0
   - async-timeout=3.0.1=py38h06a4308_0
   - async_generator=1.10=pyhd3eb1b0_0
   - attrs=21.2.0=pyhd3eb1b0_0
+  - babel=2.9.1=pyh44b312d_0
   - backcall=0.2.0=pyhd3eb1b0_0
   - blas=1.0=mkl
   - bleach=4.0.0=pyhd3eb1b0_0
@@ -76,12 +79,16 @@ dependencies:
   - jmespath=0.10.0=pyhd3eb1b0_0
   - joblib=1.0.1=pyhd3eb1b0_0
   - jpeg=9d=h7f8727e_0
+  - json5=0.9.5=pyh9f0ad1d_0
   - jsonschema=3.2.0=pyhd3eb1b0_2
   - jupyter=1.0.0=py38_7
   - jupyter_client=7.0.1=pyhd3eb1b0_0
   - jupyter_console=6.4.0=pyhd3eb1b0_0
   - jupyter_core=4.8.1=py38h06a4308_0
+  - jupyter_server=1.11.1=pyhd8ed1ab_0
+  - jupyterlab=3.2.0=pyhd8ed1ab_0
   - jupyterlab_pygments=0.1.2=py_0
+  - jupyterlab_server=2.8.2=pyhd8ed1ab_0
   - jupyterlab_widgets=1.0.0=pyhd3eb1b0_1
   - keras=2.4.3=hd3eb1b0_0
   - keras-base=2.4.3=pyhd3eb1b0_0
@@ -117,6 +124,7 @@ dependencies:
   - mkl_random=1.2.2=py38h51133e4_0
   - multidict=5.1.0=py38h27cfd23_2
   - munkres=1.1.4=py_0
+  - nbclassic=0.3.2=pyhd8ed1ab_0
   - nbclient=0.5.3=pyhd3eb1b0_0
   - nbconvert=6.1.0=py38h06a4308_0
   - nbformat=5.1.3=pyhd3eb1b0_0
@@ -159,6 +167,8 @@ dependencies:
   - python=3.8.11=h12debd9_0_cpython
   - python-dateutil=2.8.2=pyhd3eb1b0_0
   - python-flatbuffers=2.0=pyhd3eb1b0_0
+  - python-levenshtein=0.12.2=py38h27cfd23_0
+  - python_abi=3.8=2_cp38
   - pytz=2021.3=pyhd3eb1b0_0
   - pyyaml=5.4.1=py38h27cfd23_1
   - pyzmq=22.2.1=py38h295c915_1
@@ -169,8 +179,10 @@ dependencies:
   - regex=2021.8.3=py38h7f8727e_0
   - requests=2.26.0=pyhd3eb1b0_0
   - requests-oauthlib=1.3.0=py_0
+  - requests-unixsocket=0.2.0=py_0
   - rsa=4.7.2=pyhd3eb1b0_1
   - s3transfer=0.5.0=pyhd3eb1b0_0
+  - sacremoses=0.0.43=pyhd3eb1b0_0
   - scipy=1.7.1=py38h292c36d_2
   - seaborn=0.11.2=pyhd3eb1b0_0
   - send2trash=1.8.0=pyhd3eb1b0_1
@@ -178,6 +190,7 @@ dependencies:
   - sip=4.19.13=py38he6710b0_0
   - six=1.16.0=pyhd3eb1b0_0
   - smart_open=5.1.0=pyhd3eb1b0_0
+  - sniffio=1.2.0=py38h578d9bd_1
   - sqlite=3.36.0=hc218d9a_0
   - tensorboard=2.4.0=pyhc547734_0
   - tensorboard-plugin-wit=1.6.0=py_0
@@ -191,12 +204,14 @@ dependencies:
   - tornado=6.1=py38h27cfd23_0
   - tqdm=4.62.2=pyhd3eb1b0_1
   - traitlets=5.1.0=pyhd3eb1b0_0
+  - transformers=2.1.1=pyhd3eb1b0_0
   - typing-extensions=3.10.0.2=hd3eb1b0_0
   - typing_extensions=3.10.0.2=pyh06a4308_0
   - tzdata=2021a=h5d7bf9c_0
   - urllib3=1.26.7=pyhd3eb1b0_0
   - wcwidth=0.2.5=pyhd3eb1b0_0
   - webencodings=0.5.1=py38_1
+  - websocket-client=0.57.0=py38h578d9bd_4
   - werkzeug=2.0.1=pyhd3eb1b0_0
   - wheel=0.37.0=pyhd3eb1b0_1
   - widgetsnbextension=3.5.1=py38_0
@@ -211,7 +226,9 @@ dependencies:
   - pip:
     - scikit-learn==1.0
     - scikit-plot==0.3.7
+    - sentencepiece==0.1.96
     - sklearn==0.0
+    - tensorflow-hub==0.12.0
     - threadpoolctl==3.0.0
     - wordcloud==1.8.1
-prefix: /home/naha/miniconda3/envs/RAPMC2
+prefix: /home/naha/miniconda3/envs/RAPMC

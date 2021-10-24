@@ -1,8 +1,12 @@
-#import nltk
-#nltk.download('stopwords')
+import nltk
+nltk.download('punkt')
+nltk.download('wordnet')
+nltk.download('stopwords')
+
+from pickle import TRUE
 from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.stem import WordNetLemmatizer
-#from nltk.corpus import stopwords
+from nltk.corpus import stopwords
 #from nltk.tokenize import RegexpTokenizer
 import warnings
 warnings.filterwarnings(action = 'ignore')
@@ -10,34 +14,31 @@ from gensim.models import Word2Vec
 import time
 import sys
 import multiprocessing
-#import string
+import string
+import numpy as np
 
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 
-#from Epoch import EpochLogger
+from Epoch import LossLogger
 
-######################################################
-##                TEST Imports                      ##
-######################################################
 
 from Datas import Articles
 
-######################################################
-##                /TEST Imports                     ##
-######################################################
 
 
 
 class EmbW2V:
     model_path="results/"
 
-    def __init__(self, datas, win_size, epoch, batch):
+    def __init__(self, datas, win_size, epoch, batch, concat, repeat):
         self.datas = datas
         self.win_size = win_size
         self.epoch = epoch
         self.batch = batch
         self.data_size = len(self.datas)
+        self.concat = concat
+        self.repeat = repeat
 
 
 
@@ -49,35 +50,50 @@ class EmbW2V:
     #       articles : (dataframe)
     ## details : 
     #       
-    def preprocess_datas(self):
+    def preprocess_datas(self, clean_stopword):
         print("_______________________________Preprocessing_____________________________")
         start_time = time.perf_counter()
+
         prog = 0
 
         # Replaces escape character with space
         articles = self.datas.replace("\n", " ")
         all_vect = []
+        word_vector = []
         lemmatizer = WordNetLemmatizer()
         # Init the Wordnet Lemmatizer
         for article in articles.iterrows():
-            word_vector = []
+            self.progress(prog, len(articles), status='Preparing Datas')
+            if not self.concat:
+                word_vector = []
             # iterate through each sentence in the file
             for sentence in sent_tokenize(article[1]["Text"]):
-                #sent_clean = sentence.translate(str.maketrans('', '', string.punctuation))
+                sent_clean = sentence.translate(str.maketrans('', '', string.punctuation))
                 temp = []
-
                 # tokenize the sentence into words
-                #list_words = list(set(word_tokenize(sent_clean)) - set(stopwords.words('english')))
-                list_words = list(set(word_tokenize(sentence)))
+                if clean_stopword : 
+                    list_words = list(set(word_tokenize(sent_clean)) - set(stopwords.words('english')))
+                else:
+                    list_words = list(set(word_tokenize(sentence)))
                 for word in list_words:
                     temp.append(lemmatizer.lemmatize(word))
 
                 word_vector.append(temp)
-
-            all_vect.append(word_vector)
+                #print(word_vector)
+            if not self.concat : 
+                if self.repeat != 0:
+                    all_vect.append(np.repeat(word_vector, self.repeat, axis=0))
+                else:
+                    all_vect.append(word_vector)
+              
+            prog += 1
 
         
-        articles["Text"] = all_vect
+        if self.concat :
+            for i,_ in enumerate(articles["Text"]):
+                articles["Text"][i] = word_vector
+        else:
+            articles["Text"] = all_vect
 
         self.datas = articles
         
@@ -109,7 +125,9 @@ class EmbW2V:
         """
         print("_______________________________CBOW_____________________________")
         start_time = time.perf_counter()
-        self.model_path = self.model_path + "cbow_"+str(self.data_size)+ "_" + str(self.win_size) + ".model"
+        self.model_path = (self.model_path + "cbow_A" + str(self.data_size) 
+        + "_WS" + str(self.win_size) + "_E" + str(self.epoch) + "_B" + str(self.batch) 
+        + "_R" + str(self.repeat) + "_C" + str(self.concat) + ".model")
 
         # Create CBOW model
         model = Word2Vec(self.datas.iloc[0]["Text"], min_count = 1, vector_size = vec_size,
@@ -143,8 +161,10 @@ class EmbW2V:
         print("_______________________________Skip Gram_____________________________")  
         start_time = time.perf_counter()
 
-        self.model_path = self.model_path + "skipgram_"+str(self.data_size)+ "_" + str(self.win_size) + ".model"
-
+        self.model_path = (self.model_path + "skipgram_A" + str(self.data_size) 
+        + "_WS" + str(self.win_size) + "_E" + str(self.epoch) + "_B" + str(self.batch) 
+        + "_R" + str(self.repeat) + "_C" + str(self.concat) + ".model")
+       
         # Create Skip Gram model
         model = Word2Vec(self.datas.iloc[0]["Text"], min_count = 1, vector_size = vec_size,
                             window = self.win_size, sg = 1,  workers=workers, batch_words = self.batch)
@@ -169,19 +189,33 @@ class EmbW2V:
     # 
     def train_model(self):
         prog = 0
-        for article in self.datas.iterrows():
-            self.progress(prog, self.data_size, status='Training the model')
-            #if article[0]==48:
-            #    print(article[1]["Text"])
-            #    break
-            model = Word2Vec.load(self.model_path)
-            model.train(article[1]["Text"], 
-                    total_examples = len(article), 
+        split_filename = self.model_path.split("/")
+        filename = split_filename[len(split_filename) - 1]
+        loss_logger = LossLogger(filename)
+        if not self.concat:
+            for article in self.datas.iterrows():
+                self.progress(prog, self.data_size, status='Training the model')
+                model = Word2Vec.load(self.model_path)
+                model.train(article[1]["Text"], 
+                    total_examples = len(article),
                     epochs = self.epoch, 
-                    compute_loss = True) 
-                    #callbacks=[EpochLogger(self.epoch)])
-            
-            prog +=1
+                    callbacks=[loss_logger], 
+                    compute_loss = True)
+                if loss_logger.epoch == self.epoch +1:
+                    loss_logger.epoch=1
+                prog +=1
+        else:
+            for _ in range(self.repeat):
+                self.progress(prog, self.repeat, status='Training the model')
+                model = Word2Vec.load(self.model_path)
+                model.train(self.datas.iloc[0]["Text"], 
+                        total_examples = self.repeat, 
+                        epochs = self.epoch, 
+                        callbacks=[loss_logger], 
+                        compute_loss = True)
+                if loss_logger.epoch == self.epoch +1:
+                    loss_logger.epoch=1
+                prog +=1
 
     ## function : 
     #       mod_path
@@ -214,6 +248,7 @@ class EmbW2V:
                 word_freq = [word] * int(dist*1000)
                 text += " ".join(word_freq)
             wordcloud = WordCloud(collocations=False).generate(text)
+            plt.figure(figsize=(20,10))
             plt.imshow(wordcloud, interpolation='bilinear')
             plt.axis("off")
             plt.show()
@@ -233,7 +268,7 @@ class EmbW2V:
         filled_len = int(round(bar_len * count / float(total)))
 
         percents = round(100.0 * count / float(total), 1)
-        bar = '=' * filled_len + '-' * (bar_len - filled_len)
+        bar = '#' * filled_len + '.' * (bar_len - filled_len)
 
         sys.stdout.write('[%s] %s%s ...%s\r' % (bar, percents, '%', status))
         sys.stdout.flush()
@@ -267,24 +302,15 @@ def show_similarities(mod_path, word_sim, top_number):
    
 
 
-
-
-######################################################
-##                TEST Functions                    ##
-######################################################
-
 ## function : 
-#       model_test
+#       main
 ## input :
 #       f_path : (string) 
 ## output :
 #       na 
 ## details : 
-#       This function is used to see the result of 
-#       To run it : 
-#               Uncomment the line into the "TEST" section and run this file only
-#       DON'T FORGET to comment again after testing !
-def model_test(f_path, type, win_size, epoch, batch): 
+#       
+def main(f_path, type, win_size, epoch, batch, stop_word, repeat, concat): 
     print("_______________________________Word2Vec_____________________________")
     print("____________________________________________________________________")
     start_time = time.perf_counter()
@@ -292,11 +318,11 @@ def model_test(f_path, type, win_size, epoch, batch):
     cores = multiprocessing.cpu_count() 
 
     """Launch Word2Vec"""
-    articles = Articles(f_path)
+    articles = Articles(f_path, True)
 
     if type in( "cbow", "both"):
-        cbow_test = EmbW2V(articles.datas, win_size, epoch, batch)
-        cbow_test.preprocess_datas()
+        cbow_test = EmbW2V(articles.datas, win_size, epoch, batch, concat, repeat)
+        cbow_test.preprocess_datas(stop_word)
         #print(cbow_test.datas["Text"][33])
 
         cbow_test.cbow(workers = cores, vec_size = 100)
@@ -308,13 +334,13 @@ def model_test(f_path, type, win_size, epoch, batch):
 
 
     if type in ("skipgram", "both") :
-        #skipgram_test = EmbW2V(articles.datas, win_size, epoch, batch)
-        #skipgram_test.preprocess_datas()
+        skipgram_test = EmbW2V(articles.datas, win_size, epoch, batch, concat, repeat)
+        skipgram_test.preprocess_datas(stop_word)
 
-        #skipgram_test.skipgram(workers = cores, vec_size = 100)
+        skipgram_test.skipgram(workers = cores, vec_size = 100)
         print("__________________________Word similarities_________________________")
 
-        #print(show_similarities(skipgram_test.model_path,"mutation" ,20))
+        print(show_similarities(skipgram_test.model_path,"mutation" ,20))
 
         print("____________________________________________________________________")
 
@@ -323,9 +349,6 @@ def model_test(f_path, type, win_size, epoch, batch):
     print("Word2vec finished in {} seconds".format(stop_time-start_time))
 
 
-######################################################
-##                 /TEST  functions                 ##
-######################################################
 
 
 
@@ -333,17 +356,38 @@ def model_test(f_path, type, win_size, epoch, batch):
 ##                      TEST                       ##
 ######################################################
 
-#model_test("datas/701_mix_data_clean.txt","both", 20, 100, 1000)
-#model_test("datas/all_data_clean.txt","both", 50, 500, 1000)
-#print(show_similarities("results/cbow_701.model","cell" ,20))
-
-#cbow_test = EmbW2V([], 0, 0, 0)
-#cbow_test.model_path = "results/cbow_3316_5.model"
-#cbow_test.plot_similarities(["mutation", "cell", "amplification", "egfr"] , 20)
-#
-#cbow_test2 = EmbW2V([], 0, 0, 0)
-#cbow_test2.model_path = "results/cbow_3316_50.model"
-#cbow_test2.plot_similarities(["mutation", "cell", "amplification", "egfr"] , 20)
+#main("datas/701_mix_data_clean.txt", 
+#       type = "cbow", 
+#       win_size = 20, 
+#       epoch = 15, 
+#       batch = 10000, 
+#       stop_word = True, 
+#       repeat = 2000, 
+#       concat = True)
+#main("datas/701_mix_data_clean.txt", 
+#        type = "cbow", 
+#        win_size = 20, 
+#        epoch = 15, 
+#        batch = 10000, 
+#        stop_word = True, 
+#        repeat = 200, 
+#        concat = True)
+#main("datas/701_mix_data_clean.txt", 
+#       type = "both", 
+#       win_size = 50, 
+#       epoch = 15, 
+#       batch = 10000, 
+#       stop_word = True, 
+#       repeat = 0, 
+#       concat = False)
+#main("datas/701_mix_data_clean.txt", 
+#       type = "cbow", 
+#       win_size = 50, 
+#       epoch = 15, 
+#       batch = 10000, 
+#       stop_word = True, 
+#       repeat = 2000, 
+#       concat = False)
 
 
 
