@@ -292,9 +292,9 @@ def main(is_training):
         file_variant = "datas/training_variants"
         file_out = "datas/training_clean"
     else:
-        file_text = "datas/test_text"
-        file_variant = "datas/test_variants"
-        file_out = "datas/test_clean"
+        file_text = "datas/stage2_test_text.csv"
+        file_variant = "datas/stage2_test_variants.csv"
+        file_out = "datas/stage2_test_clean"
     prepare_datas(file_text, file_variant, file_out, is_training)
 
-main(True)
+main(False)
