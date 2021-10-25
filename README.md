@@ -170,5 +170,11 @@ This create a choosen model which will learn new aticles by running `new_learn_e
 >**Example 5**
 >
 > ```
-> $ python src/new_learn_embed.py -tm datas/cbow_A3316_WS20_E20_B10000_R2000_CTrue.model -tc datas/stage2_test_clean
+> $ python src/new_learn_embed.py -tm datas/Copy_cbow_A3316_WS20_E20_B10000_R2000_CTrue_full.model -tc datas/stage2_test_clean
 > ```
+>
+>**Example 5**
+>
+> ```
+> $ python src/new_learn_embed.py -tm datas/skipgram_A3316_WS20_E20_B10000_R2000_CTrue.model -tc datas/stage2_test_clean
+> 
