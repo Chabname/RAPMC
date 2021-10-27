@@ -3,6 +3,8 @@ datas/test_text
 datas/test_variants
 datas/training_text
 datas/training_variants
+datas/stage2_test_text.csv
+datas/stage2_test_variants.csv
 src/__pycache__/*
 scripts/__pycache__/*
 scripts/BERT_model/__pycache__/*
@@ -14,5 +16,6 @@ results/log*
 !results/skipgram_3284.model
 !results/cbow_A3316_WS20_E10000_B10000.model
 !results/cbow_A3316_WS20_E20_B10000_R2000_CTrue.model
+!results/skipgram_A3316_WS20_E20_B10000_R2000_CTrue.model
 
 notebook/.ipynb_checkpoints/*

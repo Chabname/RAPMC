@@ -148,18 +148,33 @@ This create a choosen model which will learn new aticles by running `new_learn_e
 > ```
 > $ python src/new_learn_embed.py -tm datas/skipgram_3284.model
 > ```
+>
 >**Example 2**
 >
 > ```
 > $ python src/new_learn_embed.py -tm datas/cbow_3284.model
 > ```
+>
 >**Example 3**
 >
 > ```
 > $ python src/new_learn_embed.py -tm datas/cbow_A3316_WS20_E20_B10000_R2000_CTrue.model
 > ```
+>
 >**Example 4**
 >
 > ```
 > $ python src/new_learn_embed.py -tm datas/skipgram_A3316_WS20_E15_B10000_R2000_CTrue.model
 > ```
+>
+>**Example 5**
+>
+> ```
+> $ python src/new_learn_embed.py -tm datas/Copy_cbow_A3316_WS20_E20_B10000_R2000_CTrue_full.model -tc datas/stage2_test_clean
+> ```
+>
+>**Example 6**
+>
+> ```
+> $ python src/new_learn_embed.py -tm datas/skipgram_A3316_WS20_E20_B10000_R2000_CTrue.model -tc datas/stage2_test_clean
+> 
