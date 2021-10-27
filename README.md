@@ -9,6 +9,13 @@
 **Objectif :** Predict the effect of Genetic Variants to enable Personalized Medicine
 
 **Références:**
+1. Chen, J. H., & Asch, S. M. (2017). Machine Learning and Prediction in Medicine - Beyond the Peak of Inflated Expectations. The New England journal of medicine, 376(26), 2507–2509. https://doi.org/10.1056/NEJMp1702071 
+2. Hochreiter, S., & Schmidhuber, J. (1997). Long short-term memory. Neural computation, 9(8), 1735–1780. https://doi.org/10.1162/neco.1997.9.8.1735 
+3. Sengar N., Singh A., Yadav V. (2021) Classification of Documents Using Bidirectional Long Short-Term Memory Recurrent Neural Network. In: Reddy V.S., Prasad V.K., Wang J., Reddy K.T.V. (eds) Soft Computing and Signal Processing. Advances in Intelligent Systems and Computing, vol 1325. Springer, Singapore. https://doi.org/10.1007/978-981-33-6912-2_14 
+4. Gruber, N., & Jockisch, A. (2020). Are GRU Cells More Specific and LSTM Cells More Sensitive in Motive Classification of Text?. Frontiers in artificial intelligence, 3, 40. https://doi.org/10.3389/frai.2020.00040 
+5. Beltagy, Iz, Kyle Lo, et Arman Cohan. 2019. « SciBERT: A Pretrained Language Model for Scientific Text ». arXiv:1903.10676 [cs], septembre. 
+http://arxiv.org/abs/1903.10676.
+6. Jang, B., Kim, I., & Kim, J. W. (2019). Word2vec convolutional neural networks for classification of news articles and tweets. PloS one, 14(8), e0220976. https://doi.org/10.1371/journal.pone.0220976 
 
 
 
@@ -17,10 +24,29 @@
 - [test_text](https://www.kaggle.com/c/msk-redefining-cancer-treatment/data?select=test_text.zip)
 - [test_variants](https://www.kaggle.com/c/msk-redefining-cancer-treatment/data?select=test_variants.zip)
 - [training_text](https://www.kaggle.com/c/msk-redefining-cancer-treatment/data?select=training_text.zipar)
-- [training_variants](https://www.kaggle.com/c/msk-redefining-cancer-treatment/data?select=training_variants.zip))
+- [training_variants](https://www.kaggle.com/c/msk-redefining-cancer-treatment/data?select=training_variants.zip)
 
 <br><br>
 
+
+
+## Notebooks
+
+- `notebook/data_analysis.ipynb`
+- `notebook/stat.ipynb`
+- `notebook/Cancer_deep_learning.ipynb`
+- `notebook/BERT.ipynb`
+- `notebook/cnn.ipynb`
+- `notebook/DL_Models.ipynb`
+- `notebook/DL_mutation_class.ipynb`
+- `notebook/Using_W2V/Using_W2V_model.ipynb` 
+    - Word2Vec embedding analyse
+    - Description of datas vectors (different way to get them)
+    - Models descriptions and analyse
+    - Getting the best model
+    - In the same directory there is directories containing all notebooks used for tests
+
+<br><br>
 ## Installation
 
 ### Requierements
