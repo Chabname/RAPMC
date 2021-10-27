@@ -193,7 +193,7 @@ class Vector():
         split_filename = self.model_path.split("/")
         modele_name = split_filename[len(split_filename) - 1]
         if is_notebook:
-            log_file_path = "../"
+            log_file_path = "../../../"
         log_file_path += "results/log_not_found_words_" + modele_name + ".txt"
 
         if self.is_training:

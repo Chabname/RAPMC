@@ -18,4 +18,12 @@ results/log*
 !results/cbow_A3316_WS20_E20_B10000_R2000_CTrue.model
 !results/skipgram_A3316_WS20_E20_B10000_R2000_CTrue.model
 
+results/Models/*
+!results/Models/cbow/cbow_cnn_simple_Separate_gv_gv.model
+!results/Models/cbow/cbow_cnn_simple_Concat_ca.model
+!results/Models/skipgram/skipgram_cnn_simple_Concat_gv_gv.model
+!results/Models/skipgram/skipgram_cnn_simple_Separate_bs.model
+
+
+
 notebook/.ipynb_checkpoints/*
