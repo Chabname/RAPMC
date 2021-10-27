@@ -33,11 +33,18 @@ http://arxiv.org/abs/1903.10676.
 ## Notebooks
 
 - `notebook/data_analysis.ipynb`
+    - Training/test_vairiants analysis
+    - Training/test_text analysis 
 - `notebook/stat.ipynb`
 - `notebook/Cancer_deep_learning.ipynb`
 - `notebook/BERT.ipynb`
 - `notebook/cnn.ipynb`
+    - CNN Model
 - `notebook/DL_Models.ipynb`
+    - CNN Model
+    - LSTM Model
+    - biLSTM Model
+    - GRU Model
 - `notebook/DL_mutation_class.ipynb`
 - `notebook/Using_W2V/Using_W2V_model.ipynb` 
     - Word2Vec embedding analyse
