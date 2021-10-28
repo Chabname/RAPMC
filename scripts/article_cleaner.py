@@ -9,9 +9,12 @@ amino_acid_dict = {'C' : 'CYS', 'D' : 'ASP', 'S' : 'SER', 'Q' : 'GLN', 'K' : 'LY
     'A' : 'ALA', 'V' : 'VAL', 'E' : 'GLU', 'Y' : 'TYR', 'M' : 'MET'}
 
 def amino_three(amino):
+    """Return three letter amino acid from one letter"""
     return amino_acid_dict[amino]
     
 def decompose_variation(variation):
+    """Decompose a variation to search the three letter amino acid or use the position in regex"""
+
     decompose_aa_pos_aa = re.compile("([a-z]{1,})(\d+)([a-z]{1,})")
     list_variation = decompose_aa_pos_aa.search(variation)
     if list_variation:
@@ -26,6 +29,7 @@ def decompose_variation(variation):
     return False
 
 def decompose_fusion(variation):
+    """Decompose a "fusion" variation to search separately the genes fusioned"""
     decompose_g1_g2_fusion = re.compile("(\w+)\s?(\?|-)\s?(\w+)\? fusion")
     list_variation = decompose_g1_g2_fusion.search(variation)
     if list_variation:
@@ -36,6 +40,8 @@ def decompose_fusion(variation):
         
     
 def decompose_dup(variation):
+    """Decompose a "duplication" variation"""
+
     decompose_mut_pos = re.compile("([a-z]{1,})(\d+)dup")
     list_mut = decompose_mut_pos.search(variation)
     if list_mut:
@@ -46,6 +52,7 @@ def decompose_dup(variation):
 
 
 def clean_text(article):
+    """Clean text from extra dot ("Fig.", "...", "ie.") to enable regex to select real sentences"""
     dot3 = re.compile("[\.]{2,}")
     fig = re.compile("fig[s]?\.")
     decimal = re.compile("\d+\.\d+")    
@@ -70,6 +77,7 @@ def join_tuple_string(strings_tuple):
     return ' '.join(strings_tuple)
 
 def find_match(text, word):
+    """Find the actual match with a regex"""
     clean = clean_text(text)
     word = word.lower()
     target_sentence = "([^.]*{}[^.]*\.)".format(word)
@@ -81,7 +89,7 @@ def find_match(text, word):
 
 
 def extract_match(line):
-    
+    """Construction of the regex to use according to the variation"""
     
     # Cleaning text --> Already clean, no need    
     text = line["Text"]
@@ -292,9 +300,9 @@ def main(is_training):
         file_variant = "datas/training_variants"
         file_out = "datas/training_clean"
     else:
-        file_text = "datas/stage2_test_text.csv"
-        file_variant = "datas/stage2_test_variants.csv"
-        file_out = "datas/stage2_test_clean"
+        file_text = "datas/test_text"
+        file_variant = "datas/test_variants"
+        file_out = "datas/test_clean"
     prepare_datas(file_text, file_variant, file_out, is_training)
 
 if __name__ == "__main__":
