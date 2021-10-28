@@ -29,7 +29,7 @@
     - Training/test_vairiants analysis
     - Training/test_text analysis 
 - `notebook/stat.ipynb`
-    - Notebook for figure
+    - Notebook for plots
 - `notebook/Cancer_deep_learning.ipynb`
     - Implementing the article cleaner
 - `notebook/BERT.ipynb`
