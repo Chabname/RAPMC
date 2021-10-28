@@ -43,7 +43,8 @@
     - Word2Vec embedding analyse
     - Description of datas vectors (different way to get them)
     - Models descriptions and analyse
-    - Getting the best model
+    - Searching the best model
+    - One directory with the top 2 models by using skipgam and the kaggle submission for the best
     - In the same directory there is directories containing all notebooks used for tests
 
 <br><br>
