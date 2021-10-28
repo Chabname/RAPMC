@@ -224,6 +224,10 @@ dependencies:
   - zlib=1.2.11=h7b6447c_3
   - zstd=1.4.9=haebb681_0
   - pip:
+    - imbalanced-learn==0.8.1
+    - imblearn==0.0
+    - pydot==1.4.2
+    - python-graphviz==0.17
     - scikit-learn==1.0
     - scikit-plot==0.3.7
     - sentencepiece==0.1.96

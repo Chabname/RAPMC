@@ -31,30 +31,30 @@ cbow;Yes;concatenate;CNN Simple;Training;69.19;67.22;67.85;68.31;73.11
 cbow;Yes;concatenate;CNN Simple;Test;56.41;57.77;61.08;61.09;58.22
 cbow;Yes;concatenate;CNN Complex;Training;30.4;18.39;39.05;45.33;29
 cbow;Yes;concatenate;CNN Complex;Test;23.68;28.96;31.67;43.74;36.5
-skipgram;No;separate;Softmax;Training;49.94;45.34;61.41;63.3;59.98
-skipgram;No;separate;Softmax;Test;47.21;39.67;62.14;59.88;54.45
-skipgram;No;separate;Dense Softmax;Training;52.43;51.08;69.48;69.25;68.8
-skipgram;No;separate;Dense Softmax;Test;47.96;47.81;61.84;61.99;56.56
-skipgram;No;separate;CNN Simple;Training;77.44;72.65;71.26;71.9;71.86
-skipgram;No;separate;CNN Simple;Test;63.8;63.65;59.88;61.09;60.18
-skipgram;No;separate;CNN Complex;Training;29.05;36.18;28.71;28.7;42.97
-skipgram;No;separate;CNN Complex;Test;29.26;36.05;28.81;28.81;38.91
-skipgram;No;concatenate;Softmax;Training;59.19;59.11;61.49;63.37;56.73
-skipgram;No;concatenate;Softmax;Test;55.66;55.35;59.28;59.73;54.9
-skipgram;No;concatenate;Dense Softmax;Training;65.79;62.43;65.07;71.52;65.56
-skipgram;No;concatenate;Dense Softmax;Test;57.77;56.86;61.09;61.84;57.92
-skipgram;No;concatenate;CNN Simple;Training;73.97;72.1;71.14;78.73;67.03
-skipgram;No;concatenate;CNN Simple;Test;58.82;58.52;61.99;60.94;57.47
-skipgram;No;concatenate;CNN Complex;Training;28.67;37.27;36.1;31.5;29.91
-skipgram;No;concatenate;CNN Complex;Test;28.96;36.5;36.2;31.22;30.62
-skipgram;Yes;separate;Softmax;Training;61.25;45.34;55.38;68.96;49.86
-skipgram;Yes;separate;Softmax;Test;53.39;39.67;57.32;59.88;50.98
-skipgram;Yes;separate;Dense Softmax;Training;70.06;51.68;72.48;72.92;74.73
-skipgram;Yes;separate;Dense Softmax;Test;57.77;47.81;61.39;62.44;58.97
-skipgram;Yes;separate;CNN Simple;Training;81.9;72.65;72.09;79.82;80.69
-skipgram;Yes;separate;CNN Simple;Test;56.41;63.65;61.84;63.2;59.43
-skipgram;Yes;separate;CNN Complex;Training;35.94;36.18;36.12;41.89;39.24
-skipgram;Yes;separate;CNN Complex;Test;29.11;36.05;29.84;63.8;34.69
+skipgram;No;separate;Softmax;Training;59.19;59.11;61.49;63.37;56.73
+skipgram;No;separate;Softmax;Test;55.66;55.35;59.28;59.73;54.9
+skipgram;No;separate;Dense Softmax;Training;65.79;62.43;65.07;71.52;65.56
+skipgram;No;separate;Dense Softmax;Test;57.77;56.86;61.09;61.84;57.92
+skipgram;No;separate;CNN Simple;Training;73.97;72.1;71.14;78.73;67.03
+skipgram;No;separate;CNN Simple;Test;58.82;58.52;61.99;60.94;57.47
+skipgram;No;separate;CNN Complex;Training;28.67;37.27;36.1;31.5;29.91
+skipgram;No;separate;CNN Complex;Test;28.96;36.5;36.2;31.22;30.62
+skipgram;No;concatenate;Softmax;Training;49.94;45.34;61.41;63.3;59.98
+skipgram;No;concatenate;Softmax;Test;47.21;39.67;62.14;59.88;54.45
+skipgram;No;concatenate;Dense Softmax;Training;52.43;51.08;69.48;69.25;68.8
+skipgram;No;concatenate;Dense Softmax;Test;47.96;47.81;61.84;61.99;56.56
+skipgram;No;concatenate;CNN Simple;Training;77.44;72.65;71.26;71.9;71.86
+skipgram;No;concatenate;CNN Simple;Test;63.8;63.65;59.88;61.09;60.18
+skipgram;No;concatenate;CNN Complex;Training;29.05;36.18;28.71;28.7;42.97
+skipgram;No;concatenate;CNN Complex;Test;29.26;36.05;28.81;28.81;38.91
+skipgram;Yes;separate;Softmax;Training;61.25;40.96;55.38;68.96;49.86
+skipgram;Yes;separate;Softmax;Test;53.39;41.78;57.32;59.88;50.98
+skipgram;Yes;separate;Dense Softmax;Training;70.06;66.09;72.48;72.92;74.73
+skipgram;Yes;separate;Dense Softmax;Test;57.77;55.66;61.39;62.44;58.97
+skipgram;Yes;separate;CNN Simple;Training;81.9;85.10;72.09;79.82;80.69
+skipgram;Yes;separate;CNN Simple;Test;56.41;65.76;61.84;63.2;59.43
+skipgram;Yes;separate;CNN Complex;Training;35.94;29.91;36.12;41.89;39.24
+skipgram;Yes;separate;CNN Complex;Test;29.11;34.84;29.84;63.8;34.69
 skipgram;Yes;concatenate;Softmax;Training;53;55.62;55.45;6.26;53.49
 skipgram;Yes;concatenate;Softmax;Test;50.98;47.96;57.07;58.67;51.58
 skipgram;Yes;concatenate;Dense Softmax;Training;66.13;69.04;72.14;70.42;74.13
