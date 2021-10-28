@@ -44,78 +44,14 @@ import transformers as ppb
 import matplotlib.pyplot as plt
 import math
 from sklearn.decomposition import PCA
+from sklearn.manifold import TSNE
 from imblearn.over_sampling import RandomOverSampler
 import seaborn as sns
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import log_loss
 from sklearn.metrics import confusion_matrix
 from sklearn.utils import class_weight
-class LossLearningRateScheduler(tf.keras.callbacks.History):
-    """
-    base_lr: the starting learning rate
-    lookback_epochs: the number of epochs in the past to compare with the loss function at the current epoch to determine if progress is being made.
-    decay_threshold / decay_multiple: if loss function has not improved by a factor of decay_threshold * lookback_epochs, then decay_multiple will be applied to the learning rate.
-    spike_epochs: list of the epoch numbers where you want to spike the learning rate.
-    spike_multiple: the multiple applied to the current learning rate for a spike.
-    """
-
-    def __init__(self, base_lr, lookback_epochs, spike_epochs = None, spike_multiple = 10, decay_threshold = 0.002, decay_multiple = 0.7, loss_type = 'val_loss'):
-
-
-        super(LossLearningRateScheduler, self).__init__()
-        self.base_lr = base_lr
-        self.lookback_epochs = lookback_epochs
-        self.spike_epochs = spike_epochs
-        self.spike_multiple = spike_multiple
-        self.decay_threshold = decay_threshold
-        self.decay_multiple = decay_multiple
-        self.loss_type = loss_type
-
-
-    def on_epoch_begin(self, epoch, logs=None):
-
-
-        if len(self.epoch) > self.lookback_epochs:
-
-
-            current_lr = tf.keras.backend.get_value(self.model.optimizer.lr)
-
-
-            target_loss = self.history[self.loss_type] 
-
-
-            loss_diff =  target_loss[-int(self.lookback_epochs)] - target_loss[-1]
-
-
-            if loss_diff <= np.abs(target_loss[-1]) * (self.decay_threshold * self.lookback_epochs):
-
-
-                print(' '.join(('Changing learning rate from', str(current_lr), 'to', str(current_lr * self.decay_multiple))))
-                tf.keras.backend.set_value(self.model.optimizer.lr, current_lr * self.decay_multiple)
-                current_lr = current_lr * self.decay_multiple
-
-
-            else:
-
-
-                print(' '.join(('Learning rate:', str(current_lr))))
-
-
-            if self.spike_epochs is not None and len(self.epoch) in self.spike_epochs:
-                print(' '.join(('Spiking learning rate from', str(current_lr), 'to', str(current_lr * self.spike_multiple))))
-                tf.keras.backend.set_value(self.model.optimizer.lr, current_lr * self.spike_multiple)
-
-
-        else:
-
-
-            print(' '.join(('Setting learning rate to', str(self.base_lr))))
-            tf.keras.backend.set_value(self.model.optimizer.lr, self.base_lr)
-
-        return tf.keras.backend.get_value(self.model.optimizer.lr)
-
-
-
+import plotly.express as px
 
 def plot_matrices(model, x_test, y_test): 
     probas = model.predict(x_test)
@@ -342,36 +278,50 @@ def model(args):
     # features, labels = get_input_data(args)
 
     
-    features = pd.read_pickle("../../../data/array_data_scibert_prot4.pkl")
-    labels = np.load("../../../data/labels_scibert.npy")
+    features = pd.read_pickle("../../../data/array_full_data_scibert_nolem_p4.pkl")
+    labels = np.load("../../../data/full_labels_scibert_nolem.npy")
+    # pca = PCA(n_components = 0.8)
+    # df_merge = pd.read_csv("../../datas/all_data_clean.txt",sep="\|\|", engine="python")
+    # df_merge.head()
+    # best_text = df_merge[df_merge["Score"] == 1]
+    # print(features.shape)
+    # features = features.loc[best_text.loc[:3253].index]
+    # y = df_merge.loc[best_text.loc[:3253].index, "Class"]
+    # labels = pd.get_dummies(y).values
 
+    # pca.fit(features)
+    # exp_var_cumul = np.cumsum(pca.explained_variance_ratio_)
+
+    # # plot_var = px.area(
+    # #     title = "Variance explained for non lemmatized full article",
+    # #     x=range(1, exp_var_cumul.shape[0] + 1),
+    # #     y=exp_var_cumul,
+    # #     labels={"x": "# Components", "y": "Explained Variance"}
+    # # )
+    # # plot_var.show()
+    # pca_results = pca.fit_transform(features)
+
+    # # print(pca_results.shape)
+
+    # features = pd.DataFrame(pca_results)
     # # Load data
 
     # features = pd.read_pickle("../../../data/features_full_pca_500.pkl")
     # features = pd.read_pickle("../../../data/array_full_data_scibert.pkl")
     # labels = np.load("../../../data/full_labels_scibert.npy")
-    gene_var_dtf = pd.read_pickle("../../../data/gene_var.pkl")
+    
 
-    gene = pd.read_pickle("../../../data/gene.pkl")
-    var = pd.read_pickle("../../../data/var.pkl")
+    # y_class = []
+    # for x in labels:
+    #     y_class.append(np.argmax(x) + 1)
 
-    y_class = []
-    for x in labels:
-        y_class.append(np.argmax(x) + 1)
-
-    class_weights = dict(zip(np.unique(y_class)-1, class_weight.compute_class_weight(class_weight = 'balanced',
-                                                                               classes = np.unique(y_class), y = y_class)))
+    # class_weights = dict(zip(np.unique(y_class)-1, class_weight.compute_class_weight(class_weight = 'balanced',
+                                                                            #    classes = np.unique(y_class), y = y_class)))
     # Shapes
     XD_train, XD_test, YD_train, YD_test = train_test_split(features,
-     labels, test_size = 0.2, random_state = 42, stratify=labels)
-
+     labels, test_size = 0.2, stratify=labels)
     # Select correct data
-    gene_train = gene.loc[XD_train.index]
-    gene_test = gene.loc[XD_test.index]
-    
-    var_train = var.loc[XD_train.index]
-    var_test = var.loc[XD_test.index]
-
+   
     # Test train split
     train_df, cv_df, y_train, y_cv = train_test_split(XD_train, YD_train, stratify=YD_train, test_size=0.2)
 
@@ -386,9 +336,9 @@ def model(args):
 
     train_df = train_df.values.reshape(train_df.shape[0],train_df.shape[1],1)
     cv_df = cv_df.values.reshape(cv_df.shape[0],cv_df.shape[1],1)
-
-    print(XD_train.shape, YD_train.shape)
-    print(gene_train.shape, var_train.shape)
+    
+    # print(XD_train.shape, YD_train.shape)
+    # print(gene_train.shape, var_train.shape)
 
 
     # print(train_df.shape, y_train.shape)
@@ -399,24 +349,16 @@ def model(args):
     [
         layers.Input(shape =(XD_train.shape[1],1)),
         layers.Conv1D(64, 5, activation='relu'),
-        layers.BatchNormalization(),
-        layers.GlobalMaxPooling1D(),
+        layers.MaxPooling1D(2),
         layers.Dropout(0.2),
-
-        # layers.Conv1D(32, 5, activation='relu'),
-        # layers.MaxPooling1D(2),
-        # layers.Dropout(0.5),
-
-        # layers.Conv1D(16, 5, activation='relu'),
-        # layers.MaxPooling1D(2),
-        # layers.Dropout(0.5),
+        layers.Dense(64, activation='relu'),
+        layers.BatchNormalization(),
 
         layers.Flatten(),
-        layers.Dense(16, activation='relu'),
-
         layers.Dense(9, activation='softmax')
     ]
     )
+
 
 
     model.summary()
@@ -438,50 +380,36 @@ def model(args):
     # ]
     # )
 
-    # Model with 3 inputs
-
-    # input_sequence = layers.Input(shape=(XD_train.shape[1],1))
-    # input_gene = layers.Input(shape=(gene_train.shape[1]))
-    # input_variant = layers.Input(shape=(var_train.shape[1]))
-
-    # conv_1 = layers.Conv1D(64, 10, activation='relu')(input_sequence)
-    # max_pool_1 = layers.GlobalMaxPooling1D()(conv_1) 
-    # drop_out_1 = layers.Dropout(0.2)(max_pool_1) 
-    # flatten_1 = layers.Flatten()(drop_out_1)
-
-    # dense_gene = layers.Dense(64, activation='relu')(input_gene)
-    # dense_var = layers.Dense(64, activation='relu')(input_variant)
-
-    # input_2 = layers.Concatenate(axis = 1 )([flatten_1, dense_gene, dense_var])
-    # dense_1 = layers.Dense(16, activation='relu')(input_2)
-    # output = layers.Dense(9, activation='softmax')(dense_1)
-
-    # model = keras.Model(inputs = [input_sequence, input_gene, input_variant], outputs = output)
-
     model.compile(  
     loss = 'categorical_crossentropy',
-    optimizer = keras.optimizers.Adam(0.001),
+    optimizer = keras.optimizers.Adam(0.0001),
     metrics = ["accuracy"]
     )
 
     checkpoint = tf.keras.callbacks.ModelCheckpoint(('model_SCIBERT.h5'), monitor='val_accuracy', save_best_only=True, verbose=1)
     earlystopping = tf.keras.callbacks.EarlyStopping(monitor='val_accuracy', patience=5, verbose=1)
 
-
     train_sh = model.fit(
-        # train_df, y_train,
-        XD_train, YD_train,
+        train_df, y_train,
+        # XD_train, YD_train,
         epochs=35,
         callbacks=[checkpoint,earlystopping],
         batch_size=64,
-        # validation_data = (cv_df, y_cv),
-        validation_split=0.2,
-        class_weight = class_weights,
+        validation_data = (cv_df, y_cv),
+        # validation_split=0.2,
+        # class_weight = class_weights,
         verbose=1
 
     )
-    model.save("SCIBERT.h5")    
+    # model.save("SCIBERT.h5")    
 
+    loss, accuracy = model.evaluate(XD_train, YD_train, verbose=False)
+    print("Training Accuracy: > %.3f"  % (accuracy * 100.0))
+    print("loss : ",loss)
+
+    loss, accuracy = model.evaluate(XD_test, YD_test, verbose=False)
+    print("Testing Accuracy:  > %.3f"  % (accuracy * 100.0))
+    print("loss : ",loss)
     plot_matrices(model, XD_test, YD_test)
 
     plt.figure(1)
