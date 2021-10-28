@@ -31,7 +31,7 @@
 - `notebook/stat.ipynb`
     - Notebook for plots
 - `notebook/Cancer_deep_learning.ipynb`
-    - Implementing the article cleaner
+    - Explore Data and implementing the article cleaner
 - `notebook/BERT.ipynb`
     - Testing Scibert
 - `notebook/cnn.ipynb`
